@@ -15,7 +15,7 @@ theme:
   language: 'nl'
   include_sidebar: false
 extra_css:
-  - docs/css/extra.css
+  - css/extra.css
 
 markdown_extensions:
   - pymdownx.arithmatex:

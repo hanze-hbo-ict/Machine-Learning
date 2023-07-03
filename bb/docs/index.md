@@ -1,17 +1,25 @@
-# Welcome to MkDocs
+# Welkom bij Machine Learning
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+## Deel 1
 
-## Commands
+* [Week 1](/bb/docs/week1/index.md)
+* [Week 2](/bb/docs/week2/index.md)
+* [Inlevermoment](/bb/docs/week2/inleveren.md)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## Deel 2
 
-## Project layout
+* [Week 3](/bb/docs/week3/index.md)
+* [Week 4](/bb/docs/week4/index.md)
+* [Inlevermoment](/bb/docs/week4/inleveren.md)
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Deel 3
+
+* [Week 5](/bb/docs/week5/index.md)
+* [Week 6](/bb/docs/week6/index.md)
+* [Inlevermoment](/bb/docs/week6/inleveren.md)
+
+## Deel 4
+
+* [Week 7](/bb/docs/week7/index.md)
+* [Week 8](/bb/docs/week8/index.md)
+* [Inlevermoment](/bb/docs/week8/inleveren.md)

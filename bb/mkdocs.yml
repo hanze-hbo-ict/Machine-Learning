@@ -1,1 +1,61 @@
-site_name: My Docs
+site_name: Machine Learning
+copyright: HG 2021-2024
+site_author: Bart Barnard en Erik Roos
+site_description: 'Stof en opgaven voor Machine Learning (jaar 4 SE)'
+site_url: 'https://hanze-hbo-ict.github.io/Machine-Learning/'
+use_directory_urls: false
+
+theme:
+  name: 'material'
+  palette:
+    primary: 'blue grey'
+    accent: 'orange'
+  icon:
+    logo: 'material/library'
+  language: 'nl'
+  include_sidebar: false
+extra_css:
+  - docs/css/extra.css
+
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - markdown.extensions.codehilite:
+      guess_lang: False
+      linenums: True
+  - markdown.extensions.toc:
+      permalink: true
+      toc_depth: 3
+  - markdown.extensions.def_list
+  - markdown.extensions.admonition
+  - markdown.extensions.footnotes
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - pymdownx.tabbed
+
+extra_javascript:
+  - js/imgs.js
+  - js/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+plugins:
+#  - with-pdf
+  - search
+  - mknotebooks:
+      execute: false
+

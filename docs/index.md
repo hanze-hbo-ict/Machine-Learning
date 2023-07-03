@@ -1,5 +1,7 @@
 # Welkom bij Machine Learning
 
+Hier vindt u de stof (per week) en de opgaven (per blok van twee weken).
+
 ## Deel 1
 
 * [Week 1](week1/index.md)

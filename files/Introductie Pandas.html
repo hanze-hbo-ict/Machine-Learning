@@ -81,7 +81,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#introductie-pandas" class="md-skip">
+        <a href="#pandas-series" class="md-skip">
           Ga naar inhoud
         </a>
       
@@ -257,9 +257,74 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Introductie Pandas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="Introductie%20Pandas.html" class="md-nav__link md-nav__link--active">
         Introductie Pandas
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#querying-a-series-object" class="md-nav__link">
+    Querying a Series object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-dataframe-type" class="md-nav__link">
+    The DataFrame type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-loading" class="md-nav__link">
+    Data loading
+  </a>
+  
+    <nav class="md-nav" aria-label="Data loading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alles-in-een-list-comprehension" class="md-nav__link">
+    Alles in een list-comprehension
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-a-dataframe" class="md-nav__link">
+    Querying a DataFrame
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -768,6 +833,55 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#querying-a-series-object" class="md-nav__link">
+    Querying a Series object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-dataframe-type" class="md-nav__link">
+    The DataFrame type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-loading" class="md-nav__link">
+    Data loading
+  </a>
+  
+    <nav class="md-nav" aria-label="Data loading">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#alles-in-een-list-comprehension" class="md-nav__link">
+    Alles in een list-comprehension
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#querying-a-dataframe" class="md-nav__link">
+    Querying a DataFrame
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -815,7 +929,1962 @@
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="introductie-pandas">Introductie Pandas<a class="headerlink" href="#introductie-pandas" title="Permanent link">&para;</a></h1>
+<h1 id="pandas-series">Pandas <code>Series</code><a class="headerlink" href="#pandas-series" title="Permanent link">&para;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="err">?</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tiger&#39;</span><span class="p">,</span><span class="s1">&#39;Bear&#39;</span><span class="p">,</span><span class="s1">&#39;Moose&#39;</span><span class="p">]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0    Tiger
+1     Bear
+2    Moose
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0    3
+1    1
+2    4
+dtype: int64</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">animals</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tiger&#39;</span><span class="p">,</span><span class="s1">&#39;Bear&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0    Tiger
+1     Bear
+2     None
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>RangeIndex(start=0, stop=3, step=1)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="o">==</span> <span class="kc">None</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>False</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;check&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>check
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">nan</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>False</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>True</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;Bear&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0       3
+1       1
+2       4
+3    Bear
+4    None
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="s1">&#39;hoi&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+Input <span class="ansi-green-fg">In [18]</span>, in <span class="ansi-cyan-fg">&lt;cell line: 1&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-fg">----&gt; 1</span> <span class="ansi-yellow-bg">np</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">isnan</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">hoi</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">)</span>
+
+<span class="ansi-red-fg">TypeError</span>: ufunc &#39;isnan&#39; not supported for the input types, and the inputs could not be safely coerced to any supported types according to the casting rule &#39;&#39;safe&#39;&#39;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">sports</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Achery&#39;</span><span class="p">:</span><span class="s1">&#39;Bhutan&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;Golf&#39;</span><span class="p">:</span><span class="s1">&#39;Scotland&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;Sumo&#39;</span><span class="p">:</span><span class="s1">&#39;Japan&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;Taekwondo&#39;</span><span class="p">:</span><span class="s1">&#39;South Korea&#39;</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">sports</span><span class="p">)</span>
+<span class="n">s</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Achery            Bhutan
+Golf            Scotland
+Sumo               Japan
+Taekwondo    South Korea
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">s</span><span class="o">.</span><span class="n">index</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Index([&#39;Achery&#39;, &#39;Golf&#39;, &#39;Sumo&#39;, &#39;Taekwondo&#39;], dtype=&#39;object&#39;)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Tiger&#39;</span><span class="p">,</span><span class="s1">&#39;Bear&#39;</span><span class="p">,</span><span class="s1">&#39;Moose&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;India&#39;</span><span class="p">,</span><span class="s1">&#39;India&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">index</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Index([&#39;India&#39;, &#39;India&#39;, 1], dtype=&#39;object&#39;)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">sports</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Achery&#39;</span><span class="p">:</span><span class="s1">&#39;Bhutan&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;Golf&#39;</span><span class="p">:</span><span class="s1">&#39;Scotland&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;Sumo&#39;</span><span class="p">:</span><span class="s1">&#39;Japan&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;Taekwondo&#39;</span><span class="p">:</span><span class="s1">&#39;South Korea&#39;</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">sports</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Golf&#39;</span><span class="p">,</span><span class="s1">&#39;Sumo&#39;</span><span class="p">,</span><span class="s1">&#39;Hockey&#39;</span><span class="p">])</span>
+<span class="n">s</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Golf      Scotland
+Sumo         Japan
+Hockey         NaN
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="querying-a-series-object">Querying a <code>Series</code> object<a class="headerlink" href="#querying-a-series-object" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">sports</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Achery&#39;</span><span class="p">:</span><span class="s1">&#39;Bhutan&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;Golf&#39;</span><span class="p">:</span><span class="s1">&#39;Scotland&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;Sumo&#39;</span><span class="p">:</span><span class="s1">&#39;Japan&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;Taekwondo&#39;</span><span class="p">:</span><span class="s1">&#39;South Korea&#39;</span><span class="p">}</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">sports</span><span class="p">)</span>
+<span class="n">s</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Achery            Bhutan
+Golf            Scotland
+Sumo               Japan
+Taekwondo    South Korea
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="p">]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Golf            Scotland
+Taekwondo    South Korea
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">s</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span> <span class="p">]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Achery      Bhutan
+Golf      Scotland
+Sumo         Japan
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">s</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="p">[</span><span class="s1">&#39;Achery&#39;</span><span class="p">,</span><span class="s1">&#39;Sumo&#39;</span><span class="p">]</span> <span class="p">]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Achery    Bhutan
+Sumo       Japan
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span> <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">s</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0    100
+1    120
+2    101
+3      3
+dtype: int64</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">timeit</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>940 ns ± 5.52 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">timeit</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">tot</span> <span class="o">+=</span> <span class="n">i</span>
+
+<span class="n">tot</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>997 ns ± 9.23 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">timeit</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">tot</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>16.4 µs ± 100 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">s</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0    964
+1    374
+2    543
+3    571
+4    908
+dtype: int64</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>10000</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">n</span> <span class="mi">100</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">tot</span> <span class="o">+=</span> <span class="n">x</span>
+
+    <span class="n">tot</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>700 µs ± 142 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="o">%%</span><span class="n">timeit</span> <span class="o">-</span><span class="n">n</span> <span class="mi">100</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">tot</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>The slowest run took 4.08 times longer than the fastest. This could mean that an intermediate result is being cached.
+60.7 µs ± 23.1 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">original_sports</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Archery&#39;</span><span class="p">:</span> <span class="s1">&#39;Bhutan&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Golf&#39;</span><span class="p">:</span> <span class="s1">&#39;Scotland&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Sumo&#39;</span><span class="p">:</span> <span class="s1">&#39;Japan&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Taekwondo&#39;</span><span class="p">:</span> <span class="s1">&#39;South Korea&#39;</span><span class="p">})</span>
+<span class="n">cricket_loving_countries</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Australia&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;Barbados&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;Pakistan&#39;</span><span class="p">,</span>
+                                      <span class="s1">&#39;England&#39;</span><span class="p">],</span> 
+                                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Cricket&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;Cricket&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;Cricket&#39;</span><span class="p">,</span>
+                                          <span class="s1">&#39;Cricket&#39;</span><span class="p">])</span>
+<span class="n">all_countries</span> <span class="o">=</span> <span class="n">original_sports</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cricket_loving_countries</span><span class="p">)</span>
+<span class="n">all_countries</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>
+<code>/var/folders/sh/djdw6j_j1zbfpbcf7k2z77rc0000gp/T/ipykernel_22805/2265387507.py:13: FutureWarning: The series.append method is deprecated and will be removed from pandas in a future version. Use pandas.concat instead.
+  all_countries = original_sports.append(cricket_loving_countries)
+</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Archery           Bhutan
+Golf            Scotland
+Sumo               Japan
+Taekwondo    South Korea
+Cricket        Australia
+Cricket         Barbados
+Cricket         Pakistan
+Cricket          England
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">all_countries</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Cricket&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Cricket    Australia
+Cricket     Barbados
+Cricket     Pakistan
+Cricket      England
+dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Archery&#39;</span><span class="p">:</span> <span class="s1">&#39;Bhutan&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Golf&#39;</span><span class="p">:</span> <span class="s1">&#39;Scotland&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Sumo&#39;</span><span class="p">:</span> <span class="s1">&#39;Japan&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;Taekwondo&#39;</span><span class="p">:</span> <span class="s1">&#39;South Korea&#39;</span><span class="p">}</span>
+<span class="n">d</span><span class="p">[</span><span class="s1">&#39;Archery&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Groningen&#39;</span>
+<span class="n">d</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>{&#39;Archery&#39;: &#39;Groningen&#39;,
+ &#39;Golf&#39;: &#39;Scotland&#39;,
+ &#39;Sumo&#39;: &#39;Japan&#39;,
+ &#39;Taekwondo&#39;: &#39;South Korea&#39;}</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="the-dataframe-type">The <code>DataFrame</code> type<a class="headerlink" href="#the-dataframe-type" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">purchase_1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Chris&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Item Purchased&#39;</span><span class="p">:</span> <span class="s1">&#39;Dog Food&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Cost&#39;</span><span class="p">:</span> <span class="mf">22.50</span><span class="p">})</span>
+<span class="n">purchase_2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Kevyn&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Item Purchased&#39;</span><span class="p">:</span> <span class="s1">&#39;Kitty Litter&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Cost&#39;</span><span class="p">:</span> <span class="mf">2.50</span><span class="p">})</span>
+<span class="n">purchase_3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Vinod&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Item Purchased&#39;</span><span class="p">:</span> <span class="s1">&#39;Bird Seed&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Cost&#39;</span><span class="p">:</span> <span class="mf">5.00</span><span class="p">})</span>
+<span class="n">purchase_4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="s1">&#39;Karel&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Item Purchased&#39;</span><span class="p">:</span> <span class="s1">&#39;Aston Martin&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;Cost&#39;</span><span class="p">:</span> <span class="mi">97</span><span class="p">})</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">purchase_1</span><span class="p">,</span> <span class="n">purchase_2</span><span class="p">,</span> <span class="n">purchase_3</span><span class="p">,</span> <span class="n">purchase_4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Store 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Store 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Store 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Store 4&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Item Purchased</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>Store 1</th>
+      <td>Chris</td>
+      <td>Dog Food</td>
+      <td>22.5</td>
+    </tr>
+    <tr>
+      <th>Store 2</th>
+      <td>Kevyn</td>
+      <td>Kitty Litter</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>Store 3</th>
+      <td>Vinod</td>
+      <td>Bird Seed</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>Store 4</th>
+      <td>Karel</td>
+      <td>Aston Martin</td>
+      <td>97.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span> <span class="p">[</span><span class="s1">&#39;Store 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Store 3&#39;</span><span class="p">]</span> <span class="p">]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Item Purchased</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>Store 1</th>
+      <td>Chris</td>
+      <td>Dog Food</td>
+      <td>22.5</td>
+    </tr>
+    <tr>
+      <th>Store 3</th>
+      <td>Vinod</td>
+      <td>Bird Seed</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Store 1&#39;</span><span class="p">][</span><span class="s1">&#39;Cost&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>22.5</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">T</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Store 1</th>
+      <th>Store 2</th>
+      <th>Store 3</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>Name</th>
+      <td>Chris</td>
+      <td>Kevyn</td>
+      <td>Vinod</td>
+    </tr>
+    <tr>
+      <th>Item Purchased</th>
+      <td>Dog Food</td>
+      <td>Kitty Litter</td>
+      <td>Bird Seed</td>
+    </tr>
+    <tr>
+      <th>Cost</th>
+      <td>22.5</td>
+      <td>2.5</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Store 1    Chris
+Store 2    Kevyn
+Store 3    Vinod
+Name: Name, dtype: object</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(4, 3)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">]]</span> <span class="p">)</span>
+<span class="n">arr</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[1, 2, 3],
+       [2, 4, 6],
+       [2, 3, 5],
+       [1, 3, 5]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(4, 3)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="p">:]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[1, 2, 3],
+       [2, 4, 6]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;Store 1&#39;</span><span class="p">,</span><span class="s1">&#39;Store 3&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Cost&#39;</span><span class="p">]]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>Store 1</th>
+      <td>Chris</td>
+      <td>22.5</td>
+    </tr>
+    <tr>
+      <th>Store 3</th>
+      <td>Vinod</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Store 4&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Item Purchased</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>Store 1</th>
+      <td>Chris</td>
+      <td>Dog Food</td>
+      <td>22.5</td>
+    </tr>
+    <tr>
+      <th>Store 2</th>
+      <td>Kevyn</td>
+      <td>Kitty Litter</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>Store 3</th>
+      <td>Vinod</td>
+      <td>Bird Seed</td>
+      <td>5.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df2</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Store 1&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df2</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Item Purchased</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>Store 2</th>
+      <td>Kevyn</td>
+      <td>Kitty Litter</td>
+      <td>2.5</td>
+    </tr>
+    <tr>
+      <th>Store 3</th>
+      <td>Vinod</td>
+      <td>Bird Seed</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>Store 4</th>
+      <td>Karel</td>
+      <td>Aston Martin</td>
+      <td>97.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df2</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df2</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Item Purchased</th>
+      <th>Cost</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>Store 3</th>
+      <td>Bird Seed</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>Store 4</th>
+      <td>Aston Martin</td>
+      <td>97.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="data-loading">Data loading<a class="headerlink" href="#data-loading" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/olympics.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>№ Summer</th>
+      <th>01 !</th>
+      <th>02 !</th>
+      <th>03 !</th>
+      <th>Total</th>
+      <th>№ Winter</th>
+      <th>01 !.1</th>
+      <th>02 !.1</th>
+      <th>03 !.1</th>
+      <th>Total.1</th>
+      <th>№ Games</th>
+      <th>01 !.2</th>
+      <th>02 !.2</th>
+      <th>03 !.2</th>
+      <th>Combined total</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan (AFG)</td>
+      <td>13</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Algeria (ALG)</td>
+      <td>12</td>
+      <td>5</td>
+      <td>2</td>
+      <td>8</td>
+      <td>15</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15</td>
+      <td>5</td>
+      <td>2</td>
+      <td>8</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Argentina (ARG)</td>
+      <td>23</td>
+      <td>18</td>
+      <td>24</td>
+      <td>28</td>
+      <td>70</td>
+      <td>18</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>41</td>
+      <td>18</td>
+      <td>24</td>
+      <td>28</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Armenia (ARM)</td>
+      <td>5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>9</td>
+      <td>12</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>1</td>
+      <td>2</td>
+      <td>9</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Australasia (ANZ) [ANZ]</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Index([&#39;Unnamed: 0&#39;, &#39;№ Summer&#39;, &#39;01 !&#39;, &#39;02 !&#39;, &#39;03 !&#39;, &#39;Total&#39;, &#39;№ Winter&#39;,
+       &#39;01 !.1&#39;, &#39;02 !.1&#39;, &#39;03 !.1&#39;, &#39;Total.1&#39;, &#39;№ Games&#39;, &#39;01 !.2&#39;, &#39;02 !.2&#39;,
+       &#39;03 !.2&#39;, &#39;Combined total&#39;],
+      dtype=&#39;object&#39;)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">col</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;01&#39;</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">col</span><span class="p">:</span><span class="s1">&#39;Gold&#39;</span> <span class="o">+</span> <span class="n">col</span><span class="p">[</span><span class="mi">4</span><span class="p">:]},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">col</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;02&#39;</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">col</span><span class="p">:</span><span class="s1">&#39;Silver&#39;</span> <span class="o">+</span> <span class="n">col</span><span class="p">[</span><span class="mi">4</span><span class="p">:]},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">col</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;03&#39;</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">col</span><span class="p">:</span><span class="s1">&#39;Bronze&#39;</span> <span class="o">+</span> <span class="n">col</span><span class="p">[</span><span class="mi">4</span><span class="p">:]},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">col</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;№&#39;</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">col</span><span class="p">:</span><span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="n">col</span><span class="p">[</span><span class="mi">1</span><span class="p">:]},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Index([&#39;Unnamed: 0&#39;, &#39;# Summer&#39;, &#39;Gold&#39;, &#39;Silver&#39;, &#39;Bronze&#39;, &#39;Total&#39;,
+       &#39;# Winter&#39;, &#39;Gold.1&#39;, &#39;Silver.1&#39;, &#39;Bronze.1&#39;, &#39;Total.1&#39;, &#39;# Games&#39;,
+       &#39;Gold.2&#39;, &#39;Silver.2&#39;, &#39;Bronze.2&#39;, &#39;Combined total&#39;],
+      dtype=&#39;object&#39;)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="alles-in-een-list-comprehension">Alles in een list-comprehension<a class="headerlink" href="#alles-in-een-list-comprehension" title="Permanent link">&para;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Gold&#39;</span><span class="p">,</span><span class="s1">&#39;Silver&#39;</span><span class="p">,</span><span class="s1">&#39;Bronze&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="n">l</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">x</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;01&#39;</span><span class="p">,</span><span class="s1">&#39;02&#39;</span><span class="p">,</span><span class="s1">&#39;03&#39;</span><span class="p">]]</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>[]</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="querying-a-dataframe">Querying a DataFrame<a class="headerlink" href="#querying-a-dataframe" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">df</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th># Summer</th>
+      <th>Gold</th>
+      <th>Silver</th>
+      <th>Bronze</th>
+      <th>Total</th>
+      <th># Winter</th>
+      <th>Gold.1</th>
+      <th>Silver.1</th>
+      <th>Bronze.1</th>
+      <th>Total.1</th>
+      <th># Games</th>
+      <th>Gold.2</th>
+      <th>Silver.2</th>
+      <th>Bronze.2</th>
+      <th>Combined total</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>0</th>
+      <td>Afghanistan (AFG)</td>
+      <td>13</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Algeria (ALG)</td>
+      <td>12</td>
+      <td>5</td>
+      <td>2</td>
+      <td>8</td>
+      <td>15</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15</td>
+      <td>5</td>
+      <td>2</td>
+      <td>8</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Argentina (ARG)</td>
+      <td>23</td>
+      <td>18</td>
+      <td>24</td>
+      <td>28</td>
+      <td>70</td>
+      <td>18</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>41</td>
+      <td>18</td>
+      <td>24</td>
+      <td>28</td>
+      <td>70</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Armenia (ARM)</td>
+      <td>5</td>
+      <td>1</td>
+      <td>2</td>
+      <td>9</td>
+      <td>12</td>
+      <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>11</td>
+      <td>1</td>
+      <td>2</td>
+      <td>9</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Australasia (ANZ) [ANZ]</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>Independent Olympic Participants (IOP) [IOP]</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>Zambia (ZAM) [ZAM]</td>
+      <td>12</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>Zimbabwe (ZIM) [ZIM]</td>
+      <td>12</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>8</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>13</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>Mixed team (ZZX) [ZZX]</td>
+      <td>3</td>
+      <td>8</td>
+      <td>5</td>
+      <td>4</td>
+      <td>17</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>8</td>
+      <td>5</td>
+      <td>4</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>Totals</td>
+      <td>27</td>
+      <td>4809</td>
+      <td>4775</td>
+      <td>5130</td>
+      <td>14714</td>
+      <td>22</td>
+      <td>959</td>
+      <td>958</td>
+      <td>948</td>
+      <td>2865</td>
+      <td>49</td>
+      <td>5768</td>
+      <td>5733</td>
+      <td>6078</td>
+      <td>17579</td>
+    </tr>
+  </tbody>
+</table>
+<p>147 rows × 16 columns</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">only_gold</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gold&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">only_gold</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">only_gold</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="scoped">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th># Summer</th>
+      <th>Gold</th>
+      <th>Silver</th>
+      <th>Bronze</th>
+      <th>Total</th>
+      <th># Winter</th>
+      <th>Gold.1</th>
+      <th>Silver.1</th>
+      <th>Bronze.1</th>
+      <th>Total.1</th>
+      <th># Games</th>
+      <th>Gold.2</th>
+      <th>Silver.2</th>
+      <th>Bronze.2</th>
+      <th>Combined total</th>
+    </tr>
+  </thead>
+<tbody>
+    <tr>
+      <th>1</th>
+      <td>Algeria (ALG)</td>
+      <td>12.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>15.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>15.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>8.0</td>
+      <td>15.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Argentina (ARG)</td>
+      <td>23.0</td>
+      <td>18.0</td>
+      <td>24.0</td>
+      <td>28.0</td>
+      <td>70.0</td>
+      <td>18.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>41.0</td>
+      <td>18.0</td>
+      <td>24.0</td>
+      <td>28.0</td>
+      <td>70.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Armenia (ARM)</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>9.0</td>
+      <td>12.0</td>
+      <td>6.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>11.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>9.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Australasia (ANZ) [ANZ]</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>12.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Australia (AUS) [AUS] [Z]</td>
+      <td>25.0</td>
+      <td>139.0</td>
+      <td>152.0</td>
+      <td>177.0</td>
+      <td>468.0</td>
+      <td>18.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>12.0</td>
+      <td>43.0</td>
+      <td>144.0</td>
+      <td>155.0</td>
+      <td>181.0</td>
+      <td>480.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gold&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gold.1&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">dropna</span><span class="p">()[</span><span class="s1">&#39;Unnamed: 0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>37</code>
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>

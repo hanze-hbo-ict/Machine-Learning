@@ -1,4 +1,4 @@
-# Week 5: model-evaluatie
+# Week 5: Model-evaluatie
 
 * confusion matrix
 * ROC / AUC

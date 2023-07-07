@@ -1,4 +1,4 @@
-# Week 8: Leuke dingen
+# Week 8: Geavanceerde onderwerpen
 
 * large language models
 * dimensionaliteitsreductie en PCA

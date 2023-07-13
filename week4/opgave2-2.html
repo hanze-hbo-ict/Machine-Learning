@@ -1,0 +1,1167 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Stof en opgaven voor Machine Learning (jaar 4 SE)">
+      
+      
+        <meta name="author" content="Bart Barnard en Erik Roos">
+      
+      
+        <link rel="canonical" href="https://hanze-hbo-ict.github.io/Machine-Learning/week4/opgave2-2.html">
+      
+      
+        <link rel="prev" href="inleveren.html">
+      
+      
+        <link rel="next" href="../week5/index.html">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.18">
+    
+    
+      
+        <title>Deel 2 - opgaveset 2 - Machine Learning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.26e3688c.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deel-2-opgaveset-2" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Machine Learning" class="md-header__button md-logo" aria-label="Machine Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deel 2 - opgaveset 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Machine Learning" class="md-nav__button md-logo" aria-label="Machine Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Machine Learning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Welkom bij Machine Learning
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Files
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../files/Opdracht%20model-evaluatie.html" class="md-nav__link">
+        Opdracht model evaluatie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../files/intro%20notebook%20en%20sklearn.html" class="md-nav__link">
+        Intro notebook en sklearn
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Week1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week1/index.html" class="md-nav__link">
+        Stof: Tools en technieken
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Week2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Week2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/index.html" class="md-nav__link">
+        Stof: Lineaire regressie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/inleveren.html" class="md-nav__link">
+        Inleveren deel 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/opgave1-2.html" class="md-nav__link">
+        Deel 1 - opgaveset 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Week3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Week3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week3/index.html" class="md-nav__link">
+        Stof: Logistische regressie en Neurale netwerken (1)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Week4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Week4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Stof: Neurale netwerken (2)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="inleveren.html" class="md-nav__link">
+        Inleveren deel 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Deel 2 - opgaveset 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="opgave2-2.html" class="md-nav__link md-nav__link--active">
+        Deel 2 - opgaveset 2
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inleiding" class="md-nav__link">
+    Inleiding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-het-visualiseren-van-de-data" class="md-nav__link">
+    1. het visualiseren van de data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-het-neurale-netwerk-forward-propagation" class="md-nav__link">
+    2. het neurale netwerk - forward propagation
+  </a>
+  
+    <nav class="md-nav" aria-label="2. het neurale netwerk - forward propagation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2a-de-sigmoid-functie" class="md-nav__link">
+    2a: de sigmoid functie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2b-omzetten-van-een-vector-naar-een-matrix" class="md-nav__link">
+    2b: omzetten van een vector naar een matrix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2c-voorspel-het-getal-en-bepaal-de-kost-van-deze-voorspelling" class="md-nav__link">
+    2c. voorspel het getal en bepaal de kost van deze voorspelling.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-het-neurale-netwerk-backpropagation" class="md-nav__link">
+    3. het neurale netwerk – backpropagation
+  </a>
+  
+    <nav class="md-nav" aria-label="3. het neurale netwerk – backpropagation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3a-de-sigmoidegradient" class="md-nav__link">
+    3a. de sigmoïdegradiënt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3b-backpropagation" class="md-nav__link">
+    3b. backpropagation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-trainen-van-het-neurale-netwerk" class="md-nav__link">
+    4. trainen van het neurale netwerk
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Week5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Week5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week5/index.html" class="md-nav__link">
+        Stof: Model-evaluatie
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Week6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Week6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/index.html" class="md-nav__link">
+        Stof: Andere modellen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/inleveren.html" class="md-nav__link">
+        Inleveren deel 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/opgave3-1.html" class="md-nav__link">
+        Deel 3 - opgaveset 1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Week7
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Week7
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week7/index.html" class="md-nav__link">
+        Stof: Hyperparameter tuning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          Week8
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Week8
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week8/index.html" class="md-nav__link">
+        Stof: geavanceerde onderwerpen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week8/inleveren.html" class="md-nav__link">
+        Inleveren deel 4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inleiding" class="md-nav__link">
+    Inleiding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-het-visualiseren-van-de-data" class="md-nav__link">
+    1. het visualiseren van de data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-het-neurale-netwerk-forward-propagation" class="md-nav__link">
+    2. het neurale netwerk - forward propagation
+  </a>
+  
+    <nav class="md-nav" aria-label="2. het neurale netwerk - forward propagation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#2a-de-sigmoid-functie" class="md-nav__link">
+    2a: de sigmoid functie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2b-omzetten-van-een-vector-naar-een-matrix" class="md-nav__link">
+    2b: omzetten van een vector naar een matrix
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2c-voorspel-het-getal-en-bepaal-de-kost-van-deze-voorspelling" class="md-nav__link">
+    2c. voorspel het getal en bepaal de kost van deze voorspelling.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-het-neurale-netwerk-backpropagation" class="md-nav__link">
+    3. het neurale netwerk – backpropagation
+  </a>
+  
+    <nav class="md-nav" aria-label="3. het neurale netwerk – backpropagation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3a-de-sigmoidegradient" class="md-nav__link">
+    3a. de sigmoïdegradiënt
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3b-backpropagation" class="md-nav__link">
+    3b. backpropagation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-trainen-van-het-neurale-netwerk" class="md-nav__link">
+    4. trainen van het neurale netwerk
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="deel-2-opgaveset-2">Deel 2 - opgaveset 2<a class="headerlink" href="#deel-2-opgaveset-2" title="Permanent link">&para;</a></h1>
+<h2 id="inleiding">Inleiding<a class="headerlink" href="#inleiding" title="Permanent link">&para;</a></h2>
+<p>Deze en de volgende week staan in het teken van standaard datasets. Deze week werken met de zogenaamde <a href="https://en.wikipedia.org/wiki/MNIST_database">MNIST dataset</a>: een set van zevenduizend <em>gray scale</em> afbeeldingen van cijfers en letters geschreven door middelbare scholieren. Werken met de MNIST dataset is te vergelijken met de <em>hello world</em> van <em>machine learning</em>: vroeg of laat krijg je ermee te maken. Deze week programmeren we zelf een neuraal netwerk aan de hand van reeds geleerde gewichten; in de laatste week zullen we een framework gebruiken in een poging een andere dataset te classificeren.</p>
+<p>De set die we in deze week gebruiken is een subset van de oorspronkelijke dataset. Het gaat om vijfduizend samples, waarbij elk sample een plaatje van 20 bij 20 pixels is dat een getal van 0 tot 9 representeert. Elke kolom van deze 20 &times; 20 matrix is onder de vorige geplakt, zodat er uiteindelijke een 400 &times;1 vector ontstaat. Deze vectoren zijn weer getransponeerd, zodat onze dataset <span class="arithmatex">\(X\)</span> uiteindelijk een 5000 &times; 400 matrix is.</p>
+<div class="arithmatex">\[
+X = \begin{bmatrix} &amp; — &amp; (x^{(1)})^T &amp; — &amp; \\ &amp; — &amp; (x^{(2)})^T &amp; — &amp; \\ &amp; &amp; \vdots &amp; &amp; \\ &amp; — &amp; (x^{(m)})^T &amp; — &amp; \\ \end{bmatrix}
+\]</div>
+<p>In deze matrix is $x^{(1)}$ de vector van het eerste plaatje, $x^{(2)}$ de vector van het tweede plaatje, enzovoort. 
+Behalve deze X-matrix is er in de data ook een 5000&times;1 vector y gegeven, waarin per plaatje is aangegeven welk cijfer dit representeert. Om problemen met de 0 te voorkomen, is in deze vector 0 weergegeven als 10.</p>
+
+<p>De startcode van deze week is <a href="../files/startcode_week2.zip">hier te downloaden</a>. Opnieuw wordt deze opgave doorlopen door het script <code>exercise2.py</code>. Dit script importeert de functies uit <code>uitwerkingen.py</code> en runt die op volgorde. Het is de opgave om deze uitwerkingen af te maken. Bestudeer beide scripts om een idee te krijgen van de werking.</p>
+<h2 id="1-het-visualiseren-van-de-data">1. het visualiseren van de data<a class="headerlink" href="#1-het-visualiseren-van-de-data" title="Permanent link">&para;</a></h2>
+<p>Zoals altijd gaan we eerst de data visualiseren. In dit geval betekent dat een vector uit <span class="arithmatex">\(x\)</span> weer transformeren in een 20&times;20 <em>gray scale</em> plaatje. Maak hiervoor de functie <code>plotNumber()</code> af. Omdat je weet dat de vector <span class="arithmatex">\(x^{(i)}\)</span> het i-de plaatje uit de dataset representeert, kun je deze vector eenvoudig weer terug omzetten in een 20&times;20 matrix en die tekenen. Maak daarbij gebruik van de methode <code>numpy.reshape</code> en van <code>matplotlib.matshow</code>. Het script roept de methode <code>plotNumber</code> aan met een willekeurige vector uit de matrix X. Het toont het nummer op de console, en het cijfer dat het plaatje zou moeten voorstellen. Op die manier kun je eenvoudig checken of je uitwerking correct is.</p>
+<p><img alt="Een willekeurig nummer" src="../imgs/number.png" /></p>
+<p>Als je deze opgave hebt afgerond, kun je het script aanroepen met <code>skip</code> als command line parameter: het tekenen wordt dan overgeslagen.</p>
+<h2 id="2-het-neurale-netwerk-forward-propagation">2. het neurale netwerk - forward propagation<a class="headerlink" href="#2-het-neurale-netwerk-forward-propagation" title="Permanent link">&para;</a></h2>
+<p>Het neurale netwerk dat we voor deze week gaan uitprogrammeren bestaat uit drie lagen. De input van het netwerk zijn de 20&times;20 plaatjes van de handgeschreven cijfers, dus de input-laag bestaat uit 400 nodes. De middelste verborgen laag heeft 25 nodes en de output-laag heeft tien nodes – één voor elk cijfer van nul tot en met negen. Gegeven een bepaalde input moet één van de tien output nodes de hoogste waarde hebben.</p>
+<p><img alt="Het netwerk dat we gaan uitprogrammeren" src="../imgs/netwerk.png" /></p>
+<h3 id="2a-de-sigmoid-functie">2a: de sigmoid functie<a class="headerlink" href="#2a-de-sigmoid-functie" title="Permanent link">&para;</a></h3>
+<p>Het bepalen van het cijfer dat door het plaatje wordt gerepresenteerd is feitelijk een classificatie probleem: de input vector <span class="arithmatex">\(x^{(i)}\)</span> moet immers geclassificeerd worden als één van de cijfers 0 tot en met 9. Zoals tijdens de theorieles is besproken, hebben we voor dergelijke problemen <a href="https://en.wikipedia.org/wiki/Sigmoid_function">de sigmoid functie</a> <span class="arithmatex">\(g(z)\)</span> nodig. De formule daarvan is als volgt:</p>
+<div class="arithmatex">\[
+g(z) = \frac{1}{1+e^{-z}}
+\]</div>
+<p>Implementeer de methode <code>sigmoid</code> in <code>uitwerkingen.py</code>. Maak hem zo, dat je er zowel een getal als een vector aan kunt meegeven. In het eerste geval moet de functie de sigmoid-waarde van het getal retourneren, in het tweede geval moet hij een vector retourneren met de sigmoid-waarde van elk individueel element in de input-vector. Je kunt gebruik maken van de numpy-functie <a href="https://numpy.org/doc/stable/reference/generated/numpy.exp.html"><code>exp()</code></a>.</p>
+<p>Als je klaar bent, kun je het script <code>exercise2.py</code> runnen. Deze roept de methode vijf keer aan: drie keer met individuele getallen -10, 0, en 10; vervolgens met deze drie getallen als een kolomvector en als een rijvector.</p>
+<h3 id="2b-omzetten-van-een-vector-naar-een-matrix">2b: omzetten van een vector naar een matrix<a class="headerlink" href="#2b-omzetten-van-een-vector-naar-een-matrix" title="Permanent link">&para;</a></h3>
+<p>We beginnen met het omzetten van de rijvector <span class="arithmatex">\(y\)</span> naar een matrix. Voor het berekenen van de kost van het netwerk moeten we namelijk deze vector omzetten in een 5000×10 matrix van enen en nullen, waarbij het i-de element 1 is en de rest 0. Als bijvoorbeeld het label in <span class="arithmatex">\(y\)</span> gelijk is aan 5, dan moeten we deze rij omzetten in een 10-dimensionale vector met een 1 op positie 5 en een 0 op de rest. Omdat de 0 in de y-vector gerepresenteerd wordt als 10, moet deze in de resulterende matrix een 1 krijgen op de eerste positie (met index 0).</p>
+<div class="arithmatex">\[
+y=\begin{bmatrix}1\\0\\0\\\vdots\\0\end{bmatrix}, \begin{bmatrix}0\\1\\0\\\vdots\\0\end{bmatrix}, \begin{bmatrix}0\\0\\1\\\vdots\\0\end{bmatrix}, ... , of \begin{bmatrix}0\\0\\0\\\vdots\\1\end{bmatrix}
+\]</div>
+<p>Maak de methode <code>get_y_matrix()</code> in <code>uitwerking.py</code> af. Hierbij kun je gebruik maken van de methode <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html">csr_matrix uit scipy</a> om op basis van y de matrix <code>y_vec</code> te maken. Let er daarbij wel op dat de y-vector 1-based is, terwijl de resulterende matrix 0-based moet zijn. Zie het onderstaande code-fragment voor een voorbeeld (je kunt ook gebruik maken van de methode <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.todense.html#scipy.sparse.csr_matrix.todense">todense()</a> om een zogenaamde ijle matrix te maken):</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span> <span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">rows</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">))]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">cols</span><span class="p">))]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">width</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1"># arrays zijn zero-based</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y_vec</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rows</span><span class="p">),</span> <span class="n">width</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y_vec</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> 
+</code></pre></div>
+<p>Als je klaar bent, kun je het script <code>exercise2.py</code> opnieuw runnen om de geretourneerde waarde te controleren.</p>
+<h3 id="2c-voorspel-het-getal-en-bepaal-de-kost-van-deze-voorspelling">2c. voorspel het getal en bepaal de kost van deze voorspelling.<a class="headerlink" href="#2c-voorspel-het-getal-en-bepaal-de-kost-van-deze-voorspelling" title="Permanent link">&para;</a></h3>
+<p>Implementeer nu de methode <code>predict_number</code>. Maak hierbij gebruik van het stappenplan dat is gegeven in de afbeelding van het netwerk hierboven, en van het commentaar in de opgave. Let er bij je implementatie op dat de matrix <code>X</code> de waarden voor de input-nodes als rij bevat (400 rijen), terwijl de matrices <span class="arithmatex">\(\Theta^{(1)}\)</span> en <span class="arithmatex">\(\Theta^{(2)}\)</span> de waarde voor elke node als <em>kolom</em> bevatten (zo is <span class="arithmatex">\(\Theta^{(1)}_{2,3}\)</span> het gewicht tussen de <em>derde</em> input-node en de <em>tweede</em> verborgen node). Voorzie de data van de juiste indices en transpositioneer de matrix waar dat nodig is. De output van deze methode is een 10 &amp;times 1 vector die voor elk getal de <em>waarschijnlijkheid</em> dat de input dat getal is weergeeft.</p>
+<p>Om de accuratesse van deze voorspelling te bepalen, moeten we deze voorspelling vergelijken met de betreffende regel uit de y_matrix die we in het eerste deel van deze opgave hebben gemaakt. Dat gebeurt in de methode <code>compute_cost()</code>. De formule voor de kost is als volgt:</p>
+<div class="arithmatex">\[
+J(\theta) = \frac{1}{m}\sum_{i=1}^{m}\sum_{k=1}^{K}\left[-y_k^{(i)}log((h_\theta(x^{(i)}))_k) - (1-y_k^{(i)})log(1-(h_\theta(x^{(i)}))_k\right]
+\]</div>
+<p>Als je deze drie methoden hebt geïmplementeerd, kun je het script <code>exercise2.py</code> opnieuw aanroepen. Hier wordt begonnen met min of meer willekeurige waarden van de Theta's. We zetten deze niet op 0 (waarom niet?), maar verdelen we uniform in de range <span class="arithmatex">\([-0.12, 0.12]\)</span> – zie hiervoor de methode <code>initialize_random_weights</code> in het script. Deze waarde is gebaseerd op het aantal nodes in het netwerk en wordt benaderd door </p>
+<div class="arithmatex">\[
+\epsilon_{init} = \frac{\sqrt{6}}{\sqrt{L_{in}+L{out}}}
+\]</div>
+<p>waarbij <span class="arithmatex">\(L_{in}\)</span> en <span class="arithmatex">\(L_{out}\)</span> staan voor het aantal nodes links en rechts van de betreffende laag. Het script voert met deze waarden van de matrices een <em>forward propagation</em> stap uit en toont de kost die correspondeert met de huidige waarden van de beide <code>Theta</code>'s. Als het goed is, ligt dit zo rond de 7 (de exact waarde is natuurlijk moeilijk te voorspellen). Vervolgens wordt de huidige accuratesse van het netwerk getoond (die is vanzelfsprekend extreem laag).</p>
+<h2 id="3-het-neurale-netwerk-backpropagation">3. het neurale netwerk – backpropagation<a class="headerlink" href="#3-het-neurale-netwerk-backpropagation" title="Permanent link">&para;</a></h2>
+<h3 id="3a-de-sigmoidegradient">3a. de sigmoïdegradiënt<a class="headerlink" href="#3a-de-sigmoidegradient" title="Permanent link">&para;</a></h3>
+<p>Om de relatieve bijdrage van een node te bepalen, hebben we de <em>afgeleide</em> van de sigmoïdefunctie nodig. Deze is hieronder gegeven.</p>
+<div class="arithmatex">\[
+g'(z) = \frac{d}{dz}g(z) = g(z)(1-g(z))
+\]</div>
+<p>Implementeer deze afgeleide in de methode <code>sigmoid_gradient</code>. Zorg er opnieuw (net als bij de sigmoïde zelf) voor dat deze methode zowel met scalaire waarden als met vectoren kan werken. Om zeker te weten of het goed is gegaan, roept het script <code>exercise.py</code> deze methode weer aan met drie verschillende waarden.</p>
+<h3 id="3b-backpropagation">3b. backpropagation<a class="headerlink" href="#3b-backpropagation" title="Permanent link">&para;</a></h3>
+<p>e gaan nu de backpropagation uitprogrammeren in de methode <code>nn_check_gradients</code>. De intuïtie hierbij is als volgt: voor een observatie <span class="arithmatex">\((x^{(i)}, y^{(i)})\)</span> doen we eerst een forward-propagation stap, waarbij we de voorspelling <span class="arithmatex">\(a_3 = h_\Theta(x^{(i)})\)</span> uitrekenen. Als we die hebben bepaald, willen we voor elke node in elke laag in het netwerk bepalen wat de bijdrage van deze node aan de totale fout is geweest. Deze fout geven we weer met <span class="arithmatex">\(\delta_j^{(l)}\)</span>, waarbij <span class="arithmatex">\(l\)</span> de <em>laag</em> en <span class="arithmatex">\(j\)</span> het <em>nummer</em> van de betreffende node is.</p>
+<p>Voor de output-laag is de fout redelijk rechttoe-rechtaan te bepalen: dit is per node het verschil tussen diens output en de gewenste output (zoals opgeslagen in de matrix <code>y_vec</code>). </p>
+<p>Voor de verborgen nodes is dit iets complexer: de fout in laag <span class="arithmatex">\(l\)</span> wordt berekend aan de hand van de gemiddelde fout in de laag <span class="arithmatex">\(l+1\)</span>. Zie het stappenplan hieronder; we adviseren je om de backpropagation uit te programmeren in een for-lus (<code>for i in range (m):</code>), omdat een vectoriële implementatie complex is en een naïeve implementatie waarschijnlijk leerzamer.</p>
+<p><strong>Stap 1</strong></p>
+<p>Gegeven een input <span class="arithmatex">\(a^{(i)}\)</span>, doe een standaard forward-propagation door gebruik te maken van de code uit <code>predict_number</code>; je moet de code hier wel herhalen, omdat je de verschillende waarden nodig hebt tijdens de backpropagation.</p></p>
+<p><strong>Stap 2</strong></p>
+<p>Zet voor elke output-node <code>k</code> in de derde laag </p></p>
+<div class="arithmatex">\[
+\delta_k^{(3)} = (a_k^{(3)} - y_k)
+\]</div>
+<p><strong>Stap 3</strong></p>
+<p>Voor elke node in de verborgen (tweede) laag bepaal je diens 'bijdrage' aan de totale fout door het inproduct van de fout en de matrix (<em>element wise</em>) te vermenigvuldigen met de <em>afgeleide</em> van de sigmoïdefunctie (die we in het eerste deel van deze opgave hebben gemaakt).</p>
+<div class="arithmatex">\[
+\delta^{(2)} = (\Theta^{(2)})^T\cdot\delta^{(3)} \times g'(z^{(2)})
+\]</div>
+<p><strong>Stap 4</strong></p>
+<p>Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices <span class="arithmatex">\(\Delta^{(1)}\)</span> en <span class="arithmatex">\(\Delta^{(2)}\)</span>, die dezelfde dimensionaliteit hebben als <span class="arithmatex">\(\Theta^{(1)}\)</span> en <span class="arithmatex">\(\Theta^{(2)}\)</span>.</p>
+<div class="arithmatex">\[
+\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}\cdot(a^{(l)})^T
+\]</div>
+<p><strong>Stap 5</strong></p>
+<p>Als we deze stappen voor alle <span class="arithmatex">\(m\)</span> observaties hebben gedaan, delen we de beide delta-matrices door het aantal observaties (<em>element wise</em>) om de gemiddelde fout per node voor de huidige waarden van de beide theta-matrices te verkrijgen. Retourneer deze beide waarden uit de methode <code>nn_check_gradients</code>.</p>
+<p>Wanneer je dit hebt gedaan, kun je het script verder laten runnen. Nu wordt van beide matrices de totale som afgedruk; die is nog behoorlijk hoog en het is de bedoeling dat we deze som, en de totale kosten, naar beneden brengen. Daar gaat de laatste opgave over.</p>
+<h2 id="4-trainen-van-het-neurale-netwerk">4. trainen van het neurale netwerk<a class="headerlink" href="#4-trainen-van-het-neurale-netwerk" title="Permanent link">&para;</a></h2>
+<p>Nu het netwerk goed is geïmplementeerd, kunnen we het gaan trainen. Het idee van die training is dat de waarden in de matrices langzaamaan naar een optimale waarde convergeren, waarmee de voorspelling voor een bepaalde input correspondeert met een goede output (een goede classificatie).</p>
+<p>Om dit gedaan te krijgen, maken we gebruik van de methode <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html"><code>minimize</code> uit <code>scipy.optimize</code></a>. Deze methode heeft een aantal parameters, waarvan één het maximaal aantal iteraties is. De methode stopt wanneer het maximaal aantal iteraties is behaald, of het minimale waarde van de kosten heeft gevonden (wat maar het eerst optreedt). Initieel staat deze parameter op 30. Let op: het trainen van het netwerk kan even duren (je krijgt wel het iteratienummer te zien).</p></p>
+<p>Je hoeft voor deze opgave niets uit te programmeren. Bestudeer de werking van <code>minimize</code> en experimenteer met verschillende waarden voor de parameter <code>maxiter</code> om een goed beeld te krijgen van de werking van het geheel. Bekijk ook goed hoe de waarden van de matrices worden doorgegeven aan deze methode.</p>
+<p>Als het geheel is afgerond, worden de nieuwe kost en de nieuwe accuratesse van het netwerk getoond. Ook wordt er een plot gemaakt van de waarden van de matrix in de verborgen laag – zie de figuur hieronder. Met een beetje moeite en goede wil kun je  zien dat deze matix een gevoeligheid heeft ontwikkeld voor horizontale en verticale lijnen en voor ronde vormen in de input.</p>
+<p><img alt="De getrainde hidden layer" src="../imgs/hidden_layer.png" /></p>
+<p>Met de getrainde waarde van het netwerk kunnen we nu voorspellingen doen over het getal dat door een afbeelding wordt gerepresenteerd. Maar de accuratesse is niet de enige metriek die voor de bepaling van hoe goed een netwerk is van belang is. Hierover gaan we het volgende week hebben, wanneer we de <em>confusion matrix</em> bespreken.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      HG 2021-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+        
+          <script src="../js/imgs.js"></script>
+        
+      
+        
+          <script src="../js/mathjax.js"></script>
+        
+      
+        
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        
+      
+        
+          <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        
+      
+    
+  </body>
+</html>

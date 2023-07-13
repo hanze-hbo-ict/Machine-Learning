@@ -1,4 +1,4 @@
-# Week 6: Andere modellen
+# Stof: Andere modellen
 
 * SVC
 * k-means en DBSCAN

@@ -1,4 +1,4 @@
-# Week 7: Hyperparameter tuning
+# Stof: Hyperparameter tuning
 
 * hyperparameter tuning
 * GridSearchCV

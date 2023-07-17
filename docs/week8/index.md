@@ -1,4 +1,4 @@
-# Week 8: Geavanceerde onderwerpen
+# Stof: geavanceerde onderwerpen
 
 * large language models
 * dimensionaliteitsreductie en PCA

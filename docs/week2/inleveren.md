@@ -1,4 +1,4 @@
 # Inleveren deel 1
 
-* ScikitLearn en California Housing (prep. en lin. regressie): https://hanze-hbo-ict.github.io/OpgavenML/files/intro%20notebook%20en%20sklearn.html
-* Oude set week 1: https://hanze-hbo-ict.github.io/OpgavenML/week1.html
+* Maak de [Notebook over ScikitLearn en de California Housing-dataset](../files/intro notebook en sklearn.ipynb)
+* Maak de [opgavenset over lineaire regressie](opgave1-2.md)

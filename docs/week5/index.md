@@ -1,4 +1,4 @@
-# Week 5: Model-evaluatie
+# Stof: Model-evaluatie
 
 * confusion matrix
 * ROC / AUC

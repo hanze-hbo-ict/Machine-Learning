@@ -1,4 +1,4 @@
-# Week 1: Tools en technieken
+# Stof: Tools en technieken
 
 * Jupyter Noteboook
 * hele cyclus doorlopen: data cleaning and preparation

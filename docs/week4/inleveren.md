@@ -1,4 +1,4 @@
 # Inleveren deel 2
 
-* Losse opgave log. regressie: nog maken
-* Oude set week 2: https://hanze-hbo-ict.github.io/OpgavenML/week2.html
+* Losse opgave logistische regressie: nog maken
+* Maak de [opgavenset over neurale netwerken](opgave2-2.md)

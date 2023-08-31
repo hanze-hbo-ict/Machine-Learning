@@ -1,0 +1,1025 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Stof en opgaven voor Machine Learning (jaar 4 SE)">
+      
+      
+        <meta name="author" content="Bart Barnard en Erik Roos">
+      
+      
+        <link rel="canonical" href="https://hanze-hbo-ict.github.io/Machine-Learning/week2/opgave1-2.html">
+      
+      
+        <link rel="prev" href="inleveren.html">
+      
+      
+        <link rel="next" href="../week3/index.html">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.5">
+    
+    
+      
+        <title>Deel 1 - opgaveset 2 - Machine Learning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.7a7fce14.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#deel-1-opgaveset-2" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Machine Learning" class="md-header__button md-logo" aria-label="Machine Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Deel 1 - opgaveset 2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Machine Learning" class="md-nav__button md-logo" aria-label="Machine Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Machine Learning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Welkom bij Machine Learning
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Files
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Files
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../files/Opdracht%20model-evaluatie.html" class="md-nav__link">
+        Opdracht model evaluatie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../files/intro%20notebook%20en%20sklearn.html" class="md-nav__link">
+        Intro notebook en sklearn
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Week1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Week1
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week1/index.html" class="md-nav__link">
+        Stof: Tools en technieken
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Week2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Week2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Stof: Lineaire regressie
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="inleveren.html" class="md-nav__link">
+        Inleveren deel 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Deel 1 - opgaveset 2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="opgave1-2.html" class="md-nav__link md-nav__link--active">
+        Deel 1 - opgaveset 2
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inleiding" class="md-nav__link">
+    Inleiding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-het-visualiseren-van-de-data" class="md-nav__link">
+    1. het visualiseren van de data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-het-bepalen-van-de-cost-function-de-kostenfunctie" class="md-nav__link">
+    2. Het bepalen van de cost function (de kostenfunctie)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3a-gradient-descent" class="md-nav__link">
+    3a. Gradient descent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3b-kosten-bijhouden" class="md-nav__link">
+    3b. kosten bijhouden
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-contour-plot" class="md-nav__link">
+    4. Contour plot
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Week3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Week3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week3/index.html" class="md-nav__link">
+        Stof: Logistische regressie en Neurale netwerken (1)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Week4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Week4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4/index.html" class="md-nav__link">
+        Stof: Neurale netwerken (2)
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4/inleveren.html" class="md-nav__link">
+        Inleveren deel 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4/opgave2-2.html" class="md-nav__link">
+        Deel 2 - opgaveset 2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Week5
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Week5
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week5/index.html" class="md-nav__link">
+        Stof: Model-evaluatie
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          Week6
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          Week6
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/index.html" class="md-nav__link">
+        Stof: Andere modellen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/inleveren.html" class="md-nav__link">
+        Inleveren deel 3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/opgave3-1.html" class="md-nav__link">
+        Deel 3 - opgaveset 1
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          Week7
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          Week7
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week7/index.html" class="md-nav__link">
+        Stof: Hyperparameter tuning
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+          Week8
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_10">
+          <span class="md-nav__icon md-icon"></span>
+          Week8
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week8/index.html" class="md-nav__link">
+        Stof: geavanceerde onderwerpen
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week8/inleveren.html" class="md-nav__link">
+        Inleveren deel 4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inleiding" class="md-nav__link">
+    Inleiding
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-het-visualiseren-van-de-data" class="md-nav__link">
+    1. het visualiseren van de data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-het-bepalen-van-de-cost-function-de-kostenfunctie" class="md-nav__link">
+    2. Het bepalen van de cost function (de kostenfunctie)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3a-gradient-descent" class="md-nav__link">
+    3a. Gradient descent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3b-kosten-bijhouden" class="md-nav__link">
+    3b. kosten bijhouden
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-contour-plot" class="md-nav__link">
+    4. Contour plot
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="deel-1-opgaveset-2">Deel 1 - opgaveset 2<a class="headerlink" href="#deel-1-opgaveset-2" title="Permanent link">&para;</a></h1>
+<h2 id="inleiding">Inleiding<a class="headerlink" href="#inleiding" title="Permanent link">&para;</a></h2>
+<p>Deze week werken we aan de lineaire regressie van data met één variabele. De data die we daarvoor gebruiken is de winst van een vervoerder gerelateerd aan de grootte van een stad waar die vervoerder werkzaam is. Je kunt je voorstellen dat het nuttig is om deze verhouding te weten, omdat je op basis hiervan geïnformeerd een besluit kunt nemen of je in een nieuwe stad (met een bepaalde grootte) een nieuw filiaal wilt openen.</p>
+<p>De startcode van deze opgave kun je <a href="../files/startcode_week1.zip">hier downloaden</a>. Het bestand <code>week1_data.pkl</code> bevat de data waar we mee gaan werken. Dit is een 97×2-numpy-vector: de eerste kolom bevat de grootte van de steden, de tweede kolom bevat de winst van de vervoerder.</p>
+<p>Daarnaast vind je twee python-bestanden in de zip. Het bestand <code>exercise1.py</code> gebruikt de code in <code>uitwerkingen.py</code> om door de opgaven te lopen. Het is de bedoeling dat je het bestand <code>uitwerkingen.py</code> afmaakt. Bestudeer de code en het commentaar in beide bestanden om te zien hoe ze werken en wat de bedoeling ervan is.</p>
+<h2 id="1-het-visualiseren-van-de-data">1. het visualiseren van de data<a class="headerlink" href="#1-het-visualiseren-van-de-data" title="Permanent link">&para;</a></h2>
+<p>Een eerste stap in elk machine-learning project is een beeld creëren van de data. Het eenvoudigst om dit te doen is door gebruik te maken van de library <a href="https://matplotlib.org/"><code>matplotlib</code></a>. Hierin vind je een API <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot"><code>pyplot</code></a> waarmee je vrij eenvoudig een scatter plot kunt maken.</p>
+<p>Bestudeer <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot">de documentatie van <code>pyplot</code></a> en implementeer aan de hand hiervan de functie <code>draw_graph</code> in <code>uitwerkingen.py</code>, zodat je een afbeelding zoals de onderstaande krijgt. Hoewel de data niet echt normaal verdeeld is, is er wel een zekere verhouding waar te nemen tussen de grootte van de stad en de winst die de vervoerder maakt. In de rest van deze opgave gaan we deze verhouding bepalen.</p>
+<p><img alt="Scatter plot van de data" src="../imgs/scatter.png" /></p>
+<h2 id="2-het-bepalen-van-de-cost-function-de-kostenfunctie">2. Het bepalen van de <em>cost function</em> (de kostenfunctie)<a class="headerlink" href="#2-het-bepalen-van-de-cost-function-de-kostenfunctie" title="Permanent link">&para;</a></h2>
+<p>Zoals in de theorieles besproken is, is het bepalen van de verhouding tussen twee (of meer) grootheden een kwestie van het minimaliseren van de kostenfunctie: <a href="https://en.wikipedia.org/wiki/Residual_sum_of_squares">de som van de gekwadrateerde fouten (SSE)</a>. Dit minimaliseren doe je door middel van gradient descent en het is dikwijls nuttig om die kostenfunctie gedurende de iteraties bij te houden, zodat je de verschillende uitkomsten door je data heen kunt plotten – zo kun je bijvoorbeeld controleren of je niet in een lokaal minimum terecht bent gekomen. In deze opgave programmeren we de kostenfunctie verder uit; de volgende opgave gaat verder in op de gradient descent.</p>
+<p>De kostenfunctie is gegeven door de volgende formule:</p>
+<div class="arithmatex">\[
+ J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} ( h_\theta(x^{(i)}) - y^{(i)} ) ^2
+\]</div>
+<p>Hierin is <span class="arithmatex">\(J(\theta)\)</span> de totale kost die berekend wordt met de huidige waarden van <span class="arithmatex">\(\theta\)</span>. Verder is <span class="arithmatex">\(h_{\theta}(x)\)</span> de hypothese van de waarde (de voorspelling) en is <span class="arithmatex">\(y\)</span> de actuele (daadwerkelijke) waarde. Door het verschil tussen deze twee waarden voor elk datapunt op te tellen en uiteindelijk uit te middelen, komen we op de voorspellende waarde die de formule heeft met de huidige waarden van <span class="arithmatex">\(\theta\)</span>.</p>
+<p>De algemene formule voor de hypothese (de voorspelling) is als volgt: </p>
+<div class="arithmatex">\[
+h_\theta(x) = \theta^T\vec{x} = \theta_0 + \theta_1x 
+\]</div>
+<p>Omdat we op zoek zijn naar een lijn, hebben we feitelijk te maken met één parameter (een lijn is immers <span class="arithmatex">\(y=ax + b = b + ax\)</span>). Allereerst bepalen we het aantal datapunten (<span class="arithmatex">\(m\)</span>) en het aantal eigenschappen (<em>features</em>, <span class="arithmatex">\(n\)</span>). Om de dimensionaliteit van de trainingsdata te laten corresponderen met <span class="arithmatex">\(\theta\)</span>, voegen we vervolgens een rij van enen toe. Daarna isoleren we de laatste kolom van de data om de gewenste waarden te krijgen (de vector <span class="arithmatex">\(y\)</span>); de rest van de data vormt dan de eigenlijke matrix <span class="arithmatex">\(X\)</span>. Tenslotte initiëren we de vector <span class="arithmatex">\(\theta\)</span>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">]]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div>
+<p>De voorspelde waarden in <span class="arithmatex">\(X\)</span>, de actuele waarden in <span class="arithmatex">\(y\)</span> en een <span class="arithmatex">\(theta\)</span> worden aan de methode <code>compute_cost</code> meegegeven; deze functie moet de waarde van <span class="arithmatex">\(J(\theta)\)</span> teruggeven. Implementeer deze functie op basis van de beschrijving hierboven in het bestand <code>uitwerkingen.py</code> (zie ook de aanwijzingen in het bestand zelf); maak hem zo, dat hij werkt voor elke grootte van <code>theta</code>. Maak gebruik van een vectoriële implementatie.</p>
+<p>Als je klaar bent, kun je het bestand <code>opgaven.py</code> runnen. Dit bestand roept `compute_cost aan en print de gevonden waarde uit. Als het goed is, krijg je uiteindelijk een waarde van rond de 32.07.</p>
+<h2 id="3a-gradient-descent">3a. Gradient descent<a class="headerlink" href="#3a-gradient-descent" title="Permanent link">&para;</a></h2>
+<p>Als laatste maak je de methode <code>gradient_descent</code> in het bestand <code>uitwerkingen.py</code> af. In deze methode wordt een aantal stappen uitgevoerd, waarbij in elke stap de vector <span class="arithmatex">\(\theta\)</span> volgens de onderstaande formule wordt aangepast.</p>
+<div class="arithmatex">\[
+\theta_j := \theta_j - \alpha \frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j
+\]</div>
+<p>Als het goed is, zorgt elke stap in deze methode ervoor dat <span class="arithmatex">\(J(\theta)\)</span> lager wordt. Let er wel op dat je alle <span class="arithmatex">\(\theta_j\)</span> tegelijkertijd aanpast (in dit geval is de grootte van <span class="arithmatex">\(\theta\)</span> 2, dus elke iteratie moeten er twee parameters worden aangepast). Let er verder op dat je <em>alleen</em>  <span class="arithmatex">\(\theta\)</span> aanpast: X en y zijn constante waarden die niet hoeven (of kunnen) te worden aangepast.</p>
+<p>De algemene structuur in het bestand is al gegeven. Als je implementatie klaar is, kun je opnieuw het bestand <code>opgaven.py</code> aanroepen; deze roept de functie <code>gradient_descent</code> aan, zodat de update 1500 keer wordt gedaan. Als het goed is, is <span class="arithmatex">\(\theta\)</span> uiteindelijk rond de (-3.63, 1.16).</p>
+<h2 id="3b-kosten-bijhouden">3b. kosten bijhouden<a class="headerlink" href="#3b-kosten-bijhouden" title="Permanent link">&para;</a></h2>
+<p>Omdat we, zoals gezegd, graag willen weten of de totale kost tijdens de <em>gradient descent</em> wel steeds minder wordt, is het van belang deze kosten tijdens deze <em>descent</em> bij te houden. Breid de functie <code>gradient_descent</code> aan zodat bij elke iteratie de functie <code>compute_cost</code> wordt aangeroepen met de huidige waarden van <code>theta</code>. Deze kosten stop je in de lijst <code>costs</code> (die al in de basiscode is geïnitialiseerd) en die retourneer je uiteindelijk eveneens (<code>gradient_descent</code> retourneert dus <em>twee</em> waarden).</p>
+<p>Maak vervolgens de functie <code>draw_costs</code> in <code>uitwerkingen.py</code>. Deze functie moet de lijst meekrijgen die je hierboven in <code>gradient_descent</code> hebt gevuld. Maak gebruik van <code>pyplot</code> om deze lijst in een grafiekje te zetten. Als je dan het bestand <code>exercise.py</code> runt, krijg je als het goed is iets als het onderstaande plaatje:</p>
+<p><img alt="De neergaande costen tijdens gradient descent" src="../imgs/cost_descent.png" /></p>
+<h2 id="4-contour-plot">4. Contour plot<a class="headerlink" href="#4-contour-plot" title="Permanent link">&para;</a></h2>
+<p>In deze laatste opgave gebruik je de methode <code>compute_cost</code> die je hierboven hebt gemaakt om een <em>contour-plot</em> van de kosten te tekenen. Hierdoor kun je inzicht krijgen in hoe deze waarde zich ontwikkelt bij verschillende waarden van <span class="arithmatex">\(\theta\)</span>. </p>
+<p>Het grootste deel van deze opgave is al in de methode <code>contour_plot()</code> in het bestand <code>uitwerkingen.py</code> gegeven; je hoeft alleen maar de waarden van de matrix <code>J_val</code> te vullen. Bestudeer het commentaar in het bestand voor meer toelichting. Als je klaar bent, roept het bestand <code>exercise1.py</code> de methode <code>contour_plot()</code> aan om de plot te tekenen. Als het goed is, ziet deze er ongeveer als hieronder uit.</p></p>
+<p><img alt="Contour plot van de kosten" src="../imgs/contour.png" /></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      HG 2021-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.407015b8.min.js"></script>
+      
+        <script src="../js/imgs.js"></script>
+      
+        <script src="../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

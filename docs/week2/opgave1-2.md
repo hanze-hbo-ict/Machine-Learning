@@ -13,7 +13,7 @@ Een eerste stap in elk machine-learning project is een beeld creëren van de dat
 
 Bestudeer [de documentatie van `pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot) en implementeer aan de hand hiervan de functie `draw_graph` in `uitwerkingen.py`, zodat je een afbeelding zoals de onderstaande krijgt. Hoewel de data niet echt normaal verdeeld is, is er wel een zekere verhouding waar te nemen tussen de grootte van de stad en de winst die de vervoerder maakt. In de rest van deze opgave gaan we deze verhouding bepalen.
 
-![Scatter plot van de data](imgs/scatter.png)
+![Scatter plot van de data](../imgs/scatter.png)
 
 ## 2. Het bepalen van de *cost function* (de kostenfunctie)
 
@@ -63,7 +63,7 @@ Omdat we, zoals gezegd, graag willen weten of de totale kost tijdens de *gradien
 
 Maak vervolgens de functie `draw_costs` in `uitwerkingen.py`. Deze functie moet de lijst meekrijgen die je hierboven in `gradient_descent` hebt gevuld. Maak gebruik van `pyplot` om deze lijst in een grafiekje te zetten. Als je dan het bestand `exercise.py` runt, krijg je als het goed is iets als het onderstaande plaatje:
 
-![De neergaande costen tijdens gradient descent](imgs/cost_descent.png)
+![De neergaande costen tijdens gradient descent](../imgs/cost_descent.png)
 
 ## 4. Contour plot
 
@@ -71,4 +71,4 @@ In deze laatste opgave gebruik je de methode `compute_cost` die je hierboven heb
 
 Het grootste deel van deze opgave is al in de methode `contour_plot()` in het bestand `uitwerkingen.py` gegeven; je hoeft alleen maar de waarden van de matrix `J_val` te vullen. Bestudeer het commentaar in het bestand voor meer toelichting. Als je klaar bent, roept het bestand `exercise1.py` de methode `contour_plot()` aan om de plot te tekenen. Als het goed is, ziet deze er ongeveer als hieronder uit.</p>
 
-![Contour plot van de kosten](imgs/contour.png)
+![Contour plot van de kosten](../imgs/contour.png)

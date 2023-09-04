@@ -1,4 +1,4 @@
-# Stof: Logistische regressie en Neurale netwerken (1)
+# Stof: Logistische regressie
 
-* logistische regressie
-* neurale netwerken 1
+* Classicatie-problemen
+* Logistische regressie

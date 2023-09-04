@@ -1,4 +1,4 @@
 # Stof: Model-evaluatie
 
-* confusion matrix
+* De confusion matrix en de bijbehorende metrieken
 * ROC / AUC

@@ -1,4 +1,4 @@
 # Stof: Lineaire regressie
 
-* kostenfunctie en gradient descent
-* lineaire regressie
+* Lineaire regressie
+* De kostenfunctie en stapsgewijze minimalisatie daarvan middels _gradient descent_

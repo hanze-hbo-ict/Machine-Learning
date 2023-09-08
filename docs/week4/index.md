@@ -1,3 +1,4 @@
-# Stof: Neurale netwerken (2)
+# Stof: Neurale netwerken
 
-* neurale netwerken 2
+* Neurale netwerken
+* Tensorflow en Keras

@@ -20,3 +20,7 @@ document.querySelectorAll("img").forEach( (el,idx) => {
 
 
 modal.addEventListener('click', () => modal.style.display = "none" ) 
+
+document.querySelectorAll('a').forEach ( (el,idx) => {
+  console.log(el.target)
+})

@@ -1053,7 +1053,8 @@
 <div class="input">
 
 <div class="highlight"><pre><span></span><code><span class="c1"># https://stackoverflow.com/a/49174340</span>
-<span class="c1"># Haal de onderstaande regel uit het commentaar als je SSL-errors krijgt:</span>
+<span class="c1"># Haal de onderstaande regels uit het commentaar als je SSL-errors krijgt:</span>
+<span class="c1"># import ssl</span>
 <span class="c1"># ssl._create_default_https_context = ssl._create_unverified_context</span>
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">fetch_california_housing</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1103,16 +1104,15 @@ Als je het goed hebt gedaan, kun je in de resulterende plot de kustlijn van Cali
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Zoals je in de documentatie hebt gelezen, is de target-value de gemiddelde waarde van de huizen in die omgeving, uitgedrukt in honderdduizend dollar. Natuurlijk moeten we wat statistieken uit deze target-vector halen. Vul onderstaande cel aan, zodat de juiste waarden worden afgedrukt. Maar vervolgens gebruik van <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html">pyplot.hist</a> om een histogram van deze data te plotten. Beargumenteer op basis van de statistische gegevens in hoeveel <code>bins</code> je deze histogram moet onderverdelen.</p>
+<p>Zoals je in de documentatie hebt gelezen, is de target-value de gemiddelde waarde van de huizen in die omgeving, uitgedrukt in honderdduizend dollar. Natuurlijk moeten we wat statistieken uit deze target-vector halen. Vul onderstaande cel aan, zodat de juiste waarden worden afgedrukt. Vervolgens ga je gebruikmaken van <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html">pyplot.hist</a> om een histogram van deze data te plotten. Beargumenteer op basis van de statistische gegevens in hoeveel <code>bins</code> je dit histogram zou willen onderverdelen.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">statistics</span> <span class="k">as</span> <span class="nn">st</span>
-<span class="c1"># YOUR CODE HERE</span>
-<span class="c1"># vervang &#39;0&#39; door de juiste code</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># YOUR CODE HERE</span>
+<span class="c1"># Vervang &#39;0&#39; door de juiste code. Tip: numpy (np) biedt hiervoor de juiste mogelijkheden</span>
 <span class="n">min_value</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">max_value</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">stdev</span> <span class="o">=</span> <span class="mi">0</span>

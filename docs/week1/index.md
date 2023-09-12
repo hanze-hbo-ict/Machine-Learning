@@ -9,7 +9,7 @@
 
 ## College-sheets
 
-[Hier](../../Keynote/1.methoden-technieken.pdf) vindt u de sheets van het eerste hoorcollege.
+[Hier](../files/1.methoden-technieken.pdf) vindt u de sheets van het eerste hoorcollege.
 
 ## Lezen
 

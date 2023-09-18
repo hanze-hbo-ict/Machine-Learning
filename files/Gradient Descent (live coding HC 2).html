@@ -1,0 +1,8062 @@
+
+<!doctype html>
+<html lang="nl" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Stof en opgaven voor Machine Learning (jaar 4 SE)">
+      
+      
+        <meta name="author" content="Bart Barnard en Erik Roos">
+      
+      
+        <link rel="canonical" href="https://hanze-hbo-ict.github.io/Machine-Learning/files/Gradient%20Descent%20%28live%20coding%20HC%202%29.html">
+      
+      
+        <link rel="prev" href="../index.html">
+      
+      
+        <link rel="next" href="Opdracht%20model-evaluatie.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.3.1">
+    
+    
+      
+        <title>Gradient Descent (live coding HC 2) - Machine Learning</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.046329b4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.85d0ee34.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+      <link rel="stylesheet" href="../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../css/jupyter-cells.css">
+    
+      <link rel="stylesheet" href="../css/pandas-dataframe.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#eerst-wat-matrix-en-vector-bewerkingen-zoals-vermenigvuldiging" class="md-skip">
+          Ga naar inhoud
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="Machine Learning" class="md-header__button md-logo" aria-label="Machine Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Machine Learning
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Gradient Descent (live coding HC 2)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Zoeken" placeholder="Zoeken" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Zoeken">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Leegmaken" aria-label="Leegmaken" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigatie" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Machine Learning" class="md-nav__button md-logo" aria-label="Machine Learning" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Machine Learning
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welkom bij Machine Learning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Files
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Files
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="Gradient%20Descent%20%28live%20coding%20HC%202%29.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Gradient Descent (live coding HC 2)
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Opdracht%20model-evaluatie.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Opdracht model evaluatie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Titanic%20%28live%20coding%20HC%20week%201%29.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Titanic (live coding HC week 1)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="intro%20notebook%20en%20sklearn.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro notebook en sklearn
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week1
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Week1
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week1/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stof: Tools en technieken
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week2
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Week2
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stof: Lineaire regressie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/inleveren.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inleveren deel 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week2/opgave1-2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deel 1 - opgaveset 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week3
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Week3
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week3/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stof: Logistische regressie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week4
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Week4
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stof: Neurale netwerken
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4/inleveren.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inleveren deel 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week4/opgave2-2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deel 2 - opgaveset 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week5
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Week5
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week5/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stof: Model-evaluatie
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week6
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Week6
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stof: Andere modellen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/inleveren.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inleveren deel 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week6/opgave3-1.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deel 3 - opgaveset 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week7
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Week7
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week7/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stof: Hyperparameter tuning
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Week8
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Week8
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week8/index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Stof: geavanceerde onderwerpen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week8/inleveren.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inleveren deel 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhoudsopgave">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var requireJsScript = document.createElement('script');
+    requireJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js';
+
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var jupyterWidgetsScript = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    jupyterWidgetsScript.src = widgetRendererSrc;
+
+    document.body.appendChild(requireJsScript);
+    document.body.appendChild(jupyterWidgetsScript);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="eerst-wat-matrix-en-vector-bewerkingen-zoals-vermenigvuldiging">Eerst wat matrix- en vector-bewerkingen, zoals vermenigvuldiging<a class="headerlink" href="#eerst-wat-matrix-en-vector-bewerkingen-zoals-vermenigvuldiging" title="Permanent link">&para;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span> <span class="c1"># matrix</span>
+<span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(2, 3)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span> <span class="c1"># vector</span>
+<span class="n">b</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(3,)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span> <span class="c1"># forceer 2 dimensies, optie 1</span>
+<span class="n">b</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(1, 3)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># forceer 2 dimensies, optie 2</span>
+<span class="n">b</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(1, 3)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">T</span>
+<span class="n">b</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(3, 1)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">*</span> <span class="mi">2</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[2, 6, 4],
+       [8, 0, 2]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[ 1,  9,  4],
+       [16,  0,  1]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Element-wise vermenigvuldigen</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span> <span class="c1"># zelfde dimensies als a</span>
+<span class="n">a</span> <span class="o">*</span> <span class="n">c</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[1, 6, 6],
+       [4, 0, 3]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Dimensies moeten wel overeenkomen</span>
+<span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
+Cell <span class="ansi-green-intense-fg ansi-bold">In[10], line 2</span>
+<span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># Dimensies moeten wel overeenkomen</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span> <span class="ansi-yellow-bg">a</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">*</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">b</span>
+
+<span class="ansi-red-intense-fg ansi-bold">ValueError</span>: operands could not be broadcast together with shapes (2,3) (3,1) </pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Matrix-vermenigvuldiging, optie 1</span>
+<span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[11],
+       [ 9]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Matrix-vermenigvuldiging, optie 2</span>
+<span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[11],
+       [ 9]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="c1"># Matrix-vermenigvuldiging, optie 3, shorthand voor matmul</span>
+<span class="n">a</span> <span class="o">@</span> <span class="n">b</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[11],
+       [ 9]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="lineaire-regressie-mbv-gradient-descent">Lineaire regressie m.b.v. Gradient Descent<a class="headerlink" href="#lineaire-regressie-mbv-gradient-descent" title="Permanent link">&para;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="c1"># We maken één feature en een value, op basis van een lineaire functie en wat ruis</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">X</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="c1"># dus a (theta0) = 3 en b (theta1) = 2</span>
+</code></pre></div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;matplotlib.collections.PathCollection at 0x1cc427f23e0&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea">
+<img alt="No description has been provided for this image" src="data:image/png;base64,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3XffjSuuuCKGh4fzHlppPfvss/HXf/3Xcc455+Q9lNL54Q9/GMuXL4/3vOc98a1vfSu+973vxZ//+Z/HiSeemPfQSuWuu+6K++67L/7yL/8y/vu//zvuuuuuuPvuu+Pee+/Ne2gtb3h4OM4999zYuHHjpI/ffffdcc8998T9998fzzzzTMybNy9WrlwZb7/9dvqDq7WBCy64oDYwMDB2+9ChQ7Xe3t7a4OBgjqMqvzfeeKMWEbUtW7bkPZRSOnjwYO2MM86oPf7447Vf/uVfrt188815D6lUPvvZz9YuvvjivIdReh/72MdqN9xww7j7rr766tp1112X04jKKSJqDz/88Njt0dHRWk9PT+1P//RPx+47cOBArbOzs/aP//iPqY+n9JWPd955J55//vlYsWLF2H0zZsyIFStWxPbt23McWfkNDQ1FRMT8+fNzHkk5DQwMxMc+9rFxv9sk51//9V/jvPPOi9/4jd+IhQsXxoc//OH4m7/5m7yHVToXXXRRbN68Ob7//e9HRMR//ud/xrZt22LVqlU5j6zc9uzZE/v27Rv3+VGpVGLZsmWZzI2Fu6pt0t588804dOhQLFq0aNz9ixYtihdffDGnUZXf6OhorFu3LpYvXx5Lly7Nezil8/Wvfz2++93vxrPPPpv3UErrf/7nf+K+++6L9evXx2233RbPPvts/P7v/37Mnj071qxZk/fwSuNzn/tcVKvVOPPMM2PmzJlx6NCh+NKXvhTXXXdd3kMrtX379kVETDo3Hn4sTaUPH+RjYGAgdu7cGdu2bct7KKWzd+/euPnmm+Pxxx+POXPm5D2c0hodHY3zzjsvvvzlL0dExIc//OHYuXNn3H///cJHgv75n/85vva1r8WmTZvirLPOih07dsS6deuit7fX+1xipV92Oemkk2LmzJmxf//+cffv378/enp6chpVua1duzYee+yxePLJJ+OUU07Jezil8/zzz8cbb7wRv/ALvxCzZs2KWbNmxZYtW+Kee+6JWbNmxaFDh/IeYiksXrw4fu7nfm7cfR/60IfilVdeyWlE5fQHf/AH8bnPfS6uvfbaOPvss+NTn/pU3HLLLTE4OJj30Ert8PyX19xY+vAxe/bs+MhHPhKbN28eu290dDQ2b94cF154YY4jK59arRZr166Nhx9+OJ544ono7+/Pe0ildPnll8d//dd/xY4dO8a+zjvvvLjuuutix44dMXPmzLyHWArLly8/aqv497///Tj11FNzGlE5/ehHP4oZM8ZPRTNnzozR0dGcRtQe+vv7o6enZ9zcWK1W45lnnslkbmyLZZf169fHmjVr4rzzzosLLrggvvrVr8bw8HD89m//dt5DK5WBgYHYtGlTPProo9HV1TW2blipVGLu3Lk5j648urq6juqjmTdvXixYsEB/TYJuueWWuOiii+LLX/5y/OZv/mZ85zvfiQceeCAeeOCBvIdWKqtXr44vfelLsWTJkjjrrLPiP/7jP+IrX/lK3HDDDXkPreW99dZbsXv37rHbe/bsiR07dsT8+fNjyZIlsW7durjzzjvjjDPOiP7+/tiwYUP09vbGVVddlf7gUt9PUxD33ntvbcmSJbXZs2fXLrjggtrTTz+d95BKJyIm/XrwwQfzHlrp2Wqbjm9+85u1pUuX1jo7O2tnnnlm7YEHHsh7SKVTrVZrN998c23JkiW1OXPm1E477bTaH/7hH9ZGRkbyHlrLe/LJJyf9TF6zZk2tVvvJdtsNGzbUFi1aVOvs7KxdfvnltV27dmUyto5azTFyAEB2St/zAQAUi/ABAGRK+AAAMiV8AACZEj4AgEwJHwBApoQPACBTwgcAkCnhAwDIlPABAGRK+AAAMvX/AL0DvU5fEaSXAAAAAElFTkSuQmCC"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">theta</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(1, 2)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">X</span><span class="p">]</span>
+<span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(100, 2)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">T</span>
+<span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(100, 1)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">y</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[ 4.84635477],
+       [ 3.05178616],
+       [ 4.05326634],
+       [ 4.1805738 ],
+       [ 4.75368363],
+       [ 5.02314419],
+       [ 4.07823121],
+       [ 5.06962877],
+       [ 3.62908936],
+       [ 4.04955293],
+       [ 4.57799436],
+       [ 6.43688287],
+       [ 4.89846198],
+       [ 5.21577136],
+       [ 7.69642511],
+       [ 4.99692235],
+       [ 6.86319367],
+       [ 5.7600772 ],
+       [ 7.48465976],
+       [ 7.6171871 ],
+       [ 7.48977741],
+       [ 6.91294993],
+       [ 7.24840244],
+       [ 8.89572773],
+       [ 7.3568154 ],
+       [ 8.05107904],
+       [ 7.65110506],
+       [ 6.1873075 ],
+       [ 7.65717956],
+       [ 9.37446592],
+       [ 9.47736188],
+       [10.65926248],
+       [ 9.10233855],
+       [11.44968459],
+       [ 8.72822608],
+       [ 9.75242205],
+       [10.46496178],
+       [12.08086169],
+       [10.99218307],
+       [11.93609856],
+       [10.15639049],
+       [10.24689598],
+       [13.51059076],
+       [11.83683195],
+       [11.54799914],
+       [14.25554273],
+       [12.20922292],
+       [12.56194861],
+       [14.13842132],
+       [11.00046721],
+       [13.19098435],
+       [13.86991261],
+       [11.08016056],
+       [14.6162568 ],
+       [15.33999137],
+       [13.97465667],
+       [14.4894119 ],
+       [15.12140332],
+       [14.61868836],
+       [12.32143543],
+       [15.23385635],
+       [14.04036026],
+       [16.34656072],
+       [17.52726727],
+       [14.94081718],
+       [15.92964116],
+       [15.52258409],
+       [17.81222805],
+       [15.67465005],
+       [17.37789875],
+       [17.46213391],
+       [17.09212625],
+       [16.72395019],
+       [16.04010848],
+       [17.26497422],
+       [18.67039952],
+       [19.67089763],
+       [20.00511723],
+       [18.74259251],
+       [19.13186196],
+       [20.45454192],
+       [21.18099975],
+       [20.4822639 ],
+       [19.25583142],
+       [20.38631765],
+       [20.93449535],
+       [21.95348388],
+       [22.56814805],
+       [19.86464686],
+       [19.9839221 ],
+       [21.23007047],
+       [21.88549595],
+       [22.7927207 ],
+       [21.91796747],
+       [22.83878602],
+       [21.43245106],
+       [23.41721318],
+       [24.14377843],
+       [24.01835608],
+       [22.07266603]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">theta</span><span class="o">.</span><span class="n">T</span>
+<span class="n">h</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[ 1.        ],
+       [ 1.1010101 ],
+       [ 1.2020202 ],
+       [ 1.3030303 ],
+       [ 1.4040404 ],
+       [ 1.50505051],
+       [ 1.60606061],
+       [ 1.70707071],
+       [ 1.80808081],
+       [ 1.90909091],
+       [ 2.01010101],
+       [ 2.11111111],
+       [ 2.21212121],
+       [ 2.31313131],
+       [ 2.41414141],
+       [ 2.51515152],
+       [ 2.61616162],
+       [ 2.71717172],
+       [ 2.81818182],
+       [ 2.91919192],
+       [ 3.02020202],
+       [ 3.12121212],
+       [ 3.22222222],
+       [ 3.32323232],
+       [ 3.42424242],
+       [ 3.52525253],
+       [ 3.62626263],
+       [ 3.72727273],
+       [ 3.82828283],
+       [ 3.92929293],
+       [ 4.03030303],
+       [ 4.13131313],
+       [ 4.23232323],
+       [ 4.33333333],
+       [ 4.43434343],
+       [ 4.53535354],
+       [ 4.63636364],
+       [ 4.73737374],
+       [ 4.83838384],
+       [ 4.93939394],
+       [ 5.04040404],
+       [ 5.14141414],
+       [ 5.24242424],
+       [ 5.34343434],
+       [ 5.44444444],
+       [ 5.54545455],
+       [ 5.64646465],
+       [ 5.74747475],
+       [ 5.84848485],
+       [ 5.94949495],
+       [ 6.05050505],
+       [ 6.15151515],
+       [ 6.25252525],
+       [ 6.35353535],
+       [ 6.45454545],
+       [ 6.55555556],
+       [ 6.65656566],
+       [ 6.75757576],
+       [ 6.85858586],
+       [ 6.95959596],
+       [ 7.06060606],
+       [ 7.16161616],
+       [ 7.26262626],
+       [ 7.36363636],
+       [ 7.46464646],
+       [ 7.56565657],
+       [ 7.66666667],
+       [ 7.76767677],
+       [ 7.86868687],
+       [ 7.96969697],
+       [ 8.07070707],
+       [ 8.17171717],
+       [ 8.27272727],
+       [ 8.37373737],
+       [ 8.47474747],
+       [ 8.57575758],
+       [ 8.67676768],
+       [ 8.77777778],
+       [ 8.87878788],
+       [ 8.97979798],
+       [ 9.08080808],
+       [ 9.18181818],
+       [ 9.28282828],
+       [ 9.38383838],
+       [ 9.48484848],
+       [ 9.58585859],
+       [ 9.68686869],
+       [ 9.78787879],
+       [ 9.88888889],
+       [ 9.98989899],
+       [10.09090909],
+       [10.19191919],
+       [10.29292929],
+       [10.39393939],
+       [10.49494949],
+       [10.5959596 ],
+       [10.6969697 ],
+       [10.7979798 ],
+       [10.8989899 ],
+       [11.        ]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">h</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(100, 1)</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">h</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;matplotlib.collections.PathCollection at 0x1cc427f9d50&gt;</code>
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="output_png output_subarea">
+<img alt="No description has been provided for this image" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAh8AAAGeCAYAAAA0WWMxAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjcuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8pXeV/AAAACXBIWXMAAA9hAAAPYQGoP6dpAAAkuUlEQVR4nO3de2zV9f3H8VcpcqjYHm2BloYWq8MbKEqRDnFeRgN2hshgF50avMQtpjhLs6k4kTEvnS5zRsdgLhluiUxdsuI00YlVS0wAtaxz/BwISGKda1EyeqDGo6Pf3x+EY0857fme0+/1830+khM8l/Z8zrE931c/7/fn8y2wLMsSAACAR0b5PQAAABAthA8AAOApwgcAAPAU4QMAAHiK8AEAADxF+AAAAJ4ifAAAAE8RPgAAgKcIHwAAwFOj/R7AYP39/froo49UXFysgoICv4cDAABssCxLhw4dUmVlpUaNyjK3YeXgwQcftGbNmmWddNJJ1oQJE6yrrrrK2rlzZ9pjLr30UktS2uUHP/iB7efo6uo67uu5cOHChQsXLuG4dHV1ZT3W5zTz0d7ersbGRl144YX63//+p7vvvlvz58/Xu+++q3HjxqUed8stt+hnP/tZ6vqJJ55o+zmKi4slSV1dXSopKclleAAAwCeJREJVVVWp4/hwcgofL730Utr1J598UhMnTlRHR4cuueSS1O0nnniiKioqcvnWKcdKLSUlJYQPAABCxk7LxIgaTnt7eyVJpaWlabc/9dRTGj9+vKZPn64VK1bo008/HfJ7JJNJJRKJtAsAADBX3g2n/f39ampq0ty5czV9+vTU7d/73vc0ZcoUVVZW6p133tGdd96pXbt26S9/+UvG79PS0qLVq1fnOwwAABAyBZZlWfl84a233qoXX3xRb7zxhiZPnjzk41599VXNmzdPe/bs0emnn37c/clkUslkMnX9WM2ot7eXsgsAACGRSCQUj8dtHb/zmvlYtmyZXnjhBW3evHnY4CFJdXV1kjRk+IjFYorFYvkMAwAAhFBO4cOyLN12221qbW3V66+/rpqamqxf09nZKUmaNGlSXgMEAABmySl8NDY2asOGDXruuedUXFys7u5uSVI8HldRUZH27t2rDRs26Bvf+IbKysr0zjvvaPny5brkkkt03nnnufICAABAuOTU8zHU8pn169frhhtuUFdXl667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"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="n">h</span> <span class="o">-</span> <span class="n">y</span>
+<span class="n">d</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[ -3.84635477],
+       [ -1.95077605],
+       [ -2.85124614],
+       [ -2.8775435 ],
+       [ -3.34964322],
+       [ -3.51809368],
+       [ -2.47217061],
+       [ -3.36255807],
+       [ -1.82100855],
+       [ -2.14046202],
+       [ -2.56789335],
+       [ -4.32577176],
+       [ -2.68634076],
+       [ -2.90264005],
+       [ -5.2822837 ],
+       [ -2.48177083],
+       [ -4.24703206],
+       [ -3.04290548],
+       [ -4.66647794],
+       [ -4.69799518],
+       [ -4.46957539],
+       [ -3.79173781],
+       [ -4.02618022],
+       [ -5.5724954 ],
+       [ -3.93257298],
+       [ -4.52582651],
+       [ -4.02484243],
+       [ -2.46003477],
+       [ -3.82889673],
+       [ -5.445173  ],
+       [ -5.44705885],
+       [ -6.52794935],
+       [ -4.87001531],
+       [ -7.11635126],
+       [ -4.29388264],
+       [ -5.21706851],
+       [ -5.82859814],
+       [ -7.34348795],
+       [ -6.15379923],
+       [ -6.99670462],
+       [ -5.11598645],
+       [ -5.10548184],
+       [ -8.26816652],
+       [ -6.49339761],
+       [ -6.1035547 ],
+       [ -8.71008818],
+       [ -6.56275828],
+       [ -6.81447386],
+       [ -8.28993647],
+       [ -5.05097226],
+       [ -7.1404793 ],
+       [ -7.71839746],
+       [ -4.82763531],
+       [ -8.26272145],
+       [ -8.88544592],
+       [ -7.41910112],
+       [ -7.83284625],
+       [ -8.36382756],
+       [ -7.7601025 ],
+       [ -5.36183947],
+       [ -8.17325029],
+       [ -6.8787441 ],
+       [ -9.08393446],
+       [-10.16363091],
+       [ -7.47617071],
+       [ -8.3639846 ],
+       [ -7.85591743],
+       [-10.04455129],
+       [ -7.80596318],
+       [ -9.40820178],
+       [ -9.39142684],
+       [ -8.92040908],
+       [ -8.45122292],
+       [ -7.6663711 ],
+       [ -8.79022675],
+       [-10.09464194],
+       [-10.99412995],
+       [-11.22733946],
+       [ -9.86380463],
+       [-10.15206399],
+       [-11.37373384],
+       [-11.99918156],
+       [-11.19943562],
+       [ -9.87199303],
+       [-10.90146917],
+       [-11.34863677],
+       [-12.26661519],
+       [-12.78026926],
+       [ -9.97575798],
+       [ -9.99402311],
+       [-11.13916138],
+       [-11.69357676],
+       [-12.4997914 ],
+       [-11.52402808],
+       [-12.34383652],
+       [-10.83649147],
+       [-12.72024348],
+       [-13.34579863],
+       [-13.11936618],
+       [-11.07266603]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">d_squared</span> <span class="o">=</span> <span class="n">d</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">d_squared</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[ 14.79444501],
+       [  3.80552722],
+       [  8.12960453],
+       [  8.28025658],
+       [ 11.22010972],
+       [ 12.37698316],
+       [  6.1116275 ],
+       [ 11.30679675],
+       [  3.31607215],
+       [  4.58157765],
+       [  6.59407626],
+       [ 18.71230133],
+       [  7.2164267 ],
+       [  8.42531927],
+       [ 27.90252104],
+       [  6.15918646],
+       [ 18.03728129],
+       [  9.25927378],
+       [ 21.7760164 ],
+       [ 22.07115868],
+       [ 19.97710419],
+       [ 14.37727564],
+       [ 16.21012712],
+       [ 31.05270501],
+       [ 15.46513023],
+       [ 20.48310561],
+       [ 16.19935659],
+       [  6.05177106],
+       [ 14.66045019],
+       [ 29.64990895],
+       [ 29.67045008],
+       [ 42.61412266],
+       [ 23.71704917],
+       [ 50.64245521],
+       [ 18.43742815],
+       [ 27.21780389],
+       [ 33.97255634],
+       [ 53.92681528],
+       [ 37.86924495],
+       [ 48.9538756 ],
+       [ 26.17331739],
+       [ 26.06594479],
+       [ 68.36257761],
+       [ 42.16421252],
+       [ 37.25337993],
+       [ 75.86563613],
+       [ 43.0697962 ],
+       [ 46.43705402],
+       [ 68.72304673],
+       [ 25.51232073],
+       [ 50.98644467],
+       [ 59.57365931],
+       [ 23.30606265],
+       [ 68.2725657 ],
+       [ 78.95114913],
+       [ 55.04306136],
+       [ 61.35348032],
+       [ 69.95361151],
+       [ 60.2191908 ],
+       [ 28.7493225 ],
+       [ 66.80202036],
+       [ 47.31712033],
+       [ 82.51786522],
+       [103.29939319],
+       [ 55.89312851],
+       [ 69.95623831],
+       [ 61.71543863],
+       [100.89301054],
+       [ 60.93306118],
+       [ 88.51426066],
+       [ 88.198898  ],
+       [ 79.57369815],
+       [ 71.42316876],
+       [ 58.7732459 ],
+       [ 77.26808625],
+       [101.90179599],
+       [120.87089333],
+       [126.05315125],
+       [ 97.29464188],
+       [103.06440316],
+       [129.3618214 ],
+       [143.98035822],
+       [125.42735815],
+       [ 97.45624645],
+       [118.84202997],
+       [128.79155645],
+       [150.46984834],
+       [163.33528235],
+       [ 99.51574718],
+       [ 99.88049788],
+       [124.08091621],
+       [136.73973736],
+       [156.24478514],
+       [132.80322311],
+       [152.37030014],
+       [117.42954731],
+       [161.80459418],
+       [178.11034103],
+       [172.11776891],
+       [122.60393304]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span><span class="o">.</span><span class="n">T</span> <span class="c1"># Initialiseer Theta</span>
+
+<span class="n">m</span><span class="p">,</span><span class="n">n</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span> <span class="c1"># observaties</span>
+<span class="n">num_iters</span> <span class="o">=</span> <span class="mi">1500</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.01</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iters</span><span class="p">):</span>
+    <span class="c1"># Bereken de error</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">X</span> <span class="o">@</span> <span class="n">theta</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="n">h</span> <span class="o">-</span> <span class="n">y</span>
+
+    <span class="c1"># Pas Theta aan</span>
+    <span class="n">gradient</span> <span class="o">=</span> <span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="n">m</span> <span class="c1"># voor beide kolommen van X wordt elke X-waarde met de corresponderende D-waarde vermenigvuldigd, en het geheel wordt opgeteld</span>
+    <span class="n">theta</span> <span class="o">-=</span> <span class="n">gradient</span> <span class="o">*</span> <span class="n">alpha</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+    <span class="c1"># Bereken de Cost</span>
+    <span class="n">d_squared_summed</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">d</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">d_squared_summed</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">m</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">J</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>[[1.07198625]
+ [1.44648714]]
+[[30.85445272]] 
+
+[[1.12092828]
+ [1.73979426]]
+[[13.90376304]] 
+
+[[1.15471553]
+ [1.93239145]]
+[[6.57535642]] 
+
+[[1.17853505]
+ [2.05877598]]
+[[3.40628845]] 
+
+[[1.19579715]
+ [2.14162859]]
+[[2.03514437]] 
+
+[[1.208744  ]
+ [2.19586107]]
+[[1.441178]] 
+
+[[1.21884976]
+ [2.23127742]]
+[[1.18316113]] 
+
+[[1.22708364]
+ [2.25432341]]
+[[1.07036822]] 
+
+[[1.23408288]
+ [2.2692369 ]]
+[[1.02035615]] 
+
+[[1.24026646]
+ [2.27880417]]
+[[0.99748797]] 
+
+[[1.24590983]
+ [2.28485706]]
+[[0.98635922]] 
+
+[[1.25119413]
+ [2.28859996]]
+[[0.98031113]] 
+
+[[1.25623844]
+ [2.29082471]]
+[[0.97646534]] 
+
+[[1.26112107]
+ [2.29205192]]
+[[0.97357762]] 
+
+[[1.26589351]
+ [2.29262386]]
+[[0.97111012]] 
+
+[[1.27058963]
+ [2.29276557]]
+[[0.9688303]] 
+
+[[1.27523171]
+ [2.292625  ]]
+[[0.96663763]] 
+
+[[1.27983439]
+ [2.29229941]]
+[[0.96448861]] 
+
+[[1.28440732]
+ [2.29185277]]
+[[0.96236442]] 
+
+[[1.28895686]
+ [2.29132712]]
+[[0.96025688]] 
+
+[[1.29348719]
+ [2.29075009]]
+[[0.95816244]] 
+
+[[1.29800106]
+ [2.29013986]]
+[[0.95607953]] 
+
+[[1.30250031]
+ [2.28950837]]
+[[0.95400744]] 
+
+[[1.30698613]
+ [2.28886348]]
+[[0.95194584]] 
+
+[[1.31145935]
+ [2.28821035]]
+[[0.94989455]] 
+
+[[1.31592049]
+ [2.28755237]]
+[[0.94785347]] 
+
+[[1.32036991]
+ [2.28689176]]
+[[0.94582252]] 
+
+[[1.32480787]
+ [2.28623   ]]
+[[0.94380166]] 
+
+[[1.32923454]
+ [2.28556804]]
+[[0.94179081]] 
+
+[[1.33365005]
+ [2.28490652]]
+[[0.93978994]] 
+
+[[1.33805447]
+ [2.28424584]]
+[[0.93779898]] 
+
+[[1.34244788]
+ [2.28358628]]
+[[0.9358179]] 
+
+[[1.34683034]
+ [2.28292801]]
+[[0.93384664]] 
+
+[[1.35120188]
+ [2.28227115]]
+[[0.93188515]] 
+
+[[1.35556256]
+ [2.28161577]]
+[[0.92993339]] 
+
+[[1.35991239]
+ [2.28096192]]
+[[0.92799131]] 
+
+[[1.36425142]
+ [2.28030963]]
+[[0.92605885]] 
+
+[[1.36857967]
+ [2.27965892]]
+[[0.92413597]] 
+
+[[1.37289718]
+ [2.27900979]]
+[[0.92222263]] 
+
+[[1.37720397]
+ [2.27836226]]
+[[0.92031877]] 
+
+[[1.38150006]
+ [2.27771632]]
+[[0.91842435]] 
+
+[[1.3857855 ]
+ [2.27707198]]
+[[0.91653933]] 
+
+[[1.39006029]
+ [2.27642923]]
+[[0.91466365]] 
+
+[[1.39432448]
+ [2.27578807]]
+[[0.91279727]] 
+
+[[1.39857808]
+ [2.2751485 ]]
+[[0.91094014]] 
+
+[[1.40282112]
+ [2.27451052]]
+[[0.90909222]] 
+
+[[1.40705363]
+ [2.27387412]]
+[[0.90725346]] 
+
+[[1.41127564]
+ [2.2732393 ]]
+[[0.90542382]] 
+
+[[1.41548717]
+ [2.27260606]]
+[[0.90360325]] 
+
+[[1.41968824]
+ [2.27197438]]
+[[0.9017917]] 
+
+[[1.42387889]
+ [2.27134428]]
+[[0.89998914]] 
+
+[[1.42805914]
+ [2.27071574]]
+[[0.89819551]] 
+
+[[1.43222901]
+ [2.27008875]]
+[[0.89641077]] 
+
+[[1.43638853]
+ [2.26946333]]
+[[0.89463489]] 
+
+[[1.44053773]
+ [2.26883945]]
+[[0.8928678]] 
+
+[[1.44467663]
+ [2.26821713]]
+[[0.89110948]] 
+
+[[1.44880525]
+ [2.26759635]]
+[[0.88935988]] 
+
+[[1.45292363]
+ [2.26697711]]
+[[0.88761895]] 
+
+[[1.45703179]
+ [2.2663594 ]]
+[[0.88588665]] 
+
+[[1.46112975]
+ [2.26574323]]
+[[0.88416294]] 
+
+[[1.46521754]
+ [2.26512859]]
+[[0.88244778]] 
+
+[[1.46929518]
+ [2.26451548]]
+[[0.88074112]] 
+
+[[1.47336271]
+ [2.26390388]]
+[[0.87904292]] 
+
+[[1.47742014]
+ [2.26329381]]
+[[0.87735314]] 
+
+[[1.48146749]
+ [2.26268525]]
+[[0.87567174]] 
+
+[[1.48550481]
+ [2.26207819]]
+[[0.87399867]] 
+
+[[1.4895321 ]
+ [2.26147265]]
+[[0.8723339]] 
+
+[[1.49354939]
+ [2.26086861]]
+[[0.87067738]] 
+
+[[1.49755672]
+ [2.26026607]]
+[[0.86902908]] 
+
+[[1.5015541 ]
+ [2.25966502]]
+[[0.86738894]] 
+
+[[1.50554155]
+ [2.25906547]]
+[[0.86575694]] 
+
+[[1.50951911]
+ [2.2584674 ]]
+[[0.86413303]] 
+
+[[1.5134868 ]
+ [2.25787082]]
+[[0.86251717]] 
+
+[[1.51744464]
+ [2.25727571]]
+[[0.86090932]] 
+
+[[1.52139266]
+ [2.25668209]]
+[[0.85930945]] 
+
+[[1.52533088]
+ [2.25608994]]
+[[0.8577175]] 
+
+[[1.52925932]
+ [2.25549926]]
+[[0.85613345]] 
+
+[[1.53317801]
+ [2.25491004]]
+[[0.85455725]] 
+
+[[1.53708698]
+ [2.25432229]]
+[[0.85298887]] 
+
+[[1.54098625]
+ [2.25373599]]
+[[0.85142826]] 
+
+[[1.54487583]
+ [2.25315116]]
+[[0.84987539]] 
+
+[[1.54875577]
+ [2.25256777]]
+[[0.84833021]] 
+
+[[1.55262607]
+ [2.25198583]]
+[[0.8467927]] 
+
+[[1.55648677]
+ [2.25140533]]
+[[0.84526281]] 
+
+[[1.56033788]
+ [2.25082628]]
+[[0.84374051]] 
+
+[[1.56417944]
+ [2.25024866]]
+[[0.84222575]] 
+
+[[1.56801146]
+ [2.24967248]]
+[[0.84071851]] 
+
+[[1.57183397]
+ [2.24909773]]
+[[0.83921873]] 
+
+[[1.57564699]
+ [2.2485244 ]]
+[[0.83772639]] 
+
+[[1.57945055]
+ [2.24795249]]
+[[0.83624145]] 
+
+[[1.58324467]
+ [2.24738201]]
+[[0.83476387]] 
+
+[[1.58702937]
+ [2.24681294]]
+[[0.83329362]] 
+
+[[1.59080468]
+ [2.24624529]]
+[[0.83183066]] 
+
+[[1.59457062]
+ [2.24567904]]
+[[0.83037495]] 
+
+[[1.59832721]
+ [2.2451142 ]]
+[[0.82892646]] 
+
+[[1.60207448]
+ [2.24455076]]
+[[0.82748515]] 
+
+[[1.60581245]
+ [2.24398872]]
+[[0.82605098]] 
+
+[[1.60954113]
+ [2.24342807]]
+[[0.82462392]] 
+
+[[1.61326057]
+ [2.24286881]]
+[[0.82320394]] 
+
+[[1.61697077]
+ [2.24231095]]
+[[0.821791]] 
+
+[[1.62067177]
+ [2.24175447]]
+[[0.82038507]] 
+
+[[1.62436357]
+ [2.24119936]]
+[[0.8189861]] 
+
+[[1.62804622]
+ [2.24064564]]
+[[0.81759408]] 
+
+[[1.63171972]
+ [2.24009329]]
+[[0.81620895]] 
+
+[[1.63538411]
+ [2.23954231]]
+[[0.81483069]] 
+
+[[1.6390394]
+ [2.2389927]]
+[[0.81345926]] 
+
+[[1.64268562]
+ [2.23844446]]
+[[0.81209463]] 
+
+[[1.64632279]
+ [2.23789757]]
+[[0.81073677]] 
+
+[[1.64995094]
+ [2.23735204]]
+[[0.80938564]] 
+
+[[1.65357007]
+ [2.23680787]]
+[[0.80804121]] 
+
+[[1.65718023]
+ [2.23626505]]
+[[0.80670344]] 
+
+[[1.66078142]
+ [2.23572357]]
+[[0.80537231]] 
+
+[[1.66437368]
+ [2.23518344]]
+[[0.80404778]] 
+
+[[1.66795702]
+ [2.23464465]]
+[[0.80272981]] 
+
+[[1.67153147]
+ [2.23410719]]
+[[0.80141837]] 
+
+[[1.67509704]
+ [2.23357107]]
+[[0.80011344]] 
+
+[[1.67865377]
+ [2.23303628]]
+[[0.79881498]] 
+
+[[1.68220167]
+ [2.23250282]]
+[[0.79752296]] 
+
+[[1.68574076]
+ [2.23197068]]
+[[0.79623734]] 
+
+[[1.68927106]
+ [2.23143986]]
+[[0.79495809]] 
+
+[[1.69279261]
+ [2.23091036]]
+[[0.79368519]] 
+
+[[1.69630541]
+ [2.23038218]]
+[[0.7924186]] 
+
+[[1.6998095]
+ [2.2298553]]
+[[0.79115829]] 
+
+[[1.70330489]
+ [2.22932973]]
+[[0.78990423]] 
+
+[[1.7067916 ]
+ [2.22880547]]
+[[0.78865638]] 
+
+[[1.71026966]
+ [2.22828251]]
+[[0.78741472]] 
+
+[[1.71373909]
+ [2.22776085]]
+[[0.78617922]] 
+
+[[1.71719991]
+ [2.22724048]]
+[[0.78494984]] 
+
+[[1.72065213]
+ [2.2267214 ]]
+[[0.78372656]] 
+
+[[1.72409579]
+ [2.22620361]]
+[[0.78250934]] 
+
+[[1.7275309 ]
+ [2.22568711]]
+[[0.78129815]] 
+
+[[1.73095749]
+ [2.22517188]]
+[[0.78009297]] 
+
+[[1.73437557]
+ [2.22465794]]
+[[0.77889377]] 
+
+[[1.73778516]
+ [2.22414527]]
+[[0.77770051]] 
+
+[[1.7411863 ]
+ [2.22363388]]
+[[0.77651317]] 
+
+[[1.74457899]
+ [2.22312375]]
+[[0.77533171]] 
+
+[[1.74796326]
+ [2.22261489]]
+[[0.77415612]] 
+
+[[1.75133913]
+ [2.2221073 ]]
+[[0.77298635]] 
+
+[[1.75470663]
+ [2.22160096]]
+[[0.77182238]] 
+
+[[1.75806576]
+ [2.22109588]]
+[[0.77066418]] 
+
+[[1.76141656]
+ [2.22059205]]
+[[0.76951172]] 
+
+[[1.76475904]
+ [2.22008948]]
+[[0.76836498]] 
+
+[[1.76809322]
+ [2.21958815]]
+[[0.76722392]] 
+
+[[1.77141913]
+ [2.21908806]]
+[[0.76608852]] 
+
+[[1.77473679]
+ [2.21858922]]
+[[0.76495874]] 
+
+[[1.77804621]
+ [2.21809162]]
+[[0.76383457]] 
+
+[[1.78134742]
+ [2.21759525]]
+[[0.76271598]] 
+
+[[1.78464043]
+ [2.21710011]]
+[[0.76160292]] 
+
+[[1.78792527]
+ [2.2166062 ]]
+[[0.76049539]] 
+
+[[1.79120195]
+ [2.21611352]]
+[[0.75939335]] 
+
+[[1.79447051]
+ [2.21562205]]
+[[0.75829677]] 
+
+[[1.79773095]
+ [2.21513181]]
+[[0.75720563]] 
+
+[[1.8009833 ]
+ [2.21464279]]
+[[0.7561199]] 
+
+[[1.80422758]
+ [2.21415498]]
+[[0.75503955]] 
+
+[[1.8074638 ]
+ [2.21366838]]
+[[0.75396455]] 
+
+[[1.81069199]
+ [2.21318299]]
+[[0.75289489]] 
+
+[[1.81391217]
+ [2.2126988 ]]
+[[0.75183053]] 
+
+[[1.81712436]
+ [2.21221582]]
+[[0.75077144]] 
+
+[[1.82032857]
+ [2.21173403]]
+[[0.74971761]] 
+
+[[1.82352484]
+ [2.21125344]]
+[[0.748669]] 
+
+[[1.82671316]
+ [2.21077404]]
+[[0.74762559]] 
+
+[[1.82989358]
+ [2.21029584]]
+[[0.74658736]] 
+
+[[1.8330661 ]
+ [2.20981881]]
+[[0.74555427]] 
+
+[[1.83623075]
+ [2.20934298]]
+[[0.7445263]] 
+
+[[1.83938754]
+ [2.20886832]]
+[[0.74350343]] 
+
+[[1.8425365 ]
+ [2.20839484]]
+[[0.74248563]] 
+
+[[1.84567764]
+ [2.20792254]]
+[[0.74147288]] 
+
+[[1.84881099]
+ [2.20745141]]
+[[0.74046515]] 
+
+[[1.85193656]
+ [2.20698145]]
+[[0.73946241]] 
+
+[[1.85505437]
+ [2.20651265]]
+[[0.73846465]] 
+
+[[1.85816444]
+ [2.20604502]]
+[[0.73747183]] 
+
+[[1.86126679]
+ [2.20557855]]
+[[0.73648393]] 
+
+[[1.86436145]
+ [2.20511324]]
+[[0.73550094]] 
+
+[[1.86744842]
+ [2.20464908]]
+[[0.73452281]] 
+
+[[1.87052773]
+ [2.20418608]]
+[[0.73354954]] 
+
+[[1.8735994 ]
+ [2.20372422]]
+[[0.73258109]] 
+
+[[1.87666344]
+ [2.20326351]]
+[[0.73161744]] 
+
+[[1.87971988]
+ [2.20280394]]
+[[0.73065857]] 
+
+[[1.88276874]
+ [2.20234552]]
+[[0.72970445]] 
+
+[[1.88581002]
+ [2.20188823]]
+[[0.72875506]] 
+
+[[1.88884376]
+ [2.20143208]]
+[[0.72781038]] 
+
+[[1.89186997]
+ [2.20097705]]
+[[0.72687039]] 
+
+[[1.89488866]
+ [2.20052316]]
+[[0.72593505]] 
+
+[[1.89789987]
+ [2.2000704 ]]
+[[0.72500435]] 
+
+[[1.9009036 ]
+ [2.19961876]]
+[[0.72407827]] 
+
+[[1.90389987]
+ [2.19916824]]
+[[0.72315678]] 
+
+[[1.90688871]
+ [2.19871883]]
+[[0.72223985]] 
+
+[[1.90987013]
+ [2.19827055]]
+[[0.72132748]] 
+
+[[1.91284415]
+ [2.19782337]]
+[[0.72041962]] 
+
+[[1.91581079]
+ [2.19737731]]
+[[0.71951627]] 
+
+[[1.91877007]
+ [2.19693235]]
+[[0.71861739]] 
+
+[[1.921722 ]
+ [2.1964885]]
+[[0.71772297]] 
+
+[[1.9246666 ]
+ [2.19604575]]
+[[0.71683299]] 
+
+[[1.9276039 ]
+ [2.19560409]]
+[[0.71594742]] 
+
+[[1.93053391]
+ [2.19516354]]
+[[0.71506623]] 
+
+[[1.93345664]
+ [2.19472407]]
+[[0.71418942]] 
+
+[[1.93637212]
+ [2.1942857 ]]
+[[0.71331696]] 
+
+[[1.93928036]
+ [2.19384842]]
+[[0.71244882]] 
+
+[[1.94218139]
+ [2.19341222]]
+[[0.71158498]] 
+
+[[1.94507521]
+ [2.1929771 ]]
+[[0.71072543]] 
+
+[[1.94796185]
+ [2.19254307]]
+[[0.70987014]] 
+
+[[1.95084133]
+ [2.19211011]]
+[[0.70901908]] 
+
+[[1.95371366]
+ [2.19167823]]
+[[0.70817225]] 
+
+[[1.95657886]
+ [2.19124741]]
+[[0.70732962]] 
+
+[[1.95943695]
+ [2.19081767]]
+[[0.70649116]] 
+
+[[1.96228795]
+ [2.19038899]]
+[[0.70565686]] 
+
+[[1.96513187]
+ [2.18996138]]
+[[0.7048267]] 
+
+[[1.96796873]
+ [2.18953483]]
+[[0.70400065]] 
+
+[[1.97079855]
+ [2.18910934]]
+[[0.7031787]] 
+
+[[1.97362135]
+ [2.1886849 ]]
+[[0.70236083]] 
+
+[[1.97643714]
+ [2.18826152]]
+[[0.701547]] 
+
+[[1.97924594]
+ [2.18783919]]
+[[0.70073722]] 
+
+[[1.98204777]
+ [2.1874179 ]]
+[[0.69993145]] 
+
+[[1.98484265]
+ [2.18699767]]
+[[0.69912967]] 
+
+[[1.98763058]
+ [2.18657847]]
+[[0.69833187]] 
+
+[[1.9904116 ]
+ [2.18616032]]
+[[0.69753802]] 
+
+[[1.99318572]
+ [2.1857432 ]]
+[[0.69674811]] 
+
+[[1.99595295]
+ [2.18532712]]
+[[0.69596211]] 
+
+[[1.99871332]
+ [2.18491207]]
+[[0.69518002]] 
+
+[[2.00146683]
+ [2.18449805]]
+[[0.6944018]] 
+
+[[2.00421351]
+ [2.18408506]]
+[[0.69362743]] 
+
+[[2.00695337]
+ [2.18367309]]
+[[0.69285691]] 
+
+[[2.00968643]
+ [2.18326215]]
+[[0.69209021]] 
+
+[[2.01241271]
+ [2.18285223]]
+[[0.69132731]] 
+
+[[2.01513222]
+ [2.18244332]]
+[[0.69056819]] 
+
+[[2.01784498]
+ [2.18203543]]
+[[0.68981283]] 
+
+[[2.02055101]
+ [2.18162855]]
+[[0.68906122]] 
+
+[[2.02325032]
+ [2.18122268]]
+[[0.68831333]] 
+
+[[2.02594293]
+ [2.18081782]]
+[[0.68756916]] 
+
+[[2.02862886]
+ [2.18041396]]
+[[0.68682867]] 
+
+[[2.03130812]
+ [2.18001111]]
+[[0.68609186]] 
+
+[[2.03398074]
+ [2.17960925]]
+[[0.68535869]] 
+
+[[2.03664671]
+ [2.1792084 ]]
+[[0.68462916]] 
+
+[[2.03930608]
+ [2.17880853]]
+[[0.68390325]] 
+
+[[2.04195884]
+ [2.17840966]]
+[[0.68318094]] 
+
+[[2.04460502]
+ [2.17801178]]
+[[0.68246221]] 
+
+[[2.04724463]
+ [2.17761489]]
+[[0.68174704]] 
+
+[[2.04987768]
+ [2.17721899]]
+[[0.68103542]] 
+
+[[2.05250421]
+ [2.17682406]]
+[[0.68032733]] 
+
+[[2.05512421]
+ [2.17643012]]
+[[0.67962274]] 
+
+[[2.05773771]
+ [2.17603715]]
+[[0.67892165]] 
+
+[[2.06034473]
+ [2.17564516]]
+[[0.67822404]] 
+
+[[2.06294527]
+ [2.17525414]]
+[[0.67752988]] 
+
+[[2.06553936]
+ [2.17486409]]
+[[0.67683917]] 
+
+[[2.06812701]
+ [2.17447501]]
+[[0.67615188]] 
+
+[[2.07070824]
+ [2.1740869 ]]
+[[0.675468]] 
+
+[[2.07328306]
+ [2.17369975]]
+[[0.6747875]] 
+
+[[2.07585149]
+ [2.17331356]]
+[[0.67411039]] 
+
+[[2.07841355]
+ [2.17292833]]
+[[0.67343663]] 
+
+[[2.08096925]
+ [2.17254405]]
+[[0.6727662]] 
+
+[[2.0835186 ]
+ [2.17216073]]
+[[0.67209911]] 
+
+[[2.08606163]
+ [2.17177836]]
+[[0.67143532]] 
+
+[[2.08859834]
+ [2.17139694]]
+[[0.67077482]] 
+
+[[2.09112876]
+ [2.17101647]]
+[[0.6701176]] 
+
+[[2.0936529 ]
+ [2.17063694]]
+[[0.66946363]] 
+
+[[2.09617077]
+ [2.17025835]]
+[[0.66881291]] 
+
+[[2.0986824]
+ [2.1698807]]
+[[0.66816541]] 
+
+[[2.10118779]
+ [2.16950399]]
+[[0.66752112]] 
+
+[[2.10368696]
+ [2.16912821]]
+[[0.66688003]] 
+
+[[2.10617993]
+ [2.16875337]]
+[[0.66624212]] 
+
+[[2.10866671]
+ [2.16837946]]
+[[0.66560737]] 
+
+[[2.11114732]
+ [2.16800647]]
+[[0.66497576]] 
+
+[[2.11362177]
+ [2.16763441]]
+[[0.66434729]] 
+
+[[2.11609008]
+ [2.16726328]]
+[[0.66372193]] 
+
+[[2.11855227]
+ [2.16689306]]
+[[0.66309967]] 
+
+[[2.12100834]
+ [2.16652377]]
+[[0.6624805]] 
+
+[[2.12345832]
+ [2.16615539]]
+[[0.6618644]] 
+
+[[2.12590221]
+ [2.16578792]]
+[[0.66125135]] 
+
+[[2.12834005]
+ [2.16542137]]
+[[0.66064134]] 
+
+[[2.13077183]
+ [2.16505573]]
+[[0.66003436]] 
+
+[[2.13319757]
+ [2.16469099]]
+[[0.65943039]] 
+
+[[2.13561729]
+ [2.16432716]]
+[[0.65882941]] 
+
+[[2.13803101]
+ [2.16396423]]
+[[0.65823141]] 
+
+[[2.14043874]
+ [2.16360221]]
+[[0.65763637]] 
+
+[[2.14284049]
+ [2.16324108]]
+[[0.65704428]] 
+
+[[2.14523628]
+ [2.16288085]]
+[[0.65645513]] 
+
+[[2.14762613]
+ [2.16252151]]
+[[0.6558689]] 
+
+[[2.15001004]
+ [2.16216307]]
+[[0.65528558]] 
+
+[[2.15238803]
+ [2.16180551]]
+[[0.65470515]] 
+
+[[2.15476013]
+ [2.16144884]]
+[[0.6541276]] 
+
+[[2.15712633]
+ [2.16109306]]
+[[0.65355291]] 
+
+[[2.15948667]
+ [2.16073816]]
+[[0.65298107]] 
+
+[[2.16184114]
+ [2.16038414]]
+[[0.65241206]] 
+
+[[2.16418977]
+ [2.160031  ]]
+[[0.65184588]] 
+
+[[2.16653257]
+ [2.15967873]]
+[[0.6512825]] 
+
+[[2.16886956]
+ [2.15932735]]
+[[0.65072191]] 
+
+[[2.17120075]
+ [2.15897683]]
+[[0.65016411]] 
+
+[[2.17352615]
+ [2.15862718]]
+[[0.64960907]] 
+
+[[2.17584577]
+ [2.1582784 ]]
+[[0.64905678]] 
+
+[[2.17815965]
+ [2.15793049]]
+[[0.64850723]] 
+
+[[2.18046777]
+ [2.15758344]]
+[[0.64796041]] 
+
+[[2.18277017]
+ [2.15723725]]
+[[0.64741629]] 
+
+[[2.18506686]
+ [2.15689192]]
+[[0.64687488]] 
+
+[[2.18735784]
+ [2.15654744]]
+[[0.64633614]] 
+
+[[2.18964314]
+ [2.15620383]]
+[[0.64580008]] 
+
+[[2.19192277]
+ [2.15586106]]
+[[0.64526668]] 
+
+[[2.19419674]
+ [2.15551915]]
+[[0.64473592]] 
+
+[[2.19646506]
+ [2.15517808]]
+[[0.64420779]] 
+
+[[2.19872776]
+ [2.15483786]]
+[[0.64368228]] 
+
+[[2.20098484]
+ [2.15449849]]
+[[0.64315938]] 
+
+[[2.20323631]
+ [2.15415995]]
+[[0.64263907]] 
+
+[[2.2054822 ]
+ [2.15382226]]
+[[0.64212134]] 
+
+[[2.20772251]
+ [2.15348541]]
+[[0.64160617]] 
+
+[[2.20995727]
+ [2.15314939]]
+[[0.64109356]] 
+
+[[2.21218648]
+ [2.15281421]]
+[[0.64058349]] 
+
+[[2.21441015]
+ [2.15247985]]
+[[0.64007595]] 
+
+[[2.2166283 ]
+ [2.15214633]]
+[[0.63957093]] 
+
+[[2.21884095]
+ [2.15181364]]
+[[0.63906841]] 
+
+[[2.22104811]
+ [2.15148177]]
+[[0.63856838]] 
+
+[[2.22324979]
+ [2.15115072]]
+[[0.63807083]] 
+
+[[2.22544601]
+ [2.1508205 ]]
+[[0.63757574]] 
+
+[[2.22763677]
+ [2.1504911 ]]
+[[0.63708312]] 
+
+[[2.2298221 ]
+ [2.15016251]]
+[[0.63659293]] 
+
+[[2.232002  ]
+ [2.14983474]]
+[[0.63610517]] 
+
+[[2.23417649]
+ [2.14950778]]
+[[0.63561983]] 
+
+[[2.23634559]
+ [2.14918164]]
+[[0.6351369]] 
+
+[[2.2385093]
+ [2.1488563]]
+[[0.63465637]] 
+
+[[2.24066764]
+ [2.14853177]]
+[[0.63417821]] 
+
+[[2.24282062]
+ [2.14820805]]
+[[0.63370243]] 
+
+[[2.24496827]
+ [2.14788513]]
+[[0.633229]] 
+
+[[2.24711058]
+ [2.14756301]]
+[[0.63275792]] 
+
+[[2.24924757]
+ [2.14724169]]
+[[0.63228918]] 
+
+[[2.25137926]
+ [2.14692117]]
+[[0.63182276]] 
+
+[[2.25350566]
+ [2.14660145]]
+[[0.63135865]] 
+
+[[2.25562678]
+ [2.14628251]]
+[[0.63089685]] 
+
+[[2.25774263]
+ [2.14596437]]
+[[0.63043733]] 
+
+[[2.25985324]
+ [2.14564702]]
+[[0.6299801]] 
+
+[[2.2619586 ]
+ [2.14533046]]
+[[0.62952512]] 
+
+[[2.26405874]
+ [2.14501468]]
+[[0.62907241]] 
+
+[[2.26615367]
+ [2.14469969]]
+[[0.62862194]] 
+
+[[2.2682434 ]
+ [2.14438548]]
+[[0.6281737]] 
+
+[[2.27032794]
+ [2.14407204]]
+[[0.62772769]] 
+
+[[2.27240731]
+ [2.14375939]]
+[[0.62728388]] 
+
+[[2.27448151]
+ [2.14344751]]
+[[0.62684228]] 
+
+[[2.27655057]
+ [2.14313641]]
+[[0.62640286]] 
+
+[[2.27861449]
+ [2.14282608]]
+[[0.62596563]] 
+
+[[2.28067329]
+ [2.14251652]]
+[[0.62553056]] 
+
+[[2.28272699]
+ [2.14220772]]
+[[0.62509765]] 
+
+[[2.28477558]
+ [2.14189969]]
+[[0.62466689]] 
+
+[[2.28681909]
+ [2.14159243]]
+[[0.62423826]] 
+
+[[2.28885752]
+ [2.14128593]]
+[[0.62381175]] 
+
+[[2.2908909 ]
+ [2.14098019]]
+[[0.62338736]] 
+
+[[2.29291923]
+ [2.14067521]]
+[[0.62296508]] 
+
+[[2.29494253]
+ [2.14037099]]
+[[0.62254489]] 
+
+[[2.2969608 ]
+ [2.14006752]]
+[[0.62212678]] 
+
+[[2.29897407]
+ [2.13976481]]
+[[0.62171074]] 
+
+[[2.30098234]
+ [2.13946284]]
+[[0.62129677]] 
+
+[[2.30298562]
+ [2.13916163]]
+[[0.62088485]] 
+
+[[2.30498393]
+ [2.13886116]]
+[[0.62047497]] 
+
+[[2.30697728]
+ [2.13856144]]
+[[0.62006713]] 
+
+[[2.30896569]
+ [2.13826247]]
+[[0.6196613]] 
+
+[[2.31094916]
+ [2.13796423]]
+[[0.61925749]] 
+
+[[2.3129277 ]
+ [2.13766674]]
+[[0.61885568]] 
+
+[[2.31490134]
+ [2.13736998]]
+[[0.61845586]] 
+
+[[2.31687007]
+ [2.13707396]]
+[[0.61805803]] 
+
+[[2.31883392]
+ [2.13677868]]
+[[0.61766216]] 
+
+[[2.3207929 ]
+ [2.13648412]]
+[[0.61726826]] 
+
+[[2.32274701]
+ [2.1361903 ]]
+[[0.61687631]] 
+
+[[2.32469628]
+ [2.13589721]]
+[[0.61648631]] 
+
+[[2.3266407 ]
+ [2.13560485]]
+[[0.61609824]] 
+
+[[2.3285803 ]
+ [2.13531321]]
+[[0.61571209]] 
+
+[[2.33051509]
+ [2.13502229]]
+[[0.61532786]] 
+
+[[2.33244507]
+ [2.1347321 ]]
+[[0.61494553]] 
+
+[[2.33437027]
+ [2.13444263]]
+[[0.6145651]] 
+
+[[2.33629068]
+ [2.13415387]]
+[[0.61418655]] 
+
+[[2.33820633]
+ [2.13386584]]
+[[0.61380988]] 
+
+[[2.34011723]
+ [2.13357851]]
+[[0.61343508]] 
+
+[[2.34202338]
+ [2.13329191]]
+[[0.61306214]] 
+
+[[2.3439248 ]
+ [2.13300601]]
+[[0.61269104]] 
+
+[[2.3458215 ]
+ [2.13272082]]
+[[0.61232179]] 
+
+[[2.34771349]
+ [2.13243634]]
+[[0.61195436]] 
+
+[[2.34960079]
+ [2.13215256]]
+[[0.61158876]] 
+
+[[2.3514834 ]
+ [2.13186949]]
+[[0.61122497]] 
+
+[[2.35336134]
+ [2.13158713]]
+[[0.61086299]] 
+
+[[2.35523462]
+ [2.13130546]]
+[[0.61050279]] 
+
+[[2.35710325]
+ [2.13102449]]
+[[0.61014439]] 
+
+[[2.35896724]
+ [2.13074422]]
+[[0.60978776]] 
+
+[[2.36082661]
+ [2.13046465]]
+[[0.6094329]] 
+
+[[2.36268136]
+ [2.13018577]]
+[[0.6090798]] 
+
+[[2.36453151]
+ [2.12990758]]
+[[0.60872845]] 
+
+[[2.36637706]
+ [2.12963008]]
+[[0.60837884]] 
+
+[[2.36821804]
+ [2.12935327]]
+[[0.60803096]] 
+
+[[2.37005444]
+ [2.12907715]]
+[[0.60768481]] 
+
+[[2.37188629]
+ [2.12880171]]
+[[0.60734037]] 
+
+[[2.37371359]
+ [2.12852696]]
+[[0.60699765]] 
+
+[[2.37553636]
+ [2.12825289]]
+[[0.60665662]] 
+
+[[2.3773546]
+ [2.1279795]]
+[[0.60631728]] 
+
+[[2.37916832]
+ [2.12770678]]
+[[0.60597963]] 
+
+[[2.38097755]
+ [2.12743475]]
+[[0.60564365]] 
+
+[[2.38278229]
+ [2.12716339]]
+[[0.60530933]] 
+
+[[2.38458254]
+ [2.1268927 ]]
+[[0.60497667]] 
+
+[[2.38637833]
+ [2.12662269]]
+[[0.60464567]] 
+
+[[2.38816966]
+ [2.12635334]]
+[[0.6043163]] 
+
+[[2.38995655]
+ [2.12608466]]
+[[0.60398856]] 
+
+[[2.391739  ]
+ [2.12581666]]
+[[0.60366245]] 
+
+[[2.39351703]
+ [2.12554931]]
+[[0.60333796]] 
+
+[[2.39529064]
+ [2.12528263]]
+[[0.60301508]] 
+
+[[2.39705985]
+ [2.12501661]]
+[[0.6026938]] 
+
+[[2.39882467]
+ [2.12475125]]
+[[0.6023741]] 
+
+[[2.40058511]
+ [2.12448655]]
+[[0.602056]] 
+
+[[2.40234118]
+ [2.12422251]]
+[[0.60173947]] 
+
+[[2.40409289]
+ [2.12395912]]
+[[0.60142451]] 
+
+[[2.40584026]
+ [2.12369639]]
+[[0.60111112]] 
+
+[[2.40758329]
+ [2.12343431]]
+[[0.60079927]] 
+
+[[2.40932199]
+ [2.12317287]]
+[[0.60048897]] 
+
+[[2.41105637]
+ [2.12291209]]
+[[0.60018021]] 
+
+[[2.41278645]
+ [2.12265196]]
+[[0.59987299]] 
+
+[[2.41451224]
+ [2.12239247]]
+[[0.59956728]] 
+
+[[2.41623374]
+ [2.12213362]]
+[[0.59926309]] 
+
+[[2.41795097]
+ [2.12187542]]
+[[0.59896041]] 
+
+[[2.41966394]
+ [2.12161786]]
+[[0.59865923]] 
+
+[[2.42137266]
+ [2.12136093]]
+[[0.59835954]] 
+
+[[2.42307714]
+ [2.12110465]]
+[[0.59806134]] 
+
+[[2.42477738]
+ [2.120849  ]]
+[[0.59776462]] 
+
+[[2.42647341]
+ [2.12059398]]
+[[0.59746936]] 
+
+[[2.42816522]
+ [2.1203396 ]]
+[[0.59717558]] 
+
+[[2.42985284]
+ [2.12008585]]
+[[0.59688324]] 
+
+[[2.43153627]
+ [2.11983273]]
+[[0.59659236]] 
+
+[[2.43321552]
+ [2.11958024]]
+[[0.59630292]] 
+
+[[2.4348906 ]
+ [2.11932837]]
+[[0.59601492]] 
+
+[[2.43656152]
+ [2.11907713]]
+[[0.59572834]] 
+
+[[2.4382283 ]
+ [2.11882652]]
+[[0.59544318]] 
+
+[[2.43989094]
+ [2.11857652]]
+[[0.59515944]] 
+
+[[2.44154946]
+ [2.11832715]]
+[[0.5948771]] 
+
+[[2.44320385]
+ [2.11807839]]
+[[0.59459617]] 
+
+[[2.44485415]
+ [2.11783025]]
+[[0.59431662]] 
+
+[[2.44650034]
+ [2.11758273]]
+[[0.59403846]] 
+
+[[2.44814245]
+ [2.11733582]]
+[[0.59376169]] 
+
+[[2.44978048]
+ [2.11708953]]
+[[0.59348628]] 
+
+[[2.45141445]
+ [2.11684384]]
+[[0.59321224]] 
+
+[[2.45304436]
+ [2.11659877]]
+[[0.59293956]] 
+
+[[2.45467023]
+ [2.1163543 ]]
+[[0.59266823]] 
+
+[[2.45629206]
+ [2.11611044]]
+[[0.59239824]] 
+
+[[2.45790987]
+ [2.11586719]]
+[[0.59212959]] 
+
+[[2.45952366]
+ [2.11562454]]
+[[0.59186228]] 
+
+[[2.46113345]
+ [2.11538249]]
+[[0.59159629]] 
+
+[[2.46273924]
+ [2.11514105]]
+[[0.59133162]] 
+
+[[2.46434104]
+ [2.1149002 ]]
+[[0.59106826]] 
+
+[[2.46593887]
+ [2.11465995]]
+[[0.59080621]] 
+
+[[2.46753273]
+ [2.1144203 ]]
+[[0.59054545]] 
+
+[[2.46912264]
+ [2.11418124]]
+[[0.59028599]] 
+
+[[2.4707086 ]
+ [2.11394277]]
+[[0.59002782]] 
+
+[[2.47229062]
+ [2.1137049 ]]
+[[0.58977092]] 
+
+[[2.47386872]
+ [2.11346762]]
+[[0.5895153]] 
+
+[[2.4754429 ]
+ [2.11323092]]
+[[0.58926095]] 
+
+[[2.47701318]
+ [2.11299481]]
+[[0.58900786]] 
+
+[[2.47857955]
+ [2.11275929]]
+[[0.58875602]] 
+
+[[2.48014204]
+ [2.11252436]]
+[[0.58850543]] 
+
+[[2.48170065]
+ [2.11229   ]]
+[[0.58825608]] 
+
+[[2.4832554 ]
+ [2.11205623]]
+[[0.58800797]] 
+
+[[2.48480628]
+ [2.11182304]]
+[[0.58776109]] 
+
+[[2.48635331]
+ [2.11159043]]
+[[0.58751543]] 
+
+[[2.48789651]
+ [2.11135839]]
+[[0.587271]] 
+
+[[2.48943587]
+ [2.11112694]]
+[[0.58702777]] 
+
+[[2.49097142]
+ [2.11089605]]
+[[0.58678575]] 
+
+[[2.49250315]
+ [2.11066574]]
+[[0.58654493]] 
+
+[[2.49403108]
+ [2.110436  ]]
+[[0.5863053]] 
+
+[[2.49555522]
+ [2.11020683]]
+[[0.58606686]] 
+
+[[2.49707557]
+ [2.10997823]]
+[[0.5858296]] 
+
+[[2.49859216]
+ [2.1097502 ]]
+[[0.58559352]] 
+
+[[2.50010497]
+ [2.10952273]]
+[[0.58535861]] 
+
+[[2.50161404]
+ [2.10929582]]
+[[0.58512487]] 
+
+[[2.50311936]
+ [2.10906948]]
+[[0.58489228]] 
+
+[[2.50462094]
+ [2.10884371]]
+[[0.58466085]] 
+
+[[2.50611879]
+ [2.10861849]]
+[[0.58443056]] 
+
+[[2.50761293]
+ [2.10839383]]
+[[0.58420142]] 
+
+[[2.50910336]
+ [2.10816973]]
+[[0.58397341]] 
+
+[[2.51059009]
+ [2.10794618]]
+[[0.58374653]] 
+
+[[2.51207312]
+ [2.10772319]]
+[[0.58352078]] 
+
+[[2.51355248]
+ [2.10750076]]
+[[0.58329614]] 
+
+[[2.51502817]
+ [2.10727887]]
+[[0.58307262]] 
+
+[[2.51650019]
+ [2.10705754]]
+[[0.58285021]] 
+
+[[2.51796856]
+ [2.10683675]]
+[[0.5826289]] 
+
+[[2.51943329]
+ [2.10661652]]
+[[0.58240869]] 
+
+[[2.52089438]
+ [2.10639683]]
+[[0.58218957]] 
+
+[[2.52235184]
+ [2.10617768]]
+[[0.58197154]] 
+
+[[2.52380569]
+ [2.10595908]]
+[[0.58175458]] 
+
+[[2.52525593]
+ [2.10574103]]
+[[0.58153871]] 
+
+[[2.52670257]
+ [2.10552351]]
+[[0.5813239]] 
+
+[[2.52814562]
+ [2.10530653]]
+[[0.58111016]] 
+
+[[2.52958508]
+ [2.10509009]]
+[[0.58089747]] 
+
+[[2.53102098]
+ [2.10487419]]
+[[0.58068585]] 
+
+[[2.53245331]
+ [2.10465883]]
+[[0.58047527]] 
+
+[[2.53388208]
+ [2.104444  ]]
+[[0.58026573]] 
+
+[[2.53530731]
+ [2.1042297 ]]
+[[0.58005724]] 
+
+[[2.536729  ]
+ [2.10401593]]
+[[0.57984977]] 
+
+[[2.53814716]
+ [2.1038027 ]]
+[[0.57964334]] 
+
+[[2.53956181]
+ [2.10358999]]
+[[0.57943793]] 
+
+[[2.54097294]
+ [2.10337781]]
+[[0.57923354]] 
+
+[[2.54238057]
+ [2.10316616]]
+[[0.57903016]] 
+
+[[2.5437847 ]
+ [2.10295504]]
+[[0.57882779]] 
+
+[[2.54518535]
+ [2.10274443]]
+[[0.57862642]] 
+
+[[2.54658253]
+ [2.10253435]]
+[[0.57842605]] 
+
+[[2.54797623]
+ [2.1023248 ]]
+[[0.57822668]] 
+
+[[2.54936648]
+ [2.10211576]]
+[[0.57802829]] 
+
+[[2.55075328]
+ [2.10190724]]
+[[0.57783089]] 
+
+[[2.55213663]
+ [2.10169924]]
+[[0.57763447]] 
+
+[[2.55351655]
+ [2.10149175]]
+[[0.57743901]] 
+
+[[2.55489305]
+ [2.10128478]]
+[[0.57724453]] 
+
+[[2.55626613]
+ [2.10107833]]
+[[0.57705102]] 
+
+[[2.5576358 ]
+ [2.10087238]]
+[[0.57685846]] 
+
+[[2.55900207]
+ [2.10066695]]
+[[0.57666685]] 
+
+[[2.56036495]
+ [2.10046203]]
+[[0.5764762]] 
+
+[[2.56172445]
+ [2.10025761]]
+[[0.57628649]] 
+
+[[2.56308057]
+ [2.1000537 ]]
+[[0.57609773]] 
+
+[[2.56443333]
+ [2.0998503 ]]
+[[0.57590989]] 
+
+[[2.56578273]
+ [2.09964741]]
+[[0.57572299]] 
+
+[[2.56712878]
+ [2.09944502]]
+[[0.57553702]] 
+
+[[2.5684715 ]
+ [2.09924312]]
+[[0.57535197]] 
+
+[[2.56981087]
+ [2.09904174]]
+[[0.57516783]] 
+
+[[2.57114693]
+ [2.09884085]]
+[[0.57498461]] 
+
+[[2.57247966]
+ [2.09864046]]
+[[0.5748023]] 
+
+[[2.57380909]
+ [2.09844056]]
+[[0.57462089]] 
+
+[[2.57513522]
+ [2.09824117]]
+[[0.57444038]] 
+
+[[2.57645806]
+ [2.09804226]]
+[[0.57426077]] 
+
+[[2.57777762]
+ [2.09784385]]
+[[0.57408204]] 
+
+[[2.5790939 ]
+ [2.09764594]]
+[[0.5739042]] 
+
+[[2.58040691]
+ [2.09744851]]
+[[0.57372725]] 
+
+[[2.58171667]
+ [2.09725158]]
+[[0.57355117]] 
+
+[[2.58302317]
+ [2.09705513]]
+[[0.57337596]] 
+
+[[2.58432643]
+ [2.09685917]]
+[[0.57320162]] 
+
+[[2.58562646]
+ [2.0966637 ]]
+[[0.57302815]] 
+
+[[2.58692326]
+ [2.09646871]]
+[[0.57285554]] 
+
+[[2.58821684]
+ [2.09627421]]
+[[0.57268378]] 
+
+[[2.58950721]
+ [2.09608019]]
+[[0.57251287]] 
+
+[[2.59079438]
+ [2.09588665]]
+[[0.57234281]] 
+
+[[2.59207835]
+ [2.09569359]]
+[[0.5721736]] 
+
+[[2.59335913]
+ [2.09550101]]
+[[0.57200522]] 
+
+[[2.59463674]
+ [2.09530891]]
+[[0.57183768]] 
+
+[[2.59591118]
+ [2.09511729]]
+[[0.57167097]] 
+
+[[2.59718245]
+ [2.09492614]]
+[[0.57150508]] 
+
+[[2.59845057]
+ [2.09473547]]
+[[0.57134002]] 
+
+[[2.59971554]
+ [2.09454526]]
+[[0.57117578]] 
+
+[[2.60097737]
+ [2.09435554]]
+[[0.57101235]] 
+
+[[2.60223607]
+ [2.09416628]]
+[[0.57084973]] 
+
+[[2.60349164]
+ [2.09397749]]
+[[0.57068792]] 
+
+[[2.6047441 ]
+ [2.09378917]]
+[[0.57052691]] 
+
+[[2.60599345]
+ [2.09360132]]
+[[0.57036669]] 
+
+[[2.6072397 ]
+ [2.09341393]]
+[[0.57020727]] 
+
+[[2.60848286]
+ [2.09322701]]
+[[0.57004865]] 
+
+[[2.60972293]
+ [2.09304055]]
+[[0.56989081]] 
+
+[[2.61095992]
+ [2.09285456]]
+[[0.56973375]] 
+
+[[2.61219384]
+ [2.09266903]]
+[[0.56957747]] 
+
+[[2.6134247 ]
+ [2.09248395]]
+[[0.56942196]] 
+
+[[2.6146525 ]
+ [2.09229934]]
+[[0.56926723]] 
+
+[[2.61587726]
+ [2.09211519]]
+[[0.56911326]] 
+
+[[2.61709898]
+ [2.09193149]]
+[[0.56896006]] 
+
+[[2.61831766]
+ [2.09174825]]
+[[0.56880761]] 
+
+[[2.61953332]
+ [2.09156546]]
+[[0.56865592]] 
+
+[[2.62074597]
+ [2.09138313]]
+[[0.56850499]] 
+
+[[2.6219556 ]
+ [2.09120125]]
+[[0.5683548]] 
+
+[[2.62316223]
+ [2.09101982]]
+[[0.56820535]] 
+
+[[2.62436587]
+ [2.09083884]]
+[[0.56805665]] 
+
+[[2.62556652]
+ [2.09065831]]
+[[0.56790869]] 
+
+[[2.62676418]
+ [2.09047823]]
+[[0.56776145]] 
+
+[[2.62795888]
+ [2.09029859]]
+[[0.56761495]] 
+
+[[2.62915061]
+ [2.0901194 ]]
+[[0.56746918]] 
+
+[[2.63033938]
+ [2.08994066]]
+[[0.56732412]] 
+
+[[2.63152521]
+ [2.08976236]]
+[[0.56717979]] 
+
+[[2.63270809]
+ [2.0895845 ]]
+[[0.56703617]] 
+
+[[2.63388803]
+ [2.08940708]]
+[[0.56689327]] 
+
+[[2.63506504]
+ [2.08923011]]
+[[0.56675107]] 
+
+[[2.63623914]
+ [2.08905357]]
+[[0.56660958]] 
+
+[[2.63741032]
+ [2.08887747]]
+[[0.56646878]] 
+
+[[2.63857859]
+ [2.08870181]]
+[[0.56632869]] 
+
+[[2.63974396]
+ [2.08852658]]
+[[0.56618929]] 
+
+[[2.64090644]
+ [2.08835179]]
+[[0.56605059]] 
+
+[[2.64206604]
+ [2.08817744]]
+[[0.56591257]] 
+
+[[2.64322276]
+ [2.08800351]]
+[[0.56577523]] 
+
+[[2.6443766 ]
+ [2.08783002]]
+[[0.56563858]] 
+
+[[2.64552758]
+ [2.08765696]]
+[[0.5655026]] 
+
+[[2.64667571]
+ [2.08748433]]
+[[0.5653673]] 
+
+[[2.64782098]
+ [2.08731212]]
+[[0.56523266]] 
+
+[[2.64896342]
+ [2.08714034]]
+[[0.5650987]] 
+
+[[2.65010302]
+ [2.08696899]]
+[[0.5649654]] 
+
+[[2.65123979]
+ [2.08679807]]
+[[0.56483276]] 
+
+[[2.65237373]
+ [2.08662757]]
+[[0.56470078]] 
+
+[[2.65350487]
+ [2.08645749]]
+[[0.56456945]] 
+
+[[2.65463319]
+ [2.08628784]]
+[[0.56443877]] 
+
+[[2.65575872]
+ [2.0861186 ]]
+[[0.56430874]] 
+
+[[2.65688145]
+ [2.08594979]]
+[[0.56417936]] 
+
+[[2.6580014 ]
+ [2.08578139]]
+[[0.56405062]] 
+
+[[2.65911856]
+ [2.08561342]]
+[[0.56392251]] 
+
+[[2.66023295]
+ [2.08544586]]
+[[0.56379504]] 
+
+[[2.66134458]
+ [2.08527871]]
+[[0.56366821]] 
+
+[[2.66245345]
+ [2.08511198]]
+[[0.563542]] 
+
+[[2.66355956]
+ [2.08494567]]
+[[0.56341642]] 
+
+[[2.66466293]
+ [2.08477976]]
+[[0.56329146]] 
+
+[[2.66576357]
+ [2.08461427]]
+[[0.56316711]] 
+
+[[2.66686147]
+ [2.08444919]]
+[[0.56304339]] 
+
+[[2.66795664]
+ [2.08428452]]
+[[0.56292028]] 
+
+[[2.6690491 ]
+ [2.08412026]]
+[[0.56279778]] 
+
+[[2.67013884]
+ [2.0839564 ]]
+[[0.56267589]] 
+
+[[2.67122588]
+ [2.08379296]]
+[[0.5625546]] 
+
+[[2.67231023]
+ [2.08362991]]
+[[0.56243391]] 
+
+[[2.67339188]
+ [2.08346728]]
+[[0.56231382]] 
+
+[[2.67447084]
+ [2.08330504]]
+[[0.56219433]] 
+
+[[2.67554713]
+ [2.08314321]]
+[[0.56207543]] 
+
+[[2.67662075]
+ [2.08298178]]
+[[0.56195712]] 
+
+[[2.6776917 ]
+ [2.08282075]]
+[[0.56183939]] 
+
+[[2.67876   ]
+ [2.08266013]]
+[[0.56172225]] 
+
+[[2.67982564]
+ [2.0824999 ]]
+[[0.56160569]] 
+
+[[2.68088864]
+ [2.08234006]]
+[[0.56148971]] 
+
+[[2.681949  ]
+ [2.08218063]]
+[[0.5613743]] 
+
+[[2.68300673]
+ [2.08202159]]
+[[0.56125946]] 
+
+[[2.68406183]
+ [2.08186294]]
+[[0.5611452]] 
+
+[[2.68511431]
+ [2.08170469]]
+[[0.5610315]] 
+
+[[2.68616418]
+ [2.08154683]]
+[[0.56091836]] 
+
+[[2.68721145]
+ [2.08138936]]
+[[0.56080579]] 
+
+[[2.68825612]
+ [2.08123229]]
+[[0.56069377]] 
+
+[[2.68929819]
+ [2.0810756 ]]
+[[0.56058231]] 
+
+[[2.69033768]
+ [2.0809193 ]]
+[[0.5604714]] 
+
+[[2.69137458]
+ [2.08076339]]
+[[0.56036104]] 
+
+[[2.69240892]
+ [2.08060787]]
+[[0.56025123]] 
+
+[[2.69344068]
+ [2.08045273]]
+[[0.56014196]] 
+
+[[2.69446989]
+ [2.08029798]]
+[[0.56003323]] 
+
+[[2.69549654]
+ [2.08014362]]
+[[0.55992505]] 
+
+[[2.69652064]
+ [2.07998963]]
+[[0.5598174]] 
+
+[[2.69754221]
+ [2.07983603]]
+[[0.55971028]] 
+
+[[2.69856123]
+ [2.07968281]]
+[[0.55960369]] 
+
+[[2.69957773]
+ [2.07952997]]
+[[0.55949764]] 
+
+[[2.7005917 ]
+ [2.07937751]]
+[[0.55939211]] 
+
+[[2.70160316]
+ [2.07922542]]
+[[0.5592871]] 
+
+[[2.7026121 ]
+ [2.07907372]]
+[[0.55918261]] 
+
+[[2.70361855]
+ [2.07892239]]
+[[0.55907864]] 
+
+[[2.70462249]
+ [2.07877144]]
+[[0.55897519]] 
+
+[[2.70562394]
+ [2.07862086]]
+[[0.55887224]] 
+
+[[2.70662291]
+ [2.07847065]]
+[[0.55876981]] 
+
+[[2.7076194 ]
+ [2.07832082]]
+[[0.55866789]] 
+
+[[2.70861341]
+ [2.07817136]]
+[[0.55856647]] 
+
+[[2.70960496]
+ [2.07802227]]
+[[0.55846556]] 
+
+[[2.71059405]
+ [2.07787355]]
+[[0.55836514]] 
+
+[[2.71158068]
+ [2.0777252 ]]
+[[0.55826523]] 
+
+[[2.71256486]
+ [2.07757722]]
+[[0.55816581]] 
+
+[[2.7135466 ]
+ [2.07742961]]
+[[0.55806688]] 
+
+[[2.7145259 ]
+ [2.07728236]]
+[[0.55796844]] 
+
+[[2.71550277]
+ [2.07713548]]
+[[0.55787049]] 
+
+[[2.71647722]
+ [2.07698896]]
+[[0.55777303]] 
+
+[[2.71744925]
+ [2.0768428 ]]
+[[0.55767604]] 
+
+[[2.71841887]
+ [2.07669701]]
+[[0.55757954]] 
+
+[[2.71938608]
+ [2.07655158]]
+[[0.55748352]] 
+
+[[2.72035089]
+ [2.07640651]]
+[[0.55738798]] 
+
+[[2.7213133]
+ [2.0762618]]
+[[0.5572929]] 
+
+[[2.72227333]
+ [2.07611745]]
+[[0.5571983]] 
+
+[[2.72323097]
+ [2.07597346]]
+[[0.55710417]] 
+
+[[2.72418624]
+ [2.07582983]]
+[[0.55701051]] 
+
+[[2.72513913]
+ [2.07568655]]
+[[0.55691731]] 
+
+[[2.72608966]
+ [2.07554363]]
+[[0.55682457]] 
+
+[[2.72703783]
+ [2.07540106]]
+[[0.55673229]] 
+
+[[2.72798365]
+ [2.07525885]]
+[[0.55664047]] 
+
+[[2.72892712]
+ [2.07511699]]
+[[0.5565491]] 
+
+[[2.72986825]
+ [2.07497548]]
+[[0.55645819]] 
+
+[[2.73080704]
+ [2.07483432]]
+[[0.55636773]] 
+
+[[2.73174351]
+ [2.07469352]]
+[[0.55627771]] 
+
+[[2.73267764]
+ [2.07455306]]
+[[0.55618814]] 
+
+[[2.73360946]
+ [2.07441295]]
+[[0.55609902]] 
+
+[[2.73453897]
+ [2.07427319]]
+[[0.55601034]] 
+
+[[2.73546617]
+ [2.07413377]]
+[[0.5559221]] 
+
+[[2.73639107]
+ [2.07399471]]
+[[0.55583429]] 
+
+[[2.73731367]
+ [2.07385598]]
+[[0.55574692]] 
+
+[[2.73823399]
+ [2.07371761]]
+[[0.55565999]] 
+
+[[2.73915202]
+ [2.07357957]]
+[[0.55557348]] 
+
+[[2.74006777]
+ [2.07344188]]
+[[0.55548741]] 
+
+[[2.74098124]
+ [2.07330453]]
+[[0.55540176]] 
+
+[[2.74189245]
+ [2.07316752]]
+[[0.55531653]] 
+
+[[2.7428014 ]
+ [2.07303085]]
+[[0.55523173]] 
+
+[[2.7437081 ]
+ [2.07289452]]
+[[0.55514735]] 
+
+[[2.74461254]
+ [2.07275853]]
+[[0.55506338]] 
+
+[[2.74551474]
+ [2.07262287]]
+[[0.55497984]] 
+
+[[2.74641469]
+ [2.07248755]]
+[[0.5548967]] 
+
+[[2.74731242]
+ [2.07235257]]
+[[0.55481398]] 
+
+[[2.74820792]
+ [2.07221792]]
+[[0.55473167]] 
+
+[[2.74910119]
+ [2.07208361]]
+[[0.55464977]] 
+
+[[2.74999225]
+ [2.07194963]]
+[[0.55456827]] 
+
+[[2.75088109]
+ [2.07181598]]
+[[0.55448718]] 
+
+[[2.75176773]
+ [2.07168267]]
+[[0.55440649]] 
+
+[[2.75265217]
+ [2.07154969]]
+[[0.5543262]] 
+
+[[2.75353441]
+ [2.07141703]]
+[[0.55424631]] 
+
+[[2.75441447]
+ [2.07128471]]
+[[0.55416681]] 
+
+[[2.75529233]
+ [2.07115271]]
+[[0.55408771]] 
+
+[[2.75616802]
+ [2.07102104]]
+[[0.554009]] 
+
+[[2.75704154]
+ [2.0708897 ]]
+[[0.55393068]] 
+
+[[2.75791289]
+ [2.07075868]]
+[[0.55385275]] 
+
+[[2.75878208]
+ [2.07062799]]
+[[0.5537752]] 
+
+[[2.75964911]
+ [2.07049762]]
+[[0.55369804]] 
+
+[[2.76051398]
+ [2.07036758]]
+[[0.55362126]] 
+
+[[2.76137671]
+ [2.07023786]]
+[[0.55354487]] 
+
+[[2.7622373 ]
+ [2.07010846]]
+[[0.55346885]] 
+
+[[2.76309576]
+ [2.06997939]]
+[[0.55339321]] 
+
+[[2.76395208]
+ [2.06985063]]
+[[0.55331794]] 
+
+[[2.76480627]
+ [2.06972219]]
+[[0.55324305]] 
+
+[[2.76565835]
+ [2.06959407]]
+[[0.55316852]] 
+
+[[2.76650831]
+ [2.06946627]]
+[[0.55309437]] 
+
+[[2.76735617]
+ [2.06933879]]
+[[0.55302059]] 
+
+[[2.76820191]
+ [2.06921162]]
+[[0.55294717]] 
+
+[[2.76904556]
+ [2.06908477]]
+[[0.55287411]] 
+
+[[2.76988712]
+ [2.06895824]]
+[[0.55280142]] 
+
+[[2.77072658]
+ [2.06883201]]
+[[0.55272909]] 
+
+[[2.77156397]
+ [2.0687061 ]]
+[[0.55265711]] 
+
+[[2.77239927]
+ [2.06858051]]
+[[0.55258549]] 
+
+[[2.7732325 ]
+ [2.06845522]]
+[[0.55251423]] 
+
+[[2.77406367]
+ [2.06833025]]
+[[0.55244332]] 
+
+[[2.77489277]
+ [2.06820558]]
+[[0.55237277]] 
+
+[[2.77571981]
+ [2.06808123]]
+[[0.55230256]] 
+
+[[2.7765448 ]
+ [2.06795719]]
+[[0.5522327]] 
+
+[[2.77736774]
+ [2.06783345]]
+[[0.55216319]] 
+
+[[2.77818864]
+ [2.06771002]]
+[[0.55209402]] 
+
+[[2.7790075 ]
+ [2.06758689]]
+[[0.55202519]] 
+
+[[2.77982433]
+ [2.06746407]]
+[[0.55195671]] 
+
+[[2.78063913]
+ [2.06734156]]
+[[0.55188856]] 
+
+[[2.78145191]
+ [2.06721935]]
+[[0.55182076]] 
+
+[[2.78226268]
+ [2.06709744]]
+[[0.55175328]] 
+
+[[2.78307143]
+ [2.06697584]]
+[[0.55168615]] 
+
+[[2.78387817]
+ [2.06685454]]
+[[0.55161934]] 
+
+[[2.78468291]
+ [2.06673354]]
+[[0.55155287]] 
+
+[[2.78548565]
+ [2.06661284]]
+[[0.55148673]] 
+
+[[2.7862864 ]
+ [2.06649244]]
+[[0.55142092]] 
+
+[[2.78708517]
+ [2.06637233]]
+[[0.55135543]] 
+
+[[2.78788195]
+ [2.06625253]]
+[[0.55129026]] 
+
+[[2.78867675]
+ [2.06613302]]
+[[0.55122542]] 
+
+[[2.78946958]
+ [2.06601381]]
+[[0.5511609]] 
+
+[[2.79026044]
+ [2.0658949 ]]
+[[0.5510967]] 
+
+[[2.79104934]
+ [2.06577628]]
+[[0.55103282]] 
+
+[[2.79183629]
+ [2.06565795]]
+[[0.55096926]] 
+
+[[2.79262127]
+ [2.06553992]]
+[[0.55090601]] 
+
+[[2.79340431]
+ [2.06542219]]
+[[0.55084307]] 
+
+[[2.79418541]
+ [2.06530474]]
+[[0.55078045]] 
+
+[[2.79496457]
+ [2.06518758]]
+[[0.55071814]] 
+
+[[2.79574179]
+ [2.06507072]]
+[[0.55065613]] 
+
+[[2.79651709]
+ [2.06495415]]
+[[0.55059444]] 
+
+[[2.79729046]
+ [2.06483786]]
+[[0.55053304]] 
+
+[[2.79806191]
+ [2.06472187]]
+[[0.55047196]] 
+
+[[2.79883145]
+ [2.06460616]]
+[[0.55041117]] 
+
+[[2.79959907]
+ [2.06449074]]
+[[0.55035069]] 
+
+[[2.8003648 ]
+ [2.06437561]]
+[[0.55029051]] 
+
+[[2.80112862]
+ [2.06426076]]
+[[0.55023063]] 
+
+[[2.80189054]
+ [2.06414619]]
+[[0.55017104]] 
+
+[[2.80265058]
+ [2.06403192]]
+[[0.55011175]] 
+
+[[2.80340872]
+ [2.06391792]]
+[[0.55005275]] 
+
+[[2.80416499]
+ [2.06380421]]
+[[0.54999404]] 
+
+[[2.80491938]
+ [2.06369078]]
+[[0.54993563]] 
+
+[[2.8056719 ]
+ [2.06357763]]
+[[0.5498775]] 
+
+[[2.80642254]
+ [2.06346476]]
+[[0.54981967]] 
+
+[[2.80717133]
+ [2.06335217]]
+[[0.54976212]] 
+
+[[2.80791826]
+ [2.06323987]]
+[[0.54970485]] 
+
+[[2.80866333]
+ [2.06312784]]
+[[0.54964787]] 
+
+[[2.80940655]
+ [2.06301609]]
+[[0.54959117]] 
+
+[[2.81014793]
+ [2.06290461]]
+[[0.54953476]] 
+
+[[2.81088747]
+ [2.06279341]]
+[[0.54947862]] 
+
+[[2.81162518]
+ [2.06268249]]
+[[0.54942276]] 
+
+[[2.81236105]
+ [2.06257185]]
+[[0.54936718]] 
+
+[[2.8130951 ]
+ [2.06246148]]
+[[0.54931187]] 
+
+[[2.81382732]
+ [2.06235138]]
+[[0.54925684]] 
+
+[[2.81455773]
+ [2.06224155]]
+[[0.54920208]] 
+
+[[2.81528632]
+ [2.062132  ]]
+[[0.54914759]] 
+
+[[2.81601311]
+ [2.06202272]]
+[[0.54909338]] 
+
+[[2.81673809]
+ [2.06191371]]
+[[0.54903943]] 
+
+[[2.81746127]
+ [2.06180498]]
+[[0.54898575]] 
+
+[[2.81818266]
+ [2.06169651]]
+[[0.54893233]] 
+
+[[2.81890226]
+ [2.06158831]]
+[[0.54887918]] 
+
+[[2.81962007]
+ [2.06148038]]
+[[0.54882629]] 
+
+[[2.8203361 ]
+ [2.06137272]]
+[[0.54877367]] 
+
+[[2.82105035]
+ [2.06126532]]
+[[0.5487213]] 
+
+[[2.82176283]
+ [2.06115819]]
+[[0.5486692]] 
+
+[[2.82247354]
+ [2.06105133]]
+[[0.54861735]] 
+
+[[2.82318249]
+ [2.06094473]]
+[[0.54856577]] 
+
+[[2.82388968]
+ [2.0608384 ]]
+[[0.54851443]] 
+
+[[2.82459511]
+ [2.06073233]]
+[[0.54846335]] 
+
+[[2.82529879]
+ [2.06062653]]
+[[0.54841253]] 
+
+[[2.82600073]
+ [2.06052098]]
+[[0.54836195]] 
+
+[[2.82670092]
+ [2.0604157 ]]
+[[0.54831163]] 
+
+[[2.82739937]
+ [2.06031068]]
+[[0.54826156]] 
+
+[[2.82809609]
+ [2.06020592]]
+[[0.54821173]] 
+
+[[2.82879109]
+ [2.06010142]]
+[[0.54816216]] 
+
+[[2.82948435]
+ [2.05999718]]
+[[0.54811282]] 
+
+[[2.8301759]
+ [2.0598932]]
+[[0.54806374]] 
+
+[[2.83086573]
+ [2.05978948]]
+[[0.54801489]] 
+
+[[2.83155385]
+ [2.05968601]]
+[[0.54796629]] 
+
+[[2.83224026]
+ [2.05958281]]
+[[0.54791793]] 
+
+[[2.83292496]
+ [2.05947985]]
+[[0.54786981]] 
+
+[[2.83360797]
+ [2.05937716]]
+[[0.54782192]] 
+
+[[2.83428928]
+ [2.05927471]]
+[[0.54777428]] 
+
+[[2.8349689 ]
+ [2.05917253]]
+[[0.54772687]] 
+
+[[2.83564684]
+ [2.05907059]]
+[[0.5476797]] 
+
+[[2.83632309]
+ [2.05896891]]
+[[0.54763276]] 
+
+[[2.83699766]
+ [2.05886748]]
+[[0.54758605]] 
+
+[[2.83767056]
+ [2.0587663 ]]
+[[0.54753957]] 
+
+[[2.83834179]
+ [2.05866538]]
+[[0.54749333]] 
+
+[[2.83901135]
+ [2.0585647 ]]
+[[0.54744731]] 
+
+[[2.83967925]
+ [2.05846428]]
+[[0.54740152]] 
+
+[[2.84034549]
+ [2.0583641 ]]
+[[0.54735596]] 
+
+[[2.84101008]
+ [2.05826417]]
+[[0.54731063]] 
+
+[[2.84167302]
+ [2.05816449]]
+[[0.54726552]] 
+
+[[2.84233432]
+ [2.05806506]]
+[[0.54722063]] 
+
+[[2.84299397]
+ [2.05796588]]
+[[0.54717597]] 
+
+[[2.84365199]
+ [2.05786694]]
+[[0.54713152]] 
+
+[[2.84430837]
+ [2.05776824]]
+[[0.5470873]] 
+
+[[2.84496312]
+ [2.05766979]]
+[[0.5470433]] 
+
+[[2.84561625]
+ [2.05757159]]
+[[0.54699951]] 
+
+[[2.84626776]
+ [2.05747363]]
+[[0.54695594]] 
+
+[[2.84691765]
+ [2.05737591]]
+[[0.54691259]] 
+
+[[2.84756593]
+ [2.05727844]]
+[[0.54686946]] 
+
+[[2.84821259]
+ [2.0571812 ]]
+[[0.54682653]] 
+
+[[2.84885766]
+ [2.05708421]]
+[[0.54678382]] 
+
+[[2.84950112]
+ [2.05698746]]
+[[0.54674132]] 
+
+[[2.85014298]
+ [2.05689095]]
+[[0.54669904]] 
+
+[[2.85078326]
+ [2.05679468]]
+[[0.54665696]] 
+
+[[2.85142194]
+ [2.05669864]]
+[[0.54661509]] 
+
+[[2.85205904]
+ [2.05660285]]
+[[0.54657343]] 
+
+[[2.85269455]
+ [2.05650729]]
+[[0.54653197]] 
+
+[[2.85332849]
+ [2.05641197]]
+[[0.54649072]] 
+
+[[2.85396086]
+ [2.05631689]]
+[[0.54644967]] 
+
+[[2.85459165]
+ [2.05622205]]
+[[0.54640883]] 
+
+[[2.85522088]
+ [2.05612743]]
+[[0.54636819]] 
+
+[[2.85584855]
+ [2.05603306]]
+[[0.54632776]] 
+
+[[2.85647466]
+ [2.05593892]]
+[[0.54628752]] 
+
+[[2.85709922]
+ [2.05584501]]
+[[0.54624748]] 
+
+[[2.85772223]
+ [2.05575133]]
+[[0.54620764]] 
+
+[[2.85834369]
+ [2.05565789]]
+[[0.546168]] 
+
+[[2.8589636 ]
+ [2.05556468]]
+[[0.54612855]] 
+
+[[2.85958198]
+ [2.0554717 ]]
+[[0.5460893]] 
+
+[[2.86019883]
+ [2.05537895]]
+[[0.54605025]] 
+
+[[2.86081414]
+ [2.05528643]]
+[[0.54601139]] 
+
+[[2.86142793]
+ [2.05519414]]
+[[0.54597272]] 
+
+[[2.86204019]
+ [2.05510208]]
+[[0.54593424]] 
+
+[[2.86265093]
+ [2.05501025]]
+[[0.54589595]] 
+
+[[2.86326016]
+ [2.05491865]]
+[[0.54585786]] 
+
+[[2.86386788]
+ [2.05482727]]
+[[0.54581995]] 
+
+[[2.86447408]
+ [2.05473612]]
+[[0.54578223]] 
+
+[[2.86507879]
+ [2.0546452 ]]
+[[0.5457447]] 
+
+[[2.86568199]
+ [2.0545545 ]]
+[[0.54570735]] 
+
+[[2.86628369]
+ [2.05446403]]
+[[0.54567019]] 
+
+[[2.8668839 ]
+ [2.05437378]]
+[[0.54563321]] 
+
+[[2.86748262]
+ [2.05428376]]
+[[0.54559642]] 
+
+[[2.86807986]
+ [2.05419396]]
+[[0.5455598]] 
+
+[[2.86867561]
+ [2.05410438]]
+[[0.54552337]] 
+
+[[2.86926989]
+ [2.05401502]]
+[[0.54548713]] 
+
+[[2.86986269]
+ [2.05392589]]
+[[0.54545106]] 
+
+[[2.87045401]
+ [2.05383698]]
+[[0.54541516]] 
+
+[[2.87104387]
+ [2.05374829]]
+[[0.54537945]] 
+
+[[2.87163227]
+ [2.05365982]]
+[[0.54534392]] 
+
+[[2.8722192 ]
+ [2.05357156]]
+[[0.54530856]] 
+
+[[2.87280468]
+ [2.05348353]]
+[[0.54527337]] 
+
+[[2.87338871]
+ [2.05339572]]
+[[0.54523836]] 
+
+[[2.87397129]
+ [2.05330812]]
+[[0.54520352]] 
+
+[[2.87455242]
+ [2.05322074]]
+[[0.54516886]] 
+
+[[2.8751321 ]
+ [2.05313358]]
+[[0.54513437]] 
+
+[[2.87571035]
+ [2.05304663]]
+[[0.54510005]] 
+
+[[2.87628717]
+ [2.0529599 ]]
+[[0.5450659]] 
+
+[[2.87686255]
+ [2.05287339]]
+[[0.54503192]] 
+
+[[2.8774365 ]
+ [2.05278709]]
+[[0.5449981]] 
+
+[[2.87800903]
+ [2.052701  ]]
+[[0.54496446]] 
+
+[[2.87858014]
+ [2.05261513]]
+[[0.54493098]] 
+
+[[2.87914983]
+ [2.05252947]]
+[[0.54489767]] 
+
+[[2.87971811]
+ [2.05244403]]
+[[0.54486452]] 
+
+[[2.88028498]
+ [2.05235879]]
+[[0.54483154]] 
+
+[[2.88085044]
+ [2.05227377]]
+[[0.54479872]] 
+
+[[2.88141449]
+ [2.05218896]]
+[[0.54476606]] 
+
+[[2.88197715]
+ [2.05210436]]
+[[0.54473357]] 
+
+[[2.88253841]
+ [2.05201997]]
+[[0.54470123]] 
+
+[[2.88309828]
+ [2.05193578]]
+[[0.54466906]] 
+
+[[2.88365675]
+ [2.05185181]]
+[[0.54463704]] 
+
+[[2.88421385]
+ [2.05176805]]
+[[0.54460519]] 
+
+[[2.88476955]
+ [2.05168449]]
+[[0.54457349]] 
+
+[[2.88532388]
+ [2.05160114]]
+[[0.54454195]] 
+
+[[2.88587684]
+ [2.051518  ]]
+[[0.54451057]] 
+
+[[2.88642842]
+ [2.05143506]]
+[[0.54447934]] 
+
+[[2.88697863]
+ [2.05135233]]
+[[0.54444827]] 
+
+[[2.88752747]
+ [2.05126981]]
+[[0.54441735]] 
+
+[[2.88807496]
+ [2.05118749]]
+[[0.54438658]] 
+
+[[2.88862108]
+ [2.05110537]]
+[[0.54435597]] 
+
+[[2.88916585]
+ [2.05102346]]
+[[0.54432551]] 
+
+[[2.88970927]
+ [2.05094175]]
+[[0.54429519]] 
+
+[[2.89025134]
+ [2.05086025]]
+[[0.54426503]] 
+
+[[2.89079206]
+ [2.05077895]]
+[[0.54423502]] 
+
+[[2.89133144]
+ [2.05069784]]
+[[0.54420516]] 
+
+[[2.89186949]
+ [2.05061694]]
+[[0.54417545]] 
+
+[[2.89240619]
+ [2.05053624]]
+[[0.54414588]] 
+
+[[2.89294157]
+ [2.05045575]]
+[[0.54411646]] 
+
+[[2.89347562]
+ [2.05037545]]
+[[0.54408719]] 
+
+[[2.89400834]
+ [2.05029535]]
+[[0.54405806]] 
+
+[[2.89453973]
+ [2.05021544]]
+[[0.54402907]] 
+
+[[2.89506981]
+ [2.05013574]]
+[[0.54400023]] 
+
+[[2.89559858]
+ [2.05005624]]
+[[0.54397153]] 
+
+[[2.89612603]
+ [2.04997693]]
+[[0.54394298]] 
+
+[[2.89665217]
+ [2.04989782]]
+[[0.54391456]] 
+
+[[2.89717701]
+ [2.0498189 ]]
+[[0.54388629]] 
+
+[[2.89770054]
+ [2.04974019]]
+[[0.54385816]] 
+
+[[2.89822278]
+ [2.04966166]]
+[[0.54383016]] 
+
+[[2.89874372]
+ [2.04958333]]
+[[0.54380231]] 
+
+[[2.89926336]
+ [2.0495052 ]]
+[[0.54377459]] 
+
+[[2.89978172]
+ [2.04942726]]
+[[0.54374701]] 
+
+[[2.90029879]
+ [2.04934951]]
+[[0.54371957]] 
+
+[[2.90081457]
+ [2.04927196]]
+[[0.54369226]] 
+
+[[2.90132908]
+ [2.0491946 ]]
+[[0.54366509]] 
+
+[[2.90184231]
+ [2.04911743]]
+[[0.54363806]] 
+
+[[2.90235426]
+ [2.04904045]]
+[[0.54361115]] 
+
+[[2.90286494]
+ [2.04896366]]
+[[0.54358438]] 
+
+[[2.90337436]
+ [2.04888707]]
+[[0.54355775]] 
+
+[[2.90388251]
+ [2.04881066]]
+[[0.54353124]] 
+
+[[2.9043894 ]
+ [2.04873445]]
+[[0.54350487]] 
+
+[[2.90489504]
+ [2.04865842]]
+[[0.54347863]] 
+
+[[2.90539941]
+ [2.04858258]]
+[[0.54345252]] 
+
+[[2.90590254]
+ [2.04850693]]
+[[0.54342653]] 
+
+[[2.90640442]
+ [2.04843147]]
+[[0.54340068]] 
+
+[[2.90690505]
+ [2.04835619]]
+[[0.54337495]] 
+
+[[2.90740444]
+ [2.04828111]]
+[[0.54334936]] 
+
+[[2.90790259]
+ [2.0482062 ]]
+[[0.54332389]] 
+
+[[2.9083995 ]
+ [2.04813149]]
+[[0.54329854]] 
+
+[[2.90889518]
+ [2.04805696]]
+[[0.54327332]] 
+
+[[2.90938963]
+ [2.04798261]]
+[[0.54324823]] 
+
+[[2.90988285]
+ [2.04790845]]
+[[0.54322326]] 
+
+[[2.91037485]
+ [2.04783447]]
+[[0.54319841]] 
+
+[[2.91086563]
+ [2.04776068]]
+[[0.54317369]] 
+
+[[2.91135519]
+ [2.04768707]]
+[[0.54314909]] 
+
+[[2.91184353]
+ [2.04761364]]
+[[0.54312461]] 
+
+[[2.91233066]
+ [2.0475404 ]]
+[[0.54310025]] 
+
+[[2.91281659]
+ [2.04746733]]
+[[0.54307602]] 
+
+[[2.9133013 ]
+ [2.04739445]]
+[[0.5430519]] 
+
+[[2.91378482]
+ [2.04732175]]
+[[0.5430279]] 
+
+[[2.91426713]
+ [2.04724923]]
+[[0.54300403]] 
+
+[[2.91474825]
+ [2.04717689]]
+[[0.54298027]] 
+
+[[2.91522817]
+ [2.04710473]]
+[[0.54295663]] 
+
+[[2.9157069 ]
+ [2.04703275]]
+[[0.5429331]] 
+
+[[2.91618444]
+ [2.04696094]]
+[[0.5429097]] 
+
+[[2.9166608 ]
+ [2.04688932]]
+[[0.5428864]] 
+
+[[2.91713597]
+ [2.04681787]]
+[[0.54286323]] 
+
+[[2.91760997]
+ [2.0467466 ]]
+[[0.54284017]] 
+
+[[2.91808279]
+ [2.04667551]]
+[[0.54281722]] 
+
+[[2.91855444]
+ [2.04660459]]
+[[0.54279439]] 
+
+[[2.91902491]
+ [2.04653385]]
+[[0.54277167]] 
+
+[[2.91949422]
+ [2.04646328]]
+[[0.54274906]] 
+
+[[2.91996236]
+ [2.04639289]]
+[[0.54272657]] 
+
+[[2.92042934]
+ [2.04632268]]
+[[0.54270418]] 
+
+[[2.92089516]
+ [2.04625264]]
+[[0.54268191]] 
+
+[[2.92135983]
+ [2.04618277]]
+[[0.54265975]] 
+
+[[2.92182334]
+ [2.04611308]]
+[[0.5426377]] 
+
+[[2.92228571]
+ [2.04604356]]
+[[0.54261575]] 
+
+[[2.92274692]
+ [2.04597421]]
+[[0.54259392]] 
+
+[[2.92320699]
+ [2.04590503]]
+[[0.54257219]] 
+
+[[2.92366592]
+ [2.04583603]]
+[[0.54255058]] 
+
+[[2.92412371]
+ [2.04576719]]
+[[0.54252906]] 
+
+[[2.92458036]
+ [2.04569853]]
+[[0.54250766]] 
+
+[[2.92503588]
+ [2.04563004]]
+[[0.54248636]] 
+
+[[2.92549027]
+ [2.04556172]]
+[[0.54246517]] 
+
+[[2.92594353]
+ [2.04549356]]
+[[0.54244408]] 
+
+[[2.92639566]
+ [2.04542558]]
+[[0.5424231]] 
+
+[[2.92684668]
+ [2.04535777]]
+[[0.54240222]] 
+
+[[2.92729657]
+ [2.04529012]]
+[[0.54238144]] 
+
+[[2.92774535]
+ [2.04522264]]
+[[0.54236077]] 
+
+[[2.92819301]
+ [2.04515533]]
+[[0.5423402]] 
+
+[[2.92863956]
+ [2.04508819]]
+[[0.54231973]] 
+
+[[2.92908501]
+ [2.04502121]]
+[[0.54229937]] 
+
+[[2.92952935]
+ [2.0449544 ]]
+[[0.5422791]] 
+
+[[2.92997258]
+ [2.04488776]]
+[[0.54225894]] 
+
+[[2.93041472]
+ [2.04482128]]
+[[0.54223887]] 
+
+[[2.93085576]
+ [2.04475496]]
+[[0.54221891]] 
+
+[[2.9312957 ]
+ [2.04468881]]
+[[0.54219904]] 
+
+[[2.93173455]
+ [2.04462283]]
+[[0.54217927]] 
+
+[[2.93217231]
+ [2.044557  ]]
+[[0.5421596]] 
+
+[[2.93260899]
+ [2.04449134]]
+[[0.54214003]] 
+
+[[2.93304458]
+ [2.04442585]]
+[[0.54212055]] 
+
+[[2.93347909]
+ [2.04436052]]
+[[0.54210118]] 
+
+[[2.93391252]
+ [2.04429534]]
+[[0.54208189]] 
+
+[[2.93434488]
+ [2.04423034]]
+[[0.54206271]] 
+
+[[2.93477616]
+ [2.04416549]]
+[[0.54204361]] 
+
+[[2.93520638]
+ [2.0441008 ]]
+[[0.54202462]] 
+
+[[2.93563552]
+ [2.04403627]]
+[[0.54200571]] 
+
+[[2.9360636 ]
+ [2.04397191]]
+[[0.5419869]] 
+
+[[2.93649062]
+ [2.0439077 ]]
+[[0.54196819]] 
+
+[[2.93691658]
+ [2.04384365]]
+[[0.54194956]] 
+
+[[2.93734148]
+ [2.04377977]]
+[[0.54193103]] 
+
+[[2.93776533]
+ [2.04371604]]
+[[0.54191259]] 
+
+[[2.93818812]
+ [2.04365247]]
+[[0.54189424]] 
+
+[[2.93860987]
+ [2.04358905]]
+[[0.54187599]] 
+
+[[2.93903056]
+ [2.0435258 ]]
+[[0.54185782]] 
+
+[[2.93945022]
+ [2.0434627 ]]
+[[0.54183974]] 
+
+[[2.93986883]
+ [2.04339975]]
+[[0.54182176]] 
+
+[[2.9402864 ]
+ [2.04333697]]
+[[0.54180386]] 
+
+[[2.94070294]
+ [2.04327434]]
+[[0.54178605]] 
+
+[[2.94111844]
+ [2.04321186]]
+[[0.54176833]] 
+
+[[2.94153291]
+ [2.04314954]]
+[[0.5417507]] 
+
+[[2.94194636]
+ [2.04308738]]
+[[0.54173315]] 
+
+[[2.94235877]
+ [2.04302537]]
+[[0.5417157]] 
+
+[[2.94277017]
+ [2.04296351]]
+[[0.54169832]] 
+
+[[2.94318054]
+ [2.0429018 ]]
+[[0.54168104]] 
+
+[[2.94358989]
+ [2.04284025]]
+[[0.54166384]] 
+
+[[2.94399823]
+ [2.04277886]]
+[[0.54164672]] 
+
+[[2.94440555]
+ [2.04271761]]
+[[0.54162969]] 
+
+[[2.94481187]
+ [2.04265652]]
+[[0.54161275]] 
+
+[[2.94521717]
+ [2.04259558]]
+[[0.54159589]] 
+
+[[2.94562147]
+ [2.04253479]]
+[[0.54157911]] 
+
+[[2.94602477]
+ [2.04247415]]
+[[0.54156241]] 
+
+[[2.94642706]
+ [2.04241366]]
+[[0.5415458]] 
+
+[[2.94682836]
+ [2.04235332]]
+[[0.54152927]] 
+
+[[2.94722866]
+ [2.04229313]]
+[[0.54151283]] 
+
+[[2.94762796]
+ [2.04223309]]
+[[0.54149646]] 
+
+[[2.94802628]
+ [2.0421732 ]]
+[[0.54148018]] 
+
+[[2.9484236 ]
+ [2.04211346]]
+[[0.54146397]] 
+
+[[2.94881994]
+ [2.04205386]]
+[[0.54144785]] 
+
+[[2.9492153 ]
+ [2.04199442]]
+[[0.5414318]] 
+
+[[2.94960968]
+ [2.04193512]]
+[[0.54141584]] 
+
+[[2.95000307]
+ [2.04187597]]
+[[0.54139995]] 
+
+[[2.95039549]
+ [2.04181696]]
+[[0.54138415]] 
+
+[[2.95078694]
+ [2.0417581 ]]
+[[0.54136842]] 
+
+[[2.95117741]
+ [2.04169939]]
+[[0.54135277]] 
+
+[[2.95156692]
+ [2.04164083]]
+[[0.5413372]] 
+
+[[2.95195546]
+ [2.04158241]]
+[[0.5413217]] 
+
+[[2.95234303]
+ [2.04152413]]
+[[0.54130628]] 
+
+[[2.95272964]
+ [2.041466  ]]
+[[0.54129094]] 
+
+[[2.9531153 ]
+ [2.04140801]]
+[[0.54127568]] 
+
+[[2.95349999]
+ [2.04135017]]
+[[0.54126049]] 
+
+[[2.95388373]
+ [2.04129247]]
+[[0.54124537]] 
+
+[[2.95426652]
+ [2.04123491]]
+[[0.54123033]] 
+
+[[2.95464836]
+ [2.0411775 ]]
+[[0.54121537]] 
+
+[[2.95502925]
+ [2.04112023]]
+[[0.54120047]] 
+
+[[2.9554092]
+ [2.0410631]]
+[[0.54118566]] 
+
+[[2.9557882 ]
+ [2.04100611]]
+[[0.54117091]] 
+
+[[2.95616626]
+ [2.04094927]]
+[[0.54115624]] 
+
+[[2.95654338]
+ [2.04089257]]
+[[0.54114164]] 
+
+[[2.95691957]
+ [2.040836  ]]
+[[0.54112712]] 
+
+[[2.95729482]
+ [2.04077958]]
+[[0.54111267]] 
+
+[[2.95766915]
+ [2.0407233 ]]
+[[0.54109828]] 
+
+[[2.95804254]
+ [2.04066715]]
+[[0.54108397]] 
+
+[[2.958415  ]
+ [2.04061115]]
+[[0.54106973]] 
+
+[[2.95878655]
+ [2.04055528]]
+[[0.54105556]] 
+
+[[2.95915717]
+ [2.04049956]]
+[[0.54104146]] 
+
+[[2.95952687]
+ [2.04044397]]
+[[0.54102744]] 
+
+[[2.95989565]
+ [2.04038852]]
+[[0.54101348]] 
+
+[[2.96026351]
+ [2.04033321]]
+[[0.54099959]] 
+
+[[2.96063047]
+ [2.04027803]]
+[[0.54098576]] 
+
+[[2.96099651]
+ [2.04022299]]
+[[0.54097201]] 
+
+[[2.96136165]
+ [2.04016809]]
+[[0.54095833]] 
+
+[[2.96172587]
+ [2.04011332]]
+[[0.54094471]] 
+
+[[2.9620892]
+ [2.0400587]]
+[[0.54093116]] 
+
+[[2.96245162]
+ [2.0400042 ]]
+[[0.54091768]] 
+
+[[2.96281314]
+ [2.03994984]]
+[[0.54090426]] 
+
+[[2.96317377]
+ [2.03989562]]
+[[0.54089091]] 
+
+[[2.9635335 ]
+ [2.03984153]]
+[[0.54087763]] 
+
+[[2.96389234]
+ [2.03978757]]
+[[0.54086442]] 
+
+[[2.96425028]
+ [2.03973375]]
+[[0.54085126]] 
+
+[[2.96460734]
+ [2.03968007]]
+[[0.54083818]] 
+
+[[2.96496352]
+ [2.03962651]]
+[[0.54082516]] 
+
+[[2.9653188 ]
+ [2.03957309]]
+[[0.5408122]] 
+
+[[2.96567321]
+ [2.0395198 ]]
+[[0.54079931]] 
+
+[[2.96602674]
+ [2.03946665]]
+[[0.54078648]] 
+
+[[2.96637939]
+ [2.03941362]]
+[[0.54077372]] 
+
+[[2.96673116]
+ [2.03936073]]
+[[0.54076101]] 
+
+[[2.96708206]
+ [2.03930797]]
+[[0.54074837]] 
+
+[[2.96743209]
+ [2.03925534]]
+[[0.5407358]] 
+
+[[2.96778125]
+ [2.03920284]]
+[[0.54072329]] 
+
+[[2.96812955]
+ [2.03915047]]
+[[0.54071083]] 
+
+[[2.96847698]
+ [2.03909823]]
+[[0.54069844]] 
+
+[[2.96882355]
+ [2.03904612]]
+[[0.54068612]] 
+
+[[2.96916926]
+ [2.03899414]]
+[[0.54067385]] 
+
+[[2.96951411]
+ [2.03894228]]
+[[0.54066164]] 
+
+[[2.9698581 ]
+ [2.03889056]]
+[[0.5406495]] 
+
+[[2.97020124]
+ [2.03883897]]
+[[0.54063741]] 
+
+[[2.97054353]
+ [2.0387875 ]]
+[[0.54062538]] 
+
+[[2.97088497]
+ [2.03873616]]
+[[0.54061342]] 
+
+[[2.97122556]
+ [2.03868495]]
+[[0.54060151]] 
+
+[[2.9715653 ]
+ [2.03863387]]
+[[0.54058966]] 
+
+[[2.97190421]
+ [2.03858291]]
+[[0.54057787]] 
+
+[[2.97224227]
+ [2.03853208]]
+[[0.54056614]] 
+
+[[2.97257949]
+ [2.03848137]]
+[[0.54055447]] 
+
+[[2.97291588]
+ [2.03843079]]
+[[0.54054286]] 
+
+[[2.97325143]
+ [2.03838034]]
+[[0.5405313]] 
+
+[[2.97358615]
+ [2.03833001]]
+[[0.5405198]] 
+
+[[2.97392003]
+ [2.03827981]]
+[[0.54050836]] 
+
+[[2.97425309]
+ [2.03822973]]
+[[0.54049697]] 
+
+[[2.97458532]
+ [2.03817978]]
+[[0.54048564]] 
+
+[[2.97491673]
+ [2.03812994]]
+[[0.54047437]] 
+
+[[2.97524732]
+ [2.03808024]]
+[[0.54046315]] 
+
+[[2.97557708]
+ [2.03803065]]
+[[0.54045199]] 
+
+[[2.97590603]
+ [2.03798119]]
+[[0.54044088]] 
+
+[[2.97623415]
+ [2.03793186]]
+[[0.54042983]] 
+
+[[2.97656147]
+ [2.03788264]]
+[[0.54041884]] 
+
+[[2.97688797]
+ [2.03783355]]
+[[0.54040789]] 
+
+[[2.97721366]
+ [2.03778458]]
+[[0.54039701]] 
+
+[[2.97753855]
+ [2.03773573]]
+[[0.54038617]] 
+
+[[2.97786262]
+ [2.037687  ]]
+[[0.54037539]] 
+
+[[2.9781859 ]
+ [2.03763839]]
+[[0.54036466]] 
+
+[[2.97850837]
+ [2.03758991]]
+[[0.54035399]] 
+
+[[2.97883004]
+ [2.03754154]]
+[[0.54034337]] 
+
+[[2.97915091]
+ [2.03749329]]
+[[0.5403328]] 
+
+[[2.97947099]
+ [2.03744517]]
+[[0.54032229]] 
+
+[[2.97979027]
+ [2.03739716]]
+[[0.54031182]] 
+
+[[2.98010876]
+ [2.03734927]]
+[[0.54030141]] 
+
+[[2.98042645]
+ [2.0373015 ]]
+[[0.54029105]] 
+
+[[2.98074336]
+ [2.03725385]]
+[[0.54028074]] 
+
+[[2.98105949]
+ [2.03720632]]
+[[0.54027049]] 
+
+[[2.98137482]
+ [2.0371589 ]]
+[[0.54026028]] 
+
+[[2.98168938]
+ [2.03711161]]
+[[0.54025012]] 
+
+[[2.98200316]
+ [2.03706443]]
+[[0.54024002]] 
+
+[[2.98231615]
+ [2.03701737]]
+[[0.54022996]] 
+
+[[2.98262837]
+ [2.03697042]]
+[[0.54021996]] 
+
+[[2.98293982]
+ [2.03692359]]
+[[0.54021]] 
+
+[[2.98325049]
+ [2.03687688]]
+[[0.54020009]] 
+
+[[2.98356039]
+ [2.03683028]]
+[[0.54019024]] 
+
+[[2.98386952]
+ [2.0367838 ]]
+[[0.54018043]] 
+
+[[2.98417788]
+ [2.03673744]]
+[[0.54017067]] 
+
+[[2.98448548]
+ [2.03669119]]
+[[0.54016095]] 
+
+[[2.98479232]
+ [2.03664505]]
+[[0.54015129]] 
+
+[[2.98509839]
+ [2.03659903]]
+[[0.54014168]] 
+
+[[2.9854037 ]
+ [2.03655312]]
+[[0.54013211]] 
+
+[[2.98570826]
+ [2.03650733]]
+[[0.54012259]] 
+
+[[2.98601206]
+ [2.03646165]]
+[[0.54011311]] 
+
+[[2.98631511]
+ [2.03641608]]
+[[0.54010369]] 
+
+[[2.9866174 ]
+ [2.03637063]]
+[[0.54009431]] 
+
+[[2.98691894]
+ [2.03632529]]
+[[0.54008497]] 
+
+[[2.98721974]
+ [2.03628006]]
+[[0.54007569]] 
+
+[[2.98751979]
+ [2.03623495]]
+[[0.54006645]] 
+
+[[2.98781909]
+ [2.03618994]]
+[[0.54005725]] 
+
+[[2.98811765]
+ [2.03614505]]
+[[0.5400481]] 
+
+[[2.98841547]
+ [2.03610027]]
+[[0.540039]] 
+
+[[2.98871255]
+ [2.0360556 ]]
+[[0.54002994]] 
+
+[[2.9890089 ]
+ [2.03601104]]
+[[0.54002093]] 
+
+[[2.98930451]
+ [2.0359666 ]]
+[[0.54001196]] 
+
+[[2.98959938]
+ [2.03592226]]
+[[0.54000303]] 
+
+[[2.98989352]
+ [2.03587803]]
+[[0.53999415]] 
+
+[[2.99018693]
+ [2.03583391]]
+[[0.53998531]] 
+
+[[2.99047962]
+ [2.03578991]]
+[[0.53997652]] 
+
+[[2.99077158]
+ [2.03574601]]
+[[0.53996777]] 
+
+[[2.99106281]
+ [2.03570222]]
+[[0.53995907]] 
+
+[[2.99135332]
+ [2.03565854]]
+[[0.5399504]] 
+
+[[2.99164311]
+ [2.03561496]]
+[[0.53994178]] 
+
+[[2.99193218]
+ [2.0355715 ]]
+[[0.53993321]] 
+
+[[2.99222053]
+ [2.03552814]]
+[[0.53992467]] 
+
+[[2.99250817]
+ [2.03548489]]
+[[0.53991618]] 
+
+[[2.99279509]
+ [2.03544175]]
+[[0.53990773]] 
+
+[[2.9930813 ]
+ [2.03539872]]
+[[0.53989932]] 
+
+[[2.9933668 ]
+ [2.03535579]]
+[[0.53989096]] 
+
+[[2.99365159]
+ [2.03531297]]
+[[0.53988263]] 
+
+[[2.99393568]
+ [2.03527025]]
+[[0.53987435]] 
+
+[[2.99421906]
+ [2.03522764]]
+[[0.5398661]] 
+
+[[2.99450173]
+ [2.03518514]]
+[[0.5398579]] 
+
+[[2.99478371]
+ [2.03514274]]
+[[0.53984974]] 
+
+[[2.99506498]
+ [2.03510045]]
+[[0.53984162]] 
+
+[[2.99534556]
+ [2.03505826]]
+[[0.53983354]] 
+
+[[2.99562544]
+ [2.03501618]]
+[[0.5398255]] 
+
+[[2.99590463]
+ [2.0349742 ]]
+[[0.5398175]] 
+
+[[2.99618312]
+ [2.03493233]]
+[[0.53980954]] 
+
+[[2.99646092]
+ [2.03489056]]
+[[0.53980162]] 
+
+[[2.99673803]
+ [2.03484889]]
+[[0.53979374]] 
+
+[[2.99701446]
+ [2.03480733]]
+[[0.53978589]] 
+
+[[2.9972902 ]
+ [2.03476587]]
+[[0.53977809]] 
+
+[[2.99756525]
+ [2.03472451]]
+[[0.53977032]] 
+
+[[2.99783962]
+ [2.03468325]]
+[[0.5397626]] 
+
+[[2.99811331]
+ [2.0346421 ]]
+[[0.53975491]] 
+
+[[2.99838632]
+ [2.03460105]]
+[[0.53974726]] 
+
+[[2.99865866]
+ [2.0345601 ]]
+[[0.53973964]] 
+
+[[2.99893031]
+ [2.03451926]]
+[[0.53973207]] 
+
+[[2.9992013 ]
+ [2.03447851]]
+[[0.53972453]] 
+
+[[2.99947161]
+ [2.03443787]]
+[[0.53971703]] 
+
+[[2.99974125]
+ [2.03439733]]
+[[0.53970957]] 
+
+[[3.00001022]
+ [2.03435688]]
+[[0.53970214]] 
+
+[[3.00027852]
+ [2.03431654]]
+[[0.53969475]] 
+
+[[3.00054616]
+ [2.0342763 ]]
+[[0.5396874]] 
+
+[[3.00081313]
+ [2.03423616]]
+[[0.53968009]] 
+
+[[3.00107944]
+ [2.03419612]]
+[[0.53967281]] 
+
+[[3.00134509]
+ [2.03415617]]
+[[0.53966556]] 
+
+[[3.00161008]
+ [2.03411633]]
+[[0.53965836]] 
+
+[[3.00187441]
+ [2.03407658]]
+[[0.53965118]] 
+
+[[3.00213809]
+ [2.03403694]]
+[[0.53964405]] 
+
+[[3.00240111]
+ [2.03399739]]
+[[0.53963695]] 
+
+[[3.00266348]
+ [2.03395794]]
+[[0.53962988]] 
+
+[[3.0029252 ]
+ [2.03391859]]
+[[0.53962285]] 
+
+[[3.00318626]
+ [2.03387933]]
+[[0.53961586]] 
+
+[[3.00344668]
+ [2.03384018]]
+[[0.53960889]] 
+
+[[3.00370646]
+ [2.03380112]]
+[[0.53960197]] 
+
+[[3.00396559]
+ [2.03376215]]
+[[0.53959508]] 
+
+[[3.00422407]
+ [2.03372329]]
+[[0.53958822]] 
+
+[[3.00448192]
+ [2.03368452]]
+[[0.53958139]] 
+
+[[3.00473912]
+ [2.03364585]]
+[[0.5395746]] 
+
+[[3.00499568]
+ [2.03360727]]
+[[0.53956785]] 
+
+[[3.00525161]
+ [2.03356879]]
+[[0.53956112]] 
+
+[[3.00550691]
+ [2.0335304 ]]
+[[0.53955443]] 
+
+[[3.00576157]
+ [2.03349211]]
+[[0.53954778]] 
+
+[[3.0060156 ]
+ [2.03345391]]
+[[0.53954115]] 
+
+[[3.00626899]
+ [2.03341581]]
+[[0.53953456]] 
+
+[[3.00652176]
+ [2.03337781]]
+[[0.539528]] 
+
+[[3.0067739 ]
+ [2.03333989]]
+[[0.53952148]] 
+
+[[3.00702542]
+ [2.03330208]]
+[[0.53951499]] 
+
+[[3.00727631]
+ [2.03326435]]
+[[0.53950853]] 
+
+[[3.00752658]
+ [2.03322672]]
+[[0.5395021]] 
+
+[[3.00777623]
+ [2.03318919]]
+[[0.5394957]] 
+
+[[3.00802525]
+ [2.03315174]]
+[[0.53948933]] 
+
+[[3.00827366]
+ [2.03311439]]
+[[0.539483]] 
+
+[[3.00852146]
+ [2.03307713]]
+[[0.5394767]] 
+
+[[3.00876863]
+ [2.03303997]]
+[[0.53947043]] 
+
+[[3.0090152 ]
+ [2.03300289]]
+[[0.53946419]] 
+
+[[3.00926115]
+ [2.03296591]]
+[[0.53945798]] 
+
+[[3.00950649]
+ [2.03292902]]
+[[0.5394518]] 
+
+[[3.00975123]
+ [2.03289222]]
+[[0.53944565]] 
+
+[[3.00999535]
+ [2.03285552]]
+[[0.53943953]] 
+
+[[3.01023887]
+ [2.0328189 ]]
+[[0.53943345]] 
+
+[[3.01048179]
+ [2.03278238]]
+[[0.53942739]] 
+
+[[3.0107241 ]
+ [2.03274594]]
+[[0.53942136]] 
+
+[[3.01096581]
+ [2.0327096 ]]
+[[0.53941537]] 
+
+[[3.01120692]
+ [2.03267335]]
+[[0.5394094]] 
+
+[[3.01144744]
+ [2.03263718]]
+[[0.53940346]] 
+
+[[3.01168735]
+ [2.03260111]]
+[[0.53939755]] 
+
+[[3.01192667]
+ [2.03256512]]
+[[0.53939168]] 
+
+[[3.0121654 ]
+ [2.03252923]]
+[[0.53938583]] 
+
+[[3.01240353]
+ [2.03249342]]
+[[0.53938]] 
+
+[[3.01264107]
+ [2.03245771]]
+[[0.53937421]] 
+
+[[3.01287803]
+ [2.03242208]]
+[[0.53936845]] 
+
+[[3.01311439]
+ [2.03238654]]
+[[0.53936272]] 
+
+[[3.01335017]
+ [2.03235109]]
+[[0.53935701]] 
+
+[[3.01358536]
+ [2.03231572]]
+[[0.53935133]] 
+
+[[3.01381997]
+ [2.03228045]]
+[[0.53934568]] 
+
+[[3.014054  ]
+ [2.03224526]]
+[[0.53934006]] 
+
+[[3.01428745]
+ [2.03221016]]
+[[0.53933447]] 
+
+[[3.01452031]
+ [2.03217514]]
+[[0.5393289]] 
+
+[[3.0147526 ]
+ [2.03214022]]
+[[0.53932336]] 
+
+[[3.01498432]
+ [2.03210538]]
+[[0.53931785]] 
+
+[[3.01521545]
+ [2.03207062]]
+[[0.53931237]] 
+
+[[3.01544602]
+ [2.03203595]]
+[[0.53930691]] 
+
+[[3.01567601]
+ [2.03200137]]
+[[0.53930148]] 
+
+[[3.01590543]
+ [2.03196688]]
+[[0.53929608]] 
+
+[[3.01613428]
+ [2.03193247]]
+[[0.5392907]] 
+
+[[3.01636256]
+ [2.03189814]]
+[[0.53928535]] 
+
+[[3.01659028]
+ [2.0318639 ]]
+[[0.53928003]] 
+
+[[3.01681743]
+ [2.03182975]]
+[[0.53927474]] 
+
+[[3.01704402]
+ [2.03179568]]
+[[0.53926947]] 
+
+[[3.01727004]
+ [2.03176169]]
+[[0.53926422]] 
+
+[[3.01749551]
+ [2.03172779]]
+[[0.539259]] 
+
+[[3.01772041]
+ [2.03169398]]
+[[0.53925381]] 
+
+[[3.01794476]
+ [2.03166024]]
+[[0.53924865]] 
+
+[[3.01816855]
+ [2.03162659]]
+[[0.53924351]] 
+
+[[3.01839178]
+ [2.03159303]]
+[[0.53923839]] 
+
+[[3.01861446]
+ [2.03155955]]
+[[0.5392333]] 
+
+[[3.01883659]
+ [2.03152615]]
+[[0.53922824]] 
+
+[[3.01905816]
+ [2.03149283]]
+[[0.5392232]] 
+
+[[3.01927919]
+ [2.0314596 ]]
+[[0.53921818]] 
+
+[[3.01949967]
+ [2.03142645]]
+[[0.53921319]] 
+
+[[3.0197196 ]
+ [2.03139338]]
+[[0.53920823]] 
+
+[[3.01993898]
+ [2.03136039]]
+[[0.53920329]] 
+
+[[3.02015782]
+ [2.03132749]]
+[[0.53919837]] 
+
+[[3.02037612]
+ [2.03129466]]
+[[0.53919348]] 
+
+[[3.02059387]
+ [2.03126192]]
+[[0.53918861]] 
+
+[[3.02081109]
+ [2.03122926]]
+[[0.53918377]] 
+
+[[3.02102776]
+ [2.03119668]]
+[[0.53917895]] 
+
+[[3.0212439 ]
+ [2.03116418]]
+[[0.53917416]] 
+
+[[3.0214595 ]
+ [2.03113177]]
+[[0.53916939]] 
+
+[[3.02167457]
+ [2.03109943]]
+[[0.53916464]] 
+
+[[3.0218891 ]
+ [2.03106717]]
+[[0.53915992]] 
+
+[[3.0221031 ]
+ [2.03103499]]
+[[0.53915521]] 
+
+[[3.02231657]
+ [2.0310029 ]]
+[[0.53915054]] 
+
+[[3.02252951]
+ [2.03097088]]
+[[0.53914588]] 
+
+[[3.02274192]
+ [2.03093894]]
+[[0.53914125]] 
+
+[[3.0229538 ]
+ [2.03090708]]
+[[0.53913664]] 
+
+[[3.02316516]
+ [2.0308753 ]]
+[[0.53913206]] 
+
+[[3.02337599]
+ [2.0308436 ]]
+[[0.5391275]] 
+
+[[3.0235863 ]
+ [2.03081198]]
+[[0.53912296]] 
+
+[[3.02379609]
+ [2.03078044]]
+[[0.53911844]] 
+
+[[3.02400535]
+ [2.03074897]]
+[[0.53911394]] 
+
+[[3.0242141 ]
+ [2.03071758]]
+[[0.53910947]] 
+
+[[3.02442233]
+ [2.03068627]]
+[[0.53910502]] 
+
+[[3.02463004]
+ [2.03065504]]
+[[0.53910059]] 
+
+[[3.02483724]
+ [2.03062389]]
+[[0.53909619]] 
+
+[[3.02504392]
+ [2.03059281]]
+[[0.5390918]] 
+
+[[3.02525009]
+ [2.03056181]]
+[[0.53908744]] 
+
+[[3.02545575]
+ [2.03053089]]
+[[0.5390831]] 
+
+[[3.02566089]
+ [2.03050004]]
+[[0.53907878]] 
+
+[[3.02586553]
+ [2.03046927]]
+[[0.53907448]] 
+
+[[3.02606966]
+ [2.03043858]]
+[[0.5390702]] 
+
+[[3.02627329]
+ [2.03040796]]
+[[0.53906595]] 
+
+[[3.0264764 ]
+ [2.03037742]]
+[[0.53906171]] 
+
+[[3.02667902]
+ [2.03034696]]
+[[0.5390575]] 
+
+[[3.02688113]
+ [2.03031657]]
+[[0.5390533]] 
+
+[[3.02708274]
+ [2.03028625]]
+[[0.53904913]] 
+
+[[3.02728385]
+ [2.03025602]]
+[[0.53904498]] 
+
+[[3.02748446]
+ [2.03022585]]
+[[0.53904085]] 
+
+[[3.02768457]
+ [2.03019576]]
+[[0.53903674]] 
+
+[[3.02788419]
+ [2.03016575]]
+[[0.53903265]] 
+
+[[3.02808331]
+ [2.03013581]]
+[[0.53902858]] 
+
+[[3.02828193]
+ [2.03010594]]
+[[0.53902453]] 
+
+[[3.02848006]
+ [2.03007615]]
+[[0.5390205]] 
+
+[[3.0286777 ]
+ [2.03004644]]
+[[0.53901649]] 
+
+[[3.02887486]
+ [2.03001679]]
+[[0.5390125]] 
+
+[[3.02907152]
+ [2.02998722]]
+[[0.53900853]] 
+
+[[3.02926769]
+ [2.02995772]]
+[[0.53900458]] 
+
+[[3.02946338]
+ [2.0299283 ]]
+[[0.53900065]] 
+
+[[3.02965858]
+ [2.02989895]]
+[[0.53899674]] 
+
+[[3.02985329]
+ [2.02986967]]
+[[0.53899285]] 
+
+[[3.03004752]
+ [2.02984047]]
+[[0.53898898]] 
+
+[[3.03024127]
+ [2.02981134]]
+[[0.53898512]] 
+
+[[3.03043454]
+ [2.02978228]]
+[[0.53898129]] 
+
+[[3.03062733]
+ [2.02975329]]
+[[0.53897748]] 
+
+[[3.03081965]
+ [2.02972437]]
+[[0.53897368]] 
+
+[[3.03101148]
+ [2.02969553]]
+[[0.5389699]] 
+
+[[3.03120284]
+ [2.02966676]]
+[[0.53896614]] 
+
+[[3.03139372]
+ [2.02963805]]
+[[0.5389624]] 
+
+[[3.03158413]
+ [2.02960942]]
+[[0.53895868]] 
+
+[[3.03177407]
+ [2.02958087]]
+[[0.53895498]] 
+
+[[3.03196353]
+ [2.02955238]]
+[[0.53895129]] 
+
+[[3.03215253]
+ [2.02952396]]
+[[0.53894763]] 
+
+[[3.03234105]
+ [2.02949561]]
+[[0.53894398]] 
+
+[[3.03252911]
+ [2.02946734]]
+[[0.53894035]] 
+
+[[3.0327167 ]
+ [2.02943913]]
+[[0.53893674]] 
+
+[[3.03290383]
+ [2.02941099]]
+[[0.53893314]] 
+
+[[3.03309049]
+ [2.02938293]]
+[[0.53892957]] 
+
+[[3.03327669]
+ [2.02935493]]
+[[0.53892601]] 
+
+[[3.03346242]
+ [2.029327  ]]
+[[0.53892247]] 
+
+[[3.0336477 ]
+ [2.02929915]]
+[[0.53891894]] 
+
+[[3.03383251]
+ [2.02927136]]
+[[0.53891544]] 
+
+[[3.03401687]
+ [2.02924364]]
+[[0.53891195]] 
+
+[[3.03420077]
+ [2.02921599]]
+[[0.53890848]] 
+
+[[3.03438421]
+ [2.0291884 ]]
+[[0.53890502]] 
+
+[[3.0345672 ]
+ [2.02916089]]
+[[0.53890159]] 
+
+[[3.03474973]
+ [2.02913344]]
+[[0.53889817]] 
+
+[[3.03493181]
+ [2.02910607]]
+[[0.53889476]] 
+
+[[3.03511344]
+ [2.02907876]]
+[[0.53889138]] 
+
+[[3.03529461]
+ [2.02905152]]
+[[0.53888801]] 
+
+[[3.03547534]
+ [2.02902434]]
+[[0.53888466]] 
+
+[[3.03565562]
+ [2.02899723]]
+[[0.53888132]] 
+
+[[3.03583545]
+ [2.0289702 ]]
+[[0.538878]] 
+
+[[3.03601484]
+ [2.02894322]]
+[[0.5388747]] 
+
+[[3.03619378]
+ [2.02891632]]
+[[0.53887141]] 
+
+[[3.03637227]
+ [2.02888948]]
+[[0.53886814]] 
+
+[[3.03655032]
+ [2.02886271]]
+[[0.53886489]] 
+
+[[3.03672793]
+ [2.028836  ]]
+[[0.53886165]] 
+
+[[3.0369051 ]
+ [2.02880936]]
+[[0.53885843]] 
+
+[[3.03708183]
+ [2.02878279]]
+[[0.53885522]] 
+
+[[3.03725813]
+ [2.02875628]]
+[[0.53885203]] 
+
+[[3.03743398]
+ [2.02872984]]
+[[0.53884886]] 
+
+[[3.0376094 ]
+ [2.02870346]]
+[[0.5388457]] 
+
+[[3.03778438]
+ [2.02867715]]
+[[0.53884256]] 
+
+[[3.03795893]
+ [2.02865091]]
+[[0.53883943]] 
+
+[[3.03813304]
+ [2.02862473]]
+[[0.53883632]] 
+
+[[3.03830672]
+ [2.02859861]]
+[[0.53883322]] 
+
+[[3.03847998]
+ [2.02857256]]
+[[0.53883014]] 
+
+[[3.0386528 ]
+ [2.02854658]]
+[[0.53882707]] 
+
+[[3.03882519]
+ [2.02852066]]
+[[0.53882402]] 
+
+[[3.03899715]
+ [2.0284948 ]]
+[[0.53882099]] 
+
+[[3.03916869]
+ [2.02846901]]
+[[0.53881797]] 
+
+[[3.0393398 ]
+ [2.02844328]]
+[[0.53881496]] 
+
+[[3.03951049]
+ [2.02841762]]
+[[0.53881197]] 
+
+[[3.03968075]
+ [2.02839201]]
+[[0.538809]] 
+
+[[3.03985059]
+ [2.02836648]]
+[[0.53880604]] 
+
+[[3.04002001]
+ [2.028341  ]]
+[[0.53880309]] 
+
+[[3.04018901]
+ [2.02831559]]
+[[0.53880016]] 
+
+[[3.04035759]
+ [2.02829025]]
+[[0.53879724]] 
+
+[[3.04052575]
+ [2.02826496]]
+[[0.53879434]] 
+
+[[3.0406935 ]
+ [2.02823974]]
+[[0.53879145]] 
+
+[[3.04086082]
+ [2.02821458]]
+[[0.53878858]] 
+
+[[3.04102774]
+ [2.02818948]]
+[[0.53878572]] 
+
+[[3.04119423]
+ [2.02816445]]
+[[0.53878287]] 
+
+[[3.04136032]
+ [2.02813947]]
+[[0.53878004]] 
+
+[[3.04152599]
+ [2.02811456]]
+[[0.53877722]] 
+
+[[3.04169125]
+ [2.02808972]]
+[[0.53877442]] 
+
+[[3.0418561 ]
+ [2.02806493]]
+[[0.53877163]] 
+
+[[3.04202054]
+ [2.0280402 ]]
+[[0.53876886]] 
+
+[[3.04218458]
+ [2.02801554]]
+[[0.53876609]] 
+
+[[3.0423482 ]
+ [2.02799094]]
+[[0.53876335]] 
+
+[[3.04251142]
+ [2.02796639]]
+[[0.53876061]] 
+
+[[3.04267424]
+ [2.02794191]]
+[[0.53875789]] 
+
+[[3.04283665]
+ [2.02791749]]
+[[0.53875518]] 
+
+[[3.04299866]
+ [2.02789313]]
+[[0.53875249]] 
+
+[[3.04316027]
+ [2.02786883]]
+[[0.53874981]] 
+
+[[3.04332147]
+ [2.0278446 ]]
+[[0.53874714]] 
+
+[[3.04348227]
+ [2.02782042]]
+[[0.53874449]] 
+
+[[3.04364268]
+ [2.0277963 ]]
+[[0.53874185]] 
+
+[[3.04380269]
+ [2.02777224]]
+[[0.53873922]] 
+
+[[3.0439623 ]
+ [2.02774824]]
+[[0.5387366]] 
+
+[[3.04412151]
+ [2.0277243 ]]
+[[0.538734]] 
+
+[[3.04428033]
+ [2.02770042]]
+[[0.53873141]] 
+
+[[3.04443876]
+ [2.0276766 ]]
+[[0.53872884]] 
+
+[[3.04459679]
+ [2.02765284]]
+[[0.53872627]] 
+
+[[3.04475443]
+ [2.02762914]]
+[[0.53872372]] 
+
+[[3.04491168]
+ [2.02760549]]
+[[0.53872118]] 
+
+[[3.04506853]
+ [2.02758191]]
+[[0.53871866]] 
+
+[[3.045225  ]
+ [2.02755838]]
+[[0.53871615]] 
+
+[[3.04538108]
+ [2.02753491]]
+[[0.53871364]] 
+
+[[3.04553677]
+ [2.0275115 ]]
+[[0.53871116]] 
+
+[[3.04569208]
+ [2.02748815]]
+[[0.53870868]] 
+
+[[3.045847  ]
+ [2.02746486]]
+[[0.53870622]] 
+
+[[3.04600154]
+ [2.02744162]]
+[[0.53870377]] 
+
+[[3.04615569]
+ [2.02741844]]
+[[0.53870133]] 
+
+[[3.04630946]
+ [2.02739532]]
+[[0.5386989]] 
+
+[[3.04646285]
+ [2.02737226]]
+[[0.53869649]] 
+
+[[3.04661586]
+ [2.02734925]]
+[[0.53869408]] 
+
+[[3.04676849]
+ [2.0273263 ]]
+[[0.53869169]] 
+
+[[3.04692074]
+ [2.02730341]]
+[[0.53868931]] 
+
+[[3.04707261]
+ [2.02728057]]
+[[0.53868694]] 
+
+[[3.0472241]
+ [2.0272578]]
+[[0.53868459]] 
+
+[[3.04737522]
+ [2.02723507]]
+[[0.53868224]] 
+
+[[3.04752596]
+ [2.02721241]]
+[[0.53867991]] 
+
+[[3.04767633]
+ [2.0271898 ]]
+[[0.53867759]] 
+
+[[3.04782633]
+ [2.02716724]]
+[[0.53867528]] 
+
+[[3.04797595]
+ [2.02714475]]
+[[0.53867298]] 
+
+[[3.0481252 ]
+ [2.02712231]]
+[[0.5386707]] 
+
+[[3.04827409]
+ [2.02709992]]
+[[0.53866842]] 
+
+[[3.0484226 ]
+ [2.02707759]]
+[[0.53866616]] 
+
+[[3.04857074]
+ [2.02705531]]
+[[0.53866391]] 
+
+[[3.04871852]
+ [2.02703309]]
+[[0.53866166]] 
+
+[[3.04886593]
+ [2.02701093]]
+[[0.53865943]] 
+
+[[3.04901297]
+ [2.02698882]]
+[[0.53865721]] 
+
+[[3.04915965]
+ [2.02696677]]
+[[0.53865501]] 
+
+[[3.04930596]
+ [2.02694477]]
+[[0.53865281]] 
+
+[[3.04945191]
+ [2.02692282]]
+[[0.53865062]] 
+
+[[3.0495975 ]
+ [2.02690093]]
+[[0.53864845]] 
+
+[[3.04974273]
+ [2.02687909]]
+[[0.53864628]] 
+
+[[3.0498876 ]
+ [2.02685731]]
+[[0.53864413]] 
+
+[[3.05003211]
+ [2.02683558]]
+[[0.53864198]] 
+
+[[3.05017626]
+ [2.02681391]]
+[[0.53863985]] 
+
+[[3.05032005]
+ [2.02679229]]
+[[0.53863773]] 
+
+[[3.05046348]
+ [2.02677072]]
+[[0.53863562]] 
+
+[[3.05060656]
+ [2.02674921]]
+[[0.53863352]] 
+
+[[3.05074928]
+ [2.02672775]]
+[[0.53863143]] 
+
+[[3.05089165]
+ [2.02670634]]
+[[0.53862935]] 
+
+[[3.05103367]
+ [2.02668499]]
+[[0.53862728]] 
+
+[[3.05117533]
+ [2.02666369]]
+[[0.53862522]] 
+
+[[3.05131664]
+ [2.02664244]]
+[[0.53862317]] 
+
+[[3.0514576 ]
+ [2.02662125]]
+[[0.53862113]] 
+
+[[3.05159821]
+ [2.0266001 ]]
+[[0.5386191]] 
+
+[[3.05173848]
+ [2.02657901]]
+[[0.53861708]] 
+
+[[3.05187839]
+ [2.02655798]]
+[[0.53861507]] 
+
+[[3.05201796]
+ [2.02653699]]
+[[0.53861307]] 
+
+[[3.05215718]
+ [2.02651606]]
+[[0.53861108]] 
+
+[[3.05229605]
+ [2.02649518]]
+[[0.5386091]] 
+
+[[3.05243458]
+ [2.02647435]]
+[[0.53860713]] 
+
+[[3.05257277]
+ [2.02645357]]
+[[0.53860517]] 
+
+[[3.05271061]
+ [2.02643284]]
+[[0.53860322]] 
+
+[[3.05284811]
+ [2.02641217]]
+[[0.53860128]] 
+
+[[3.05298527]
+ [2.02639155]]
+[[0.53859935]] 
+
+[[3.05312209]
+ [2.02637097]]
+[[0.53859743]] 
+
+[[3.05325857]
+ [2.02635045]]
+[[0.53859551]] 
+
+[[3.05339471]
+ [2.02632998]]
+[[0.53859361]] 
+
+[[3.05353051]
+ [2.02630956]]
+[[0.53859172]] 
+
+[[3.05366598]
+ [2.02628919]]
+[[0.53858984]] 
+
+[[3.05380111]
+ [2.02626888]]
+[[0.53858796]] 
+
+[[3.0539359 ]
+ [2.02624861]]
+[[0.5385861]] 
+
+[[3.05407036]
+ [2.02622839]]
+[[0.53858424]] 
+
+[[3.05420449]
+ [2.02620822]]
+[[0.53858239]] 
+
+[[3.05433828]
+ [2.02618811]]
+[[0.53858056]] 
+
+[[3.05447174]
+ [2.02616804]]
+[[0.53857873]] 
+
+[[3.05460487]
+ [2.02614802]]
+[[0.53857691]] 
+
+[[3.05473767]
+ [2.02612805]]
+[[0.5385751]] 
+
+[[3.05487014]
+ [2.02610814]]
+[[0.5385733]] 
+
+[[3.05500228]
+ [2.02608827]]
+[[0.53857151]] 
+
+[[3.0551341 ]
+ [2.02606845]]
+[[0.53856972]] 
+
+[[3.05526558]
+ [2.02604868]]
+[[0.53856795]] 
+
+[[3.05539674]
+ [2.02602896]]
+[[0.53856618]] 
+
+[[3.05552758]
+ [2.02600928]]
+[[0.53856442]] 
+
+[[3.05565808]
+ [2.02598966]]
+[[0.53856268]] 
+
+[[3.05578827]
+ [2.02597009]]
+[[0.53856094]] 
+
+[[3.05591813]
+ [2.02595056]]
+[[0.53855921]] 
+
+[[3.05604767]
+ [2.02593108]]
+[[0.53855748]] 
+
+[[3.05617689]
+ [2.02591165]]
+[[0.53855577]] 
+
+[[3.05630579]
+ [2.02589227]]
+[[0.53855406]] 
+
+[[3.05643437]
+ [2.02587294]]
+[[0.53855237]] 
+
+[[3.05656262]
+ [2.02585365]]
+[[0.53855068]] 
+
+[[3.05669057]
+ [2.02583442]]
+[[0.538549]] 
+
+[[3.05681819]
+ [2.02581523]]
+[[0.53854733]] 
+
+[[3.05694549]
+ [2.02579609]]
+[[0.53854566]] 
+
+[[3.05707248]
+ [2.02577699]]
+[[0.53854401]] 
+
+[[3.05719916]
+ [2.02575794]]
+[[0.53854236]] 
+
+[[3.05732552]
+ [2.02573894]]
+[[0.53854072]] 
+
+[[3.05745157]
+ [2.02571999]]
+[[0.53853909]] 
+
+[[3.0575773 ]
+ [2.02570109]]
+[[0.53853747]] 
+
+[[3.05770272]
+ [2.02568223]]
+[[0.53853585]] 
+
+[[3.05782783]
+ [2.02566342]]
+[[0.53853425]] 
+
+[[3.05795263]
+ [2.02564465]]
+[[0.53853265]] 
+
+[[3.05807712]
+ [2.02562593]]
+[[0.53853106]] 
+
+[[3.0582013 ]
+ [2.02560726]]
+[[0.53852948]] 
+
+[[3.05832518]
+ [2.02558864]]
+[[0.5385279]] 
+
+[[3.05844874]
+ [2.02557006]]
+[[0.53852633]] 
+
+[[3.058572  ]
+ [2.02555152]]
+[[0.53852477]] 
+
+[[3.05869495]
+ [2.02553304]]
+[[0.53852322]] 
+
+[[3.0588176 ]
+ [2.02551459]]
+[[0.53852168]] 
+
+[[3.05893995]
+ [2.0254962 ]]
+[[0.53852014]] 
+
+[[3.05906199]
+ [2.02547785]]
+[[0.53851861]] 
+
+[[3.05918372]
+ [2.02545954]]
+[[0.53851709]] 
+
+[[3.05930516]
+ [2.02544129]]
+[[0.53851558]] 
+
+[[3.05942629]
+ [2.02542307]]
+[[0.53851407]] 
+
+[[3.05954712]
+ [2.0254049 ]]
+[[0.53851257]] 
+
+[[3.05966766]
+ [2.02538678]]
+[[0.53851108]] 
+
+[[3.05978789]
+ [2.0253687 ]]
+[[0.5385096]] 
+
+[[3.05990783]
+ [2.02535067]]
+[[0.53850812]] 
+
+[[3.06002746]
+ [2.02533268]]
+[[0.53850665]] 
+
+[[3.0601468 ]
+ [2.02531474]]
+[[0.53850519]] 
+
+[[3.06026585]
+ [2.02529684]]
+[[0.53850374]] 
+
+[[3.0603846 ]
+ [2.02527898]]
+[[0.53850229]] 
+
+[[3.06050305]
+ [2.02526117]]
+[[0.53850085]] 
+
+[[3.06062121]
+ [2.0252434 ]]
+[[0.53849942]] 
+
+[[3.06073908]
+ [2.02522568]]
+[[0.53849799]] 
+
+[[3.06085665]
+ [2.025208  ]]
+[[0.53849657]] 
+
+[[3.06097393]
+ [2.02519037]]
+[[0.53849516]] 
+
+[[3.06109093]
+ [2.02517278]]
+[[0.53849375]] 
+
+[[3.06120763]
+ [2.02515523]]
+[[0.53849236]] 
+
+[[3.06132404]
+ [2.02513773]]
+[[0.53849097]] 
+
+[[3.06144016]
+ [2.02512027]]
+[[0.53848958]] 
+
+[[3.061556  ]
+ [2.02510285]]
+[[0.5384882]] 
+
+[[3.06167154]
+ [2.02508548]]
+[[0.53848683]] 
+
+[[3.0617868 ]
+ [2.02506815]]
+[[0.53848547]] 
+
+[[3.06190178]
+ [2.02505086]]
+[[0.53848411]] 
+
+[[3.06201647]
+ [2.02503361]]
+[[0.53848276]] 
+
+[[3.06213087]
+ [2.02501641]]
+[[0.53848142]] 
+
+</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code><span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">theta</span>
+</code></pre></div>
+
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>array([[3.10811007],
+       [2.01810297]])</code>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+
+</div>
+</div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      HG 2021-2024
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.dfff1995.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.dff1b7c8.min.js"></script>
+      
+        <script src="../js/imgs.js"></script>
+      
+        <script src="../js/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>

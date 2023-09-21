@@ -1,7 +1,7 @@
 # Deel 2 - opgaveset 2
 
 ## Inleiding
-Deze en de volgende week staan in het teken van standaard datasets. Deze week werken met de zogenaamde [MNIST dataset](https://en.wikipedia.org/wiki/MNIST_database): een set van zevenduizend *gray scale* afbeeldingen van cijfers en letters geschreven door middelbare scholieren. Werken met de MNIST dataset is te vergelijken met de *hello world* van *machine learning*: vroeg of laat krijg je ermee te maken. Deze week programmeren we zelf een neuraal netwerk aan de hand van reeds geleerde gewichten; in de laatste week zullen we een framework gebruiken in een poging een andere dataset te classificeren.
+Deze week staat in het teken van standaard datasets. Deze week werken met de zogenaamde [MNIST dataset](https://en.wikipedia.org/wiki/MNIST_database): een set van zevenduizend *gray scale* afbeeldingen van cijfers en letters geschreven door middelbare scholieren. Werken met de MNIST dataset is te vergelijken met de *hello world* van *machine learning*: vroeg of laat krijg je ermee te maken. Deze week programmeren we zelf een neuraal netwerk aan de hand van reeds geleerde gewichten; in de laatste week zullen we een framework gebruiken in een poging een andere dataset te classificeren.
 
 De set die we in deze week gebruiken is een subset van de oorspronkelijke dataset. Het gaat om vijfduizend samples, waarbij elk sample een plaatje van 20 bij 20 pixels is dat een getal van 0 tot 9 representeert. Elke kolom van deze 20 &times; 20 matrix is onder de vorige geplakt, zodat er uiteindelijke een 400 &times;1 vector ontstaat. Deze vectoren zijn weer getransponeerd, zodat onze dataset $X$ uiteindelijk een 5000 &times; 400 matrix is.
 

@@ -3,12 +3,13 @@
 ## Onderwerpen
 
 * Classicatie-problemen
+* Binaire en multi-class classificatie
 * Logistische regressie
 * De kostenfunctie van logistische regressie en stapsgewijze minimalisatie daarvan middels _gradient descent_
 
 ## College-sheets
 
-* Na afloop van het hoorcollege komen hier de collegesheets en het live-coding notebook te staan.
+* [Hier](../files/3.logistische-regressie.pdf) vindt u (alvast) de sheets van het derde hoorcollege, aangezien dit pas na het werkcollege gehouden zal worden.
 
 ## Lezen
 

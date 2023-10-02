@@ -10,7 +10,7 @@
 ## College-sheets
 
 * [Hier](../files/1.methoden-technieken.pdf) vindt u de sheets van het eerste hoorcollege.
-* En [hier](../files/Titanic%20(live%20coding%20HC%20week%201).ipynb) de notebook die in het college getoond is.
+* En [hier](https://github.com/hanze-hbo-ict/Machine-Learning/blob/master/Notebooks/Titanic%20(live%20coding%20HC%20week%201).ipynb) de notebook die in het college getoond is.
 
 ## Lezen
 

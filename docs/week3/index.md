@@ -9,7 +9,7 @@
 
 ## College-sheets
 
-* [Hier](../files/3.logistische-regressie.pdf) vindt u (alvast) de sheets van het derde hoorcollege, aangezien dit pas na het werkcollege gehouden zal worden.
+* [Hier](../files/3.logistische-regressie.pdf) vindt u de sheets van het derde hoorcollege.
 
 ## Lezen
 

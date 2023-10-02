@@ -8,7 +8,7 @@
 ## College-sheets
 
 * [Hier](../files/2.lineaire-regressie.pdf) vindt u de sheets van het tweede hoorcollege.
-* En [hier](../files/Gradient%20Descent%20(live%20coding%20HC%202).ipynb) de notebook die in het college getoond is.
+* En [hier](https://github.com/hanze-hbo-ict/Machine-Learning/blob/master/Notebooks/Gradient%20Descent%20(live%20coding%20HC%202).ipynb) de notebook die in het college getoond is.
 
 ## Lezen
 

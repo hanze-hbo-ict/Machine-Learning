@@ -5,7 +5,7 @@ Deze week staat in het teken van [TensorFlow](https://www.tensorflow.org/) en [K
 
 In de eerste opgave gaan we werken met een standaard-dataset, die in TensorFlow is ingebakken, om een netwerk te trainen. De tweede opgave gaat op basis van dit netwerk een *confusion matrix* uitrekenen en tekenen. In de derde en laatste opgave moet je een hele architectuur *from scratch* uitdenken en uitwerken.
 
-De startcode en andere bestanden die bij deze opgave horen <a href="files/startcode_week3.zip">kun je hier downloaden</a>. Net als de vorige twee weken is er een bestand `exercise3.py`, dat het bestand `uitwerkingen.py` gebruikt. Het is de bedoeling dat je dit laatste bestand afmaakt. 
+De startcode en andere bestanden die bij deze opgave horen <a href="../files/startcode_week3.zip">kun je hier downloaden</a>. Net als de vorige twee weken is er een bestand `exercise3.py`, dat het bestand `uitwerkingen.py` gebruikt. Het is de bedoeling dat je dit laatste bestand afmaakt. 
 </section>
 
 ## Opgave 1: de fashion MNIST

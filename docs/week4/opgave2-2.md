@@ -1,7 +1,7 @@
 # Deel 2 - opgaveset 2
 
 ## Inleiding
-Deze week staat in het teken van standaard datasets. Deze week werken met de zogenaamde [MNIST dataset](https://en.wikipedia.org/wiki/MNIST_database): een set van zevenduizend *gray scale* afbeeldingen van cijfers en letters geschreven door middelbare scholieren. Werken met de MNIST dataset is te vergelijken met de *hello world* van *machine learning*: vroeg of laat krijg je ermee te maken. Deze week programmeren we zelf een neuraal netwerk aan de hand van reeds geleerde gewichten; in de laatste week zullen we een framework gebruiken in een poging een andere dataset te classificeren.
+Deze week werken we met een standaard dataset, de zogenaamde [MNIST dataset](https://en.wikipedia.org/wiki/MNIST_database): een set van zevenduizend *gray scale* afbeeldingen van cijfers en letters geschreven door middelbare scholieren. Werken met de MNIST dataset is de *hello world* van *machine learning*: vroeg of laat krijg je ermee te maken. Deze week programmeren we zelf een neuraal netwerk aan de hand van reeds geleerde gewichten; in de laatste week zullen we een framework gebruiken in een poging een andere dataset te classificeren.
 
 De set die we in deze week gebruiken is een subset van de oorspronkelijke dataset. Het gaat om vijfduizend samples, waarbij elk sample een plaatje van 20 bij 20 pixels is dat een getal van 0 tot 9 representeert. Elke kolom van deze 20 &times; 20 matrix is onder de vorige geplakt, zodat er uiteindelijke een 400 &times;1 vector ontstaat. Deze vectoren zijn weer getransponeerd, zodat onze dataset $X$ uiteindelijk een 5000 &times; 400 matrix is.
 
@@ -130,10 +130,10 @@ $$
 
 **Stap 4**
 
-Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices $\Delta^{(1)}$ en $\Delta^{(2)}$, die dezelfde dimensionaliteit hebben als $\Theta^{(1)}$ en $\Theta^{(2)}$.
+Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices $\Delta^{(2)}$ en $\Delta^{(3)}$, die dezelfde dimensionaliteit hebben als $\Theta^{(2)}$ en $\Theta^{(3)}$. (De variable l staat voor het nummer van de laag en is in dit geval 2 of 3.)
 
 $$
-\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}\cdot(a^{(l)})^T
+\Delta^{(l)} := \Delta^{(l)} + \delta^{(l)}\cdot(a^{(l-1)})^T
 $$
 
 **Stap 5**

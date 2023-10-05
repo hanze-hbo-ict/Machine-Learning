@@ -5,7 +5,7 @@
 * De _confusion matrix_
 * True/false positives en negatives
 * Metrieken zoals _Precision_ en _Recall_
-* De Receiver-Operator Curve (ROC)
+* De Receiver Operating Characteristic (ROC-curve)
 * AUC
 
 ## College-sheets

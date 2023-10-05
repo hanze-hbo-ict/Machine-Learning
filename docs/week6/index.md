@@ -1,6 +1,7 @@
 # Stof: Andere modellen
 
+## Onderwerpen
+
 * SVC
 * k-means en DBSCAN
-* beslisbomen
-* Random Forest
+* Beslisbomen (decision trees)

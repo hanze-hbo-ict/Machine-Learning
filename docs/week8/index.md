@@ -1,6 +1,7 @@
 # Stof: geavanceerde onderwerpen
 
-* large language models
-* dimensionaliteitsreductie en PCA
-* ensemble learning
-* informatie-entropie
+## Onderwerpen
+
+* Dimensionaliteitsreductie en PCA
+* Informatie-entropie
+* Large language models

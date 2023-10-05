@@ -23,7 +23,7 @@ modal.addEventListener('click', () => modal.style.display = "none" )
 
 document.querySelectorAll('a').forEach ( el => el.addEventListener('click', evt => {
   const t = evt.target.href
-  if (t.indexOf('hanze-hbo-ict') == -1 && t.indexOf('localhost') == -1) {
+  if (t.indexOf('hanze-hbo-ict.github.io') == -1 && t.indexOf('localhost') == -1) {
     evt.target.setAttribute('target', '_blank')
   }
   

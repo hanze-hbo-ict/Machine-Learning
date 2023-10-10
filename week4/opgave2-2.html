@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.4">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.5">
     
     
       
@@ -30,7 +30,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.bd3936ea.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.6a10b989.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.356b1318.min.css">
@@ -1306,7 +1306,7 @@ y=\begin{bmatrix}1\\0\\0\\\vdots\\0\end{bmatrix}, \begin{bmatrix}0\\1\\0\\\vdots
 </code></pre></div>
 <p>Als je klaar bent, kun je het script <code>exercise2.py</code> opnieuw runnen om de geretourneerde waarde te controleren.</p>
 <h3 id="2c-voorspel-het-getal-en-bepaal-de-kost-van-deze-voorspelling">2c. voorspel het getal en bepaal de kost van deze voorspelling.<a class="headerlink" href="#2c-voorspel-het-getal-en-bepaal-de-kost-van-deze-voorspelling" title="Permanent link">&para;</a></h3>
-<p>Implementeer nu de methode <code>predict_number</code>. Maak hierbij gebruik van het stappenplan dat is gegeven in de afbeelding van het netwerk hierboven, en van het commentaar in de opgave. Let er bij je implementatie op dat de matrix <code>X</code> de waarden voor de input-nodes als rij bevat (400 rijen), terwijl de matrices <span class="arithmatex">\(\Theta^{(1)}\)</span> en <span class="arithmatex">\(\Theta^{(2)}\)</span> de waarde voor elke node als <em>kolom</em> bevatten (zo is <span class="arithmatex">\(\Theta^{(1)}_{2,3}\)</span> het gewicht tussen de <em>derde</em> input-node en de <em>tweede</em> verborgen node). Voorzie de data van de juiste indices en transpositioneer de matrix waar dat nodig is. De output van deze methode is een 10 &amp;times 1 vector die voor elk getal de <em>waarschijnlijkheid</em> dat de input dat getal is weergeeft.</p>
+<p>Implementeer nu de methode <code>predict_number</code>. Maak hierbij gebruik van het stappenplan dat is gegeven in de afbeelding van het netwerk hierboven, en van het commentaar in de opgave. Let er bij je implementatie op dat de matrix <code>X</code> de waarden voor de input-nodes als rij bevat (400 rijen), terwijl de matrices <span class="arithmatex">\(\Theta^{(1)}\)</span> en <span class="arithmatex">\(\Theta^{(2)}\)</span> de waarde voor elke node als <em>kolom</em> bevatten (zo is <span class="arithmatex">\(\Theta^{(1)}_{2,3}\)</span> het gewicht tussen de <em>derde</em> input-node en de <em>tweede</em> verborgen node). Voorzie de data van de juiste indices en transpositioneer de matrix waar dat nodig is. De output van deze methode is een 5000 &times; 10 vector die voor elk getal de <em>waarschijnlijkheid</em> dat de input dat getal is weergeeft.</p>
 <p>Om de accuratesse van deze voorspelling te bepalen, moeten we deze voorspelling vergelijken met de betreffende regel uit de y_matrix die we in het eerste deel van deze opgave hebben gemaakt. Dat gebeurt in de methode <code>compute_cost()</code>. De formule voor de kost is als volgt:</p>
 <div class="arithmatex">\[
 J(\theta) = \frac{1}{m}\sum_{i=1}^{m}\sum_{k=1}^{K}\left[-y_k^{(i)}log((h_\theta(x^{(i)}))_k) - (1-y_k^{(i)})log(1-(h_\theta(x^{(i)}))_k\right]
@@ -1399,7 +1399,7 @@ g'(z) = \frac{d}{dz}g(z) = g(z)(1-g(z))
     <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.94c44541.min.js"></script>
+      <script src="../assets/javascripts/bundle.aecac24b.min.js"></script>
       
         <script src="../js/imgs.js"></script>
       

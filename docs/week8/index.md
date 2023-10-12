@@ -2,6 +2,8 @@
 
 ## Onderwerpen
 
-* Dimensionaliteitsreductie en PCA
 * Informatie-entropie
+* Ensemble learning
+    * Random Forest
+    * Bagging, stacking en voting
 * Large language models

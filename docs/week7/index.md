@@ -6,5 +6,4 @@
     * GridSearchCV
     * RandomizedSearchCV
     * ...and their halving counterparts
-* Ensemble learning
-    * Random Forest
+* Dimensionaliteitsreductie en PCA

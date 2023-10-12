@@ -10,7 +10,8 @@
 
 ## College-sheets
 
-* Na afloop van het hoorcollege vindt u hier de (geannoteerde) sheets van het hoorcollege.
+* [Hier](../files/5.model-evaluatie.pdf) vindt u de (geannoteerde) sheets van het vierde hoorcollege.
+* En [hier](https://github.com/hanze-hbo-ict/Machine-Learning/blob/master/Notebooks/Modelevaluatie%20live%20coding%20HC5.ipynb) de notebook die in het college getoond is.
 
 ## Lezen
 

@@ -5,5 +5,14 @@
 * Hyperparameter tuning
     * GridSearchCV
     * RandomizedSearchCV
-    * ...and their halving counterparts
-* Dimensionaliteitsreductie en PCA
+    * Halving
+* Dimensionaliteitsreductie
+    * PCA
+
+## College-sheets
+
+Na afloop van het zevende hoorcollege vindt u hier de sheets en notebooks die in het college behandeld zijn.
+
+## Lezen
+
+* Géron: hoofdstuk 2 pp. 91-94 en hoofdstuk 8

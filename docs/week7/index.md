@@ -13,7 +13,9 @@ NB: deze onderwerpen en bijbehorende live Notebooks zullen naar verwachting een 
 
 ## College-sheets
 
-Na afloop van het zevende hoorcollege vindt u hier de sheets en notebooks die in het college behandeld zijn.
+* [Hier](../files/7.hyperparam-tuning.pptx) vindt u de sheets van het zevende hoorcollege.
+* [Hier](https://github.com/hanze-hbo-ict/Machine-Learning/blob/master/Notebooks/Hyperparam%20Tuning%20live%20coding%20HC7.ipynb) vindt u de notebook over Hyperparameter tuning die in het college getoond is.
+* [Hier](https://github.com/hanze-hbo-ict/Machine-Learning/blob/master/Notebooks/PCA%20live%20coding%20HC7.ipynb) vindt u de notebook over PCA die in het college getoond is.
 
 ## Lezen
 

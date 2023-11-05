@@ -4,11 +4,15 @@
 
 * Informatie-entropie
 * Ensemble learning
-    * Random forest
-    * Bagging, stacking en voting
-* Large language models
+    * Voting, bagging en pasting
+    * Random Forest
+    * Boosting
+    * Stacking
+* Large language models (een beknopte introductie)
+    * Recurrent Neural Networks
+    * Transformers
 
-NB: deze onderwerpen en bijbehorende live Notebooks zullen naar verwachting een uur in beslag nemen. Het resterende halfuur kan gebruikt worden voor vragen over de eerdere stof en de laatste opdracht.
+NB: deze onderwerpen en bijbehorende live Notebooks zullen naar verwachting een (ruim) uur in beslag nemen. De resterende tijd kan gebruikt worden voor vragen over de eerdere stof en de laatste opdracht.
 
 ## College-sheets
 
@@ -16,4 +20,4 @@ Na afloop van het achtste hoorcollege vindt u hier de sheets en notebooks die in
 
 ## Lezen
 
-* Géron: hoofdstuk 6 p. 201, hoofdstuk 7 en hoofdstuk 16
+* Géron: hoofdstuk 6 p. 201, hoofdstuk 7, 15 en 16

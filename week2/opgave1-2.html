@@ -575,8 +575,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-het-bepalen-van-de-cost-function-de-kostenfunctie" class="md-nav__link">
-    2. Het bepalen van de cost function (de kostenfunctie)
+  <a href="#2-het-bepalen-van-de-cost-function-kostenfunctie" class="md-nav__link">
+    2. Het bepalen van de cost function (kostenfunctie)
   </a>
   
 </li>
@@ -596,8 +596,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-contour-plot" class="md-nav__link">
-    4. Contour plot
+  <a href="#4-contourplot" class="md-nav__link">
+    4. Contourplot
   </a>
   
 </li>
@@ -1157,8 +1157,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-het-bepalen-van-de-cost-function-de-kostenfunctie" class="md-nav__link">
-    2. Het bepalen van de cost function (de kostenfunctie)
+  <a href="#2-het-bepalen-van-de-cost-function-kostenfunctie" class="md-nav__link">
+    2. Het bepalen van de cost function (kostenfunctie)
   </a>
   
 </li>
@@ -1178,8 +1178,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-contour-plot" class="md-nav__link">
-    4. Contour plot
+  <a href="#4-contourplot" class="md-nav__link">
+    4. Contourplot
   </a>
   
 </li>
@@ -1201,15 +1201,15 @@
 
 <h1 id="deel-1-opgaveset-2">Deel 1 - opgaveset 2<a class="headerlink" href="#deel-1-opgaveset-2" title="Permanent link">&para;</a></h1>
 <h2 id="inleiding">Inleiding<a class="headerlink" href="#inleiding" title="Permanent link">&para;</a></h2>
-<p>Deze week werken we aan de lineaire regressie van data met één variabele. De data die we daarvoor gebruiken is de winst van een vervoerder gerelateerd aan de grootte van een stad waar die vervoerder werkzaam is. Je kunt je voorstellen dat het nuttig is om deze verhouding te weten, omdat je op basis hiervan geïnformeerd een besluit kunt nemen of je in een nieuwe stad (met een bepaalde grootte) een nieuw filiaal wilt openen.</p>
-<p>De startcode van deze opgave kun je <a href="../files/startcode_week1.zip">hier downloaden</a>. Het bestand <code>week1_data.pkl</code> bevat de data waar we mee gaan werken. Dit is een 97×2-numpy-vector: de eerste kolom bevat de grootte van de steden, de tweede kolom bevat de winst van de vervoerder.</p>
+<p>In deze opgave werken we aan de lineaire regressie van data met één variabele. De data die we daarvoor gebruiken is de winst van een vervoerder gerelateerd aan de grootte van een stad waar die vervoerder werkzaam is. Je kunt je voorstellen dat het nuttig is om deze verhouding te weten, omdat je op basis hiervan geïnformeerd een besluit kunt nemen of je in een nieuwe stad (met een bepaalde grootte) een nieuw filiaal wilt openen.</p>
+<p>De startcode van deze opgave kun je <a href="../files/startcode_deel1-set2.zip">hier downloaden</a>. Het bestand <code>week1_data.pkl</code> bevat de data waar we mee gaan werken. Dit is een 97×2-numpy-vector: de eerste kolom bevat de grootte van de steden, de tweede kolom bevat de winst van de vervoerder.</p>
 <p>Daarnaast vind je twee python-bestanden in de zip. Het bestand <code>exercise1.py</code> gebruikt de code in <code>uitwerkingen.py</code> om door de opgaven te lopen. Het is de bedoeling dat je het bestand <code>uitwerkingen.py</code> afmaakt. Bestudeer de code en het commentaar in beide bestanden om te zien hoe ze werken en wat de bedoeling ervan is.</p>
 <h2 id="1-het-visualiseren-van-de-data">1. het visualiseren van de data<a class="headerlink" href="#1-het-visualiseren-van-de-data" title="Permanent link">&para;</a></h2>
-<p>Een eerste stap in elk machine-learning project is een beeld creëren van de data. Het eenvoudigst om dit te doen is door gebruik te maken van de library <a href="https://matplotlib.org/"><code>matplotlib</code></a>. Hierin vind je een API <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot"><code>pyplot</code></a> waarmee je vrij eenvoudig een scatter plot kunt maken.</p>
+<p>Een eerste stap in elk machine-learning project is een beeld creëren van de data. Het eenvoudigst om dit te doen is door gebruik te maken van de library <a href="https://matplotlib.org/"><code>matplotlib</code></a>. Hierin vind je een API <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot"><code>pyplot</code></a> waarmee je vrij eenvoudig een scatterplot kunt maken.</p>
 <p>Bestudeer <a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot">de documentatie van <code>pyplot</code></a> en implementeer aan de hand hiervan de functie <code>draw_graph</code> in <code>uitwerkingen.py</code>, zodat je een afbeelding zoals de onderstaande krijgt. Hoewel de data niet echt normaal verdeeld is, is er wel een zekere verhouding waar te nemen tussen de grootte van de stad en de winst die de vervoerder maakt. In de rest van deze opgave gaan we deze verhouding bepalen.</p>
-<p><img alt="Scatter plot van de data" src="../imgs/scatter.png" /></p>
-<h2 id="2-het-bepalen-van-de-cost-function-de-kostenfunctie">2. Het bepalen van de <em>cost function</em> (de kostenfunctie)<a class="headerlink" href="#2-het-bepalen-van-de-cost-function-de-kostenfunctie" title="Permanent link">&para;</a></h2>
-<p>Zoals in de theorieles besproken is, is het bepalen van de verhouding tussen twee (of meer) grootheden een kwestie van het minimaliseren van de kostenfunctie: <a href="https://en.wikipedia.org/wiki/Residual_sum_of_squares">de som van de gekwadrateerde fouten (SSE)</a>. Dit minimaliseren doe je door middel van gradient descent en het is dikwijls nuttig om die kostenfunctie gedurende de iteraties bij te houden, zodat je de verschillende uitkomsten door je data heen kunt plotten – zo kun je bijvoorbeeld controleren of je niet in een lokaal minimum terecht bent gekomen. In deze opgave programmeren we de kostenfunctie verder uit; de volgende opgave gaat verder in op de gradient descent.</p>
+<p><img alt="Scatterplot van de data" src="../imgs/scatter.png" /></p>
+<h2 id="2-het-bepalen-van-de-cost-function-kostenfunctie">2. Het bepalen van de <em>cost function</em> (kostenfunctie)<a class="headerlink" href="#2-het-bepalen-van-de-cost-function-kostenfunctie" title="Permanent link">&para;</a></h2>
+<p>Zoals in de theorieles besproken is, is het bepalen van de verhouding tussen twee (of meer) grootheden een kwestie van het minimaliseren van de kostenfunctie: <a href="https://en.wikipedia.org/wiki/Residual_sum_of_squares">de som van de gekwadrateerde fouten (SSE)</a>. Dit minimaliseren doe je door middel van <em>gradient descent</em> en het is dikwijls nuttig om die kostenfunctie gedurende de iteraties bij te houden, zodat je de verschillende uitkomsten door je data heen kunt plotten – zo kun je bijvoorbeeld controleren of je niet in een lokaal minimum terecht bent gekomen. In deze opgave programmeren we de kostenfunctie verder uit; de volgende opgave gaat verder in op de gradient descent.</p>
 <p>De kostenfunctie is gegeven door de volgende formule:</p>
 <div class="arithmatex">\[
  J(\theta) = \frac{1}{2m} \sum_{i=1}^{m} ( h_\theta(x^{(i)}) - y^{(i)} ) ^2
@@ -1226,22 +1226,22 @@ h_\theta(x) = \theta^T\vec{x} = \theta_0 + \theta_1x
 <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
 </code></pre></div>
 <p>De voorspelde waarden in <span class="arithmatex">\(X\)</span>, de actuele waarden in <span class="arithmatex">\(y\)</span> en een <span class="arithmatex">\(theta\)</span> worden aan de methode <code>compute_cost</code> meegegeven; deze functie moet de waarde van <span class="arithmatex">\(J(\theta)\)</span> teruggeven. Implementeer deze functie op basis van de beschrijving hierboven in het bestand <code>uitwerkingen.py</code> (zie ook de aanwijzingen in het bestand zelf); maak hem zo, dat hij werkt voor elke grootte van <code>theta</code>. Maak gebruik van een vectoriële implementatie.</p>
-<p>Als je klaar bent, kun je het bestand <code>opgaven.py</code> runnen. Dit bestand roept `compute_cost aan en print de gevonden waarde uit. Als het goed is, krijg je uiteindelijk een waarde van rond de 32.07.</p>
+<p>Als je klaar bent, kun je het bestand <code>opgaven.py</code> runnen. Dit bestand roept <code>compute_cost</code> aan en print de gevonden waarde. Als het goed is, krijg je uiteindelijk een waarde van rond de 32.07.</p>
 <h2 id="3a-gradient-descent">3a. Gradient descent<a class="headerlink" href="#3a-gradient-descent" title="Permanent link">&para;</a></h2>
 <p>Als laatste maak je de methode <code>gradient_descent</code> in het bestand <code>uitwerkingen.py</code> af. In deze methode wordt een aantal stappen uitgevoerd, waarbij in elke stap de vector <span class="arithmatex">\(\theta\)</span> volgens de onderstaande formule wordt aangepast.</p>
 <div class="arithmatex">\[
 \theta_j := \theta_j - \alpha \frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j
 \]</div>
-<p>Als het goed is, zorgt elke stap in deze methode ervoor dat <span class="arithmatex">\(J(\theta)\)</span> lager wordt. Let er wel op dat je alle <span class="arithmatex">\(\theta_j\)</span> tegelijkertijd aanpast (in dit geval is de grootte van <span class="arithmatex">\(\theta\)</span> 2, dus elke iteratie moeten er twee parameters worden aangepast). Let er verder op dat je <em>alleen</em>  <span class="arithmatex">\(\theta\)</span> aanpast: X en y zijn constante waarden die niet hoeven (of kunnen) te worden aangepast.</p>
+<p>Als het goed is, zorgt elke stap in deze methode ervoor dat <span class="arithmatex">\(J(\theta)\)</span> lager wordt. Let er wel op dat je alle <span class="arithmatex">\(\theta_j\)</span> tegelijkertijd aanpast (in dit geval is de grootte van <span class="arithmatex">\(\theta\)</span> 2, dus elke iteratie moeten er twee parameters worden aangepast). Let er verder op dat je <em>alleen</em> <span class="arithmatex">\(\theta\)</span> aanpast: X en y zijn constante waarden die niet hoeven (of kunnen) te worden aangepast.</p>
 <p>De algemene structuur in het bestand is al gegeven. Als je implementatie klaar is, kun je opnieuw het bestand <code>opgaven.py</code> aanroepen; deze roept de functie <code>gradient_descent</code> aan, zodat de update 1500 keer wordt gedaan. Als het goed is, is <span class="arithmatex">\(\theta\)</span> uiteindelijk rond de (-3.63, 1.16).</p>
 <h2 id="3b-kosten-bijhouden">3b. kosten bijhouden<a class="headerlink" href="#3b-kosten-bijhouden" title="Permanent link">&para;</a></h2>
 <p>Omdat we, zoals gezegd, graag willen weten of de totale kost tijdens de <em>gradient descent</em> wel steeds minder wordt, is het van belang deze kosten tijdens deze <em>descent</em> bij te houden. Breid de functie <code>gradient_descent</code> aan zodat bij elke iteratie de functie <code>compute_cost</code> wordt aangeroepen met de huidige waarden van <code>theta</code>. Deze kosten stop je in de lijst <code>costs</code> (die al in de basiscode is geïnitialiseerd) en die retourneer je uiteindelijk eveneens (<code>gradient_descent</code> retourneert dus <em>twee</em> waarden).</p>
 <p>Maak vervolgens de functie <code>draw_costs</code> in <code>uitwerkingen.py</code>. Deze functie moet de lijst meekrijgen die je hierboven in <code>gradient_descent</code> hebt gevuld. Maak gebruik van <code>pyplot</code> om deze lijst in een grafiekje te zetten. Als je dan het bestand <code>exercise.py</code> runt, krijg je als het goed is iets als het onderstaande plaatje:</p>
 <p><img alt="De neergaande costen tijdens gradient descent" src="../imgs/cost_descent.png" /></p>
-<h2 id="4-contour-plot">4. Contour plot<a class="headerlink" href="#4-contour-plot" title="Permanent link">&para;</a></h2>
+<h2 id="4-contourplot">4. Contourplot<a class="headerlink" href="#4-contourplot" title="Permanent link">&para;</a></h2>
 <p>In deze laatste opgave gebruik je de methode <code>compute_cost</code> die je hierboven hebt gemaakt om een <em>contour-plot</em> van de kosten te tekenen. Hierdoor kun je inzicht krijgen in hoe deze waarde zich ontwikkelt bij verschillende waarden van <span class="arithmatex">\(\theta\)</span>. </p>
 <p>Het grootste deel van deze opgave is al in de methode <code>contour_plot()</code> in het bestand <code>uitwerkingen.py</code> gegeven; je hoeft alleen maar de waarden van de matrix <code>J_val</code> te vullen. Bestudeer het commentaar in het bestand voor meer toelichting. Als je klaar bent, roept het bestand <code>exercise1.py</code> de methode <code>contour_plot()</code> aan om de plot te tekenen. Als het goed is, ziet deze er ongeveer als hieronder uit.</p></p>
-<p><img alt="Contour plot van de kosten" src="../imgs/contour.png" /></p>
+<p><img alt="Contourplot van de kosten" src="../imgs/contour.png" /></p>
 
 
 

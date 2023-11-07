@@ -18,4 +18,4 @@ We gaan deze week aan de slag met binaire classificatie: behoort een element wel
 * Als het goed is, zie je de kosten (vanaf een beginwaarde rond 8) steeds dalen kom je aan het einde rond 0,24 uit. Werk je met de niet-negatieve versie van de kostenfunctie, dan ga ja van ongeveer -8 naar -0,24.
 * Experimenteer eens met andere waardes van de _learning rate_ (1.0 < alpha < 0.0) en het aantal iteraties.
 
-Tijdens het inlevermoment demonstreer je je notebook, licht je een en ander toe en beantwoord vragen hierover.
+Tijdens het inlevermoment demonstreer je je notebook, licht je een en ander toe en beantwoord je vragen hierover.

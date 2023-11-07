@@ -4,8 +4,10 @@
 
 * Naive Bayes classifier
 * Support Vector Machines (SVM's)
-* Clustering: DBSCAN en k-means
-* Beslisbomen (decision trees)
+* Clustering
+    * DBSCAN
+    * k-means
+* Beslisbomen (Decision trees)
 
 ## College-sheets
 

@@ -1,23 +1,23 @@
 # Deel 1 - opgaveset 2
 
 ## Inleiding
-Deze week werken we aan de lineaire regressie van data met één variabele. De data die we daarvoor gebruiken is de winst van een vervoerder gerelateerd aan de grootte van een stad waar die vervoerder werkzaam is. Je kunt je voorstellen dat het nuttig is om deze verhouding te weten, omdat je op basis hiervan geïnformeerd een besluit kunt nemen of je in een nieuwe stad (met een bepaalde grootte) een nieuw filiaal wilt openen.
+In deze opgave werken we aan de lineaire regressie van data met één variabele. De data die we daarvoor gebruiken is de winst van een vervoerder gerelateerd aan de grootte van een stad waar die vervoerder werkzaam is. Je kunt je voorstellen dat het nuttig is om deze verhouding te weten, omdat je op basis hiervan geïnformeerd een besluit kunt nemen of je in een nieuwe stad (met een bepaalde grootte) een nieuw filiaal wilt openen.
 
-De startcode van deze opgave kun je [hier downloaden](../files/startcode_week1.zip). Het bestand `week1_data.pkl` bevat de data waar we mee gaan werken. Dit is een 97×2-numpy-vector: de eerste kolom bevat de grootte van de steden, de tweede kolom bevat de winst van de vervoerder.
+De startcode van deze opgave kun je [hier downloaden](../files/startcode_deel1-set2.zip). Het bestand `week1_data.pkl` bevat de data waar we mee gaan werken. Dit is een 97×2-numpy-vector: de eerste kolom bevat de grootte van de steden, de tweede kolom bevat de winst van de vervoerder.
 
 Daarnaast vind je twee python-bestanden in de zip. Het bestand `exercise1.py` gebruikt de code in `uitwerkingen.py` om door de opgaven te lopen. Het is de bedoeling dat je het bestand `uitwerkingen.py` afmaakt. Bestudeer de code en het commentaar in beide bestanden om te zien hoe ze werken en wat de bedoeling ervan is.
 
 ## 1. het visualiseren van de data
 
-Een eerste stap in elk machine-learning project is een beeld creëren van de data. Het eenvoudigst om dit te doen is door gebruik te maken van de library [`matplotlib`](https://matplotlib.org/). Hierin vind je een API [`pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot) waarmee je vrij eenvoudig een scatter plot kunt maken.
+Een eerste stap in elk machine-learning project is een beeld creëren van de data. Het eenvoudigst om dit te doen is door gebruik te maken van de library [`matplotlib`](https://matplotlib.org/). Hierin vind je een API [`pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot) waarmee je vrij eenvoudig een scatterplot kunt maken.
 
 Bestudeer [de documentatie van `pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot) en implementeer aan de hand hiervan de functie `draw_graph` in `uitwerkingen.py`, zodat je een afbeelding zoals de onderstaande krijgt. Hoewel de data niet echt normaal verdeeld is, is er wel een zekere verhouding waar te nemen tussen de grootte van de stad en de winst die de vervoerder maakt. In de rest van deze opgave gaan we deze verhouding bepalen.
 
-![Scatter plot van de data](../imgs/scatter.png)
+![Scatterplot van de data](../imgs/scatter.png)
 
-## 2. Het bepalen van de *cost function* (de kostenfunctie)
+## 2. Het bepalen van de *cost function* (kostenfunctie)
 
-Zoals in de theorieles besproken is, is het bepalen van de verhouding tussen twee (of meer) grootheden een kwestie van het minimaliseren van de kostenfunctie: [de som van de gekwadrateerde fouten (SSE)](https://en.wikipedia.org/wiki/Residual_sum_of_squares). Dit minimaliseren doe je door middel van gradient descent en het is dikwijls nuttig om die kostenfunctie gedurende de iteraties bij te houden, zodat je de verschillende uitkomsten door je data heen kunt plotten – zo kun je bijvoorbeeld controleren of je niet in een lokaal minimum terecht bent gekomen. In deze opgave programmeren we de kostenfunctie verder uit; de volgende opgave gaat verder in op de gradient descent.
+Zoals in de theorieles besproken is, is het bepalen van de verhouding tussen twee (of meer) grootheden een kwestie van het minimaliseren van de kostenfunctie: [de som van de gekwadrateerde fouten (SSE)](https://en.wikipedia.org/wiki/Residual_sum_of_squares). Dit minimaliseren doe je door middel van _gradient descent_ en het is dikwijls nuttig om die kostenfunctie gedurende de iteraties bij te houden, zodat je de verschillende uitkomsten door je data heen kunt plotten – zo kun je bijvoorbeeld controleren of je niet in een lokaal minimum terecht bent gekomen. In deze opgave programmeren we de kostenfunctie verder uit; de volgende opgave gaat verder in op de gradient descent.
 
 De kostenfunctie is gegeven door de volgende formule:
 
@@ -44,7 +44,7 @@ theta = np.zeros( (2, 1) )
 
 De voorspelde waarden in $X$, de actuele waarden in $y$ en een $theta$ worden aan de methode `compute_cost` meegegeven; deze functie moet de waarde van $J(\theta)$ teruggeven. Implementeer deze functie op basis van de beschrijving hierboven in het bestand `uitwerkingen.py` (zie ook de aanwijzingen in het bestand zelf); maak hem zo, dat hij werkt voor elke grootte van `theta`. Maak gebruik van een vectoriële implementatie.
 
-Als je klaar bent, kun je het bestand `opgaven.py` runnen. Dit bestand roept `compute_cost aan en print de gevonden waarde uit. Als het goed is, krijg je uiteindelijk een waarde van rond de 32.07.
+Als je klaar bent, kun je het bestand `opgaven.py` runnen. Dit bestand roept `compute_cost` aan en print de gevonden waarde. Als het goed is, krijg je uiteindelijk een waarde van rond de 32.07.
 
 ## 3a. Gradient descent
 Als laatste maak je de methode `gradient_descent` in het bestand `uitwerkingen.py` af. In deze methode wordt een aantal stappen uitgevoerd, waarbij in elke stap de vector $\theta$ volgens de onderstaande formule wordt aangepast.
@@ -53,7 +53,7 @@ $$
 \theta_j := \theta_j - \alpha \frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)}) - y^{(i)})x^{(i)}_j
 $$
 
-Als het goed is, zorgt elke stap in deze methode ervoor dat $J(\theta)$ lager wordt. Let er wel op dat je alle $\theta_j$ tegelijkertijd aanpast (in dit geval is de grootte van $\theta$ 2, dus elke iteratie moeten er twee parameters worden aangepast). Let er verder op dat je *alleen*  $\theta$ aanpast: X en y zijn constante waarden die niet hoeven (of kunnen) te worden aangepast.
+Als het goed is, zorgt elke stap in deze methode ervoor dat $J(\theta)$ lager wordt. Let er wel op dat je alle $\theta_j$ tegelijkertijd aanpast (in dit geval is de grootte van $\theta$ 2, dus elke iteratie moeten er twee parameters worden aangepast). Let er verder op dat je *alleen* $\theta$ aanpast: X en y zijn constante waarden die niet hoeven (of kunnen) te worden aangepast.
 
 De algemene structuur in het bestand is al gegeven. Als je implementatie klaar is, kun je opnieuw het bestand `opgaven.py` aanroepen; deze roept de functie `gradient_descent` aan, zodat de update 1500 keer wordt gedaan. Als het goed is, is $\theta$ uiteindelijk rond de (-3.63, 1.16).
 
@@ -65,10 +65,10 @@ Maak vervolgens de functie `draw_costs` in `uitwerkingen.py`. Deze functie moet 
 
 ![De neergaande costen tijdens gradient descent](../imgs/cost_descent.png)
 
-## 4. Contour plot
+## 4. Contourplot
 
 In deze laatste opgave gebruik je de methode `compute_cost` die je hierboven hebt gemaakt om een <em>contour-plot</em> van de kosten te tekenen. Hierdoor kun je inzicht krijgen in hoe deze waarde zich ontwikkelt bij verschillende waarden van $\theta$. 
 
 Het grootste deel van deze opgave is al in de methode `contour_plot()` in het bestand `uitwerkingen.py` gegeven; je hoeft alleen maar de waarden van de matrix `J_val` te vullen. Bestudeer het commentaar in het bestand voor meer toelichting. Als je klaar bent, roept het bestand `exercise1.py` de methode `contour_plot()` aan om de plot te tekenen. Als het goed is, ziet deze er ongeveer als hieronder uit.</p>
 
-![Contour plot van de kosten](../imgs/contour.png)
+![Contourplot van de kosten](../imgs/contour.png)

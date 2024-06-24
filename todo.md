@@ -1,4 +1,4 @@
-- [ ] BABA Opgave 2.3 en 3.1 + zip-bestand ontkamelen
+- [X] BABA Opgave 2.3 en 3.1 + zip-bestand ontkamelen
 - [ ] ROTE Links naar sheets aanpassen waar nodig en eventueel tijdelijk weghalen (pas na college tonen?)
 - [ ] ROTE Slides week 5: deel materiaal week 7 erbij in
 - [ ] ROTE Slides week 6: deel materiaal week 8 erbij in

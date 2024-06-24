@@ -6,10 +6,10 @@ We gaan deze week aan de slag met binaire classificatie: behoort een element wel
 
 ## Stappenplan
 
-* Download de dataset m.b.v. ```load_iris()``` uit ```sklearn.datasets```.
-* Vul je featurematrix X op basis van de _data_.
-* De uitkomstvector y ga je vullen op basis van _target_. Standaard bevat deze array de waardes 0, 1 en 2 (resp. 'setosa', 'versicolor', 'virginica'). Maak deze binair door 0 en 1 allebei 0 te maken (niet-virginica) en van elke 2 een 1 te maken (wel-virginica). Denk erom dat y het juiste datatype en de juiste _shape_ krijgt.
-* Definieer een functie ```sigmoid()``` die de sigmoïde-functie implementeert.
+* Download de dataset met behulp van [`load_iris()` uit `sklearn.datasets`](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html).
+* Vul je featurematrix `X` op basis van de _data_.
+* De uitkomstvector `y` ga je vullen op basis van _target_. Standaard bevat deze array de waardes 0, 1 en 2 (resp. 'setosa', 'versicolor', 'virginica'). Maak deze binair door 0 en 1 allebei 0 te maken (niet-virginica) en van elke 2 een 1 te maken (wel-virginica). Denk erom dat y het juiste datatype en de juiste _shape_ krijgt.
+* Definieer een functie `sigmoid()` die de sigmoïde-functie implementeert.
 * Initialiseer een vector theta met 1.0'en in de juiste shape.
 * Nu kun je beginnen aan de loop waarin je in **1500** iteraties:
        * De voorspellingen (denk aan sigmoid!) en de errors berekent.

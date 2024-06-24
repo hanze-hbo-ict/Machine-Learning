@@ -16,7 +16,7 @@ De startcode voor deze opgave is [hier te downloaden](../files/startcode_deel2-s
 
 ## 1. het visualiseren van de data
 
-Zoals altijd gaan we eerst de data visualiseren. In dit geval betekent dat een vector uit $x$ weer transformeren in een 20&times;20 *grayscale* plaatje. Maak hiervoor de functie `plotNumber()` af. Omdat je weet dat de vector $x^{(i)}$ het i-de plaatje uit de dataset representeert, kun je deze vector eenvoudig weer terug omzetten in een 20&times;20 matrix en die tekenen. Maak daarbij gebruik van de methode `numpy.reshape` en van `matplotlib.matshow`. Het script roept de methode `plotNumber` aan met een willekeurige vector uit de matrix X. Het toont het nummer op de console, en het cijfer dat het plaatje zou moeten voorstellen. Op die manier kun je eenvoudig checken of je uitwerking correct is.
+Zoals altijd gaan we eerst de data visualiseren. In dit geval betekent dat een vector uit $x$ weer transformeren in een 20&times;20 *grayscale* plaatje. Maak hiervoor de functie `plot_number()` af. Omdat je weet dat de vector $x^{(i)}$ het i-de plaatje uit de dataset representeert, kun je deze vector eenvoudig weer terug omzetten in een 20&times;20 matrix en die tekenen. Maak daarbij gebruik van de methode `numpy.reshape` en van `matplotlib.matshow`. Het script roept de methode `plot_number` aan met een willekeurige vector uit de matrix X. Het toont het nummer op de console, en het cijfer dat het plaatje zou moeten voorstellen. Op die manier kun je eenvoudig checken of je uitwerking correct is.
 
 ![Een willekeurig nummer](../imgs/number.png)
 
@@ -148,9 +148,9 @@ Om dit gedaan te krijgen, maken we gebruik van de methode [`minimize` uit `scipy
 
 Je hoeft voor deze opgave niets uit te programmeren. Bestudeer de werking van `minimize` en experimenteer met verschillende waarden voor de parameter `maxiter` om een goed beeld te krijgen van de werking van het geheel. Bekijk ook goed hoe de waarden van de matrices worden doorgegeven aan deze methode.
 
-Als het geheel is afgerond, worden de nieuwe kost en de nieuwe accuratesse van het netwerk getoond. Ook wordt er een plot gemaakt van de waarden van de matrix in de verborgen laag – zie de figuur hieronder. Met een beetje moeite en goede wil kun je  zien dat deze matix een gevoeligheid heeft ontwikkeld voor horizontale en verticale lijnen en voor ronde vormen in de input.
+Als het geheel is afgerond, worden de nieuwe kost en de nieuwe accuratesse van het netwerk getoond. Ook wordt er een plot gemaakt van de waarden van de matrix in de verborgen laag – zie de figuur hieronder. Met een beetje moeite en goede wil kun je  zien dat deze matix een gevoeligheid heeft ontwikkeld voor horizontale en verticale lijnen en voor ronde vormen in de input. 
 
-![De getrainde hidden layer](../imgs/hidden_layer.png)
+![Het trainen van de hidden layer](../imgs/hidden_layer.png)
 
 Met de getrainde waarde van het netwerk kunnen we nu voorspellingen doen over het getal dat door een afbeelding wordt gerepresenteerd. Maar de accuratesse is niet de enige metriek die voor de bepaling van hoe goed een netwerk is van belang is. Hierover gaan we het volgende week hebben, wanneer we o.a. de *confusion matrix* bespreken.
 

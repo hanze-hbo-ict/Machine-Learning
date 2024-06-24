@@ -734,7 +734,7 @@
         
   
   <span class="md-ellipsis">
-    Deel 3 - opgaveset 1
+    Deel 2 - opgaveset 3
   </span>
   
 
@@ -1204,15 +1204,17 @@
 
 
 <h1 id="deel-3-opgaveset-1">Deel 3 - opgaveset 1<a class="headerlink" href="#deel-3-opgaveset-1" title="Permanent link">&para;</a></h1>
-<p>In deze opgave gaan we op basis van de test-data bepalen hoe goed <a href="../week4/opgave2-3.html">ons eerder getrainde netwerk</a> is. Zoals bekend is de accuratesse op zich niet voldoende om de presentatie van een classifier te bepalen: wanneer je gewoon zou gokken heb je bij tien mogelijke categorieën al een score van tien procent, en als je zou gokken dat een sample iets <em>niet</em> is, is de accuratesse al negentig procent. Betere metrieken hiervoor worden gegeven door de <em>confusion matrix</em>, die tijdens de theorieles besproken is. </p>
+<p>In deze opgave gaan we op basis van de test-data bepalen hoe goed <a href="../week4/opgave2-3.html">ons eerder getrainde netwerk</a> is. Download hiervoor <a href="../files/startcode_deel3-set1.zip">de opgaven vanuit deze zip</a>. </p>
+<p>Zoals bekend is de accuratesse op zich niet voldoende om de presentatie van een classifier te bepalen: wanneer je gewoon zou gokken heb je bij tien mogelijke categorieën al een score van tien procent, en als je zou gokken dat een sample iets <em>niet</em> is, is de accuratesse al negentig procent. Betere metrieken hiervoor worden gegeven door de <em>confusion matrix</em>, die tijdens de theorieles besproken is. </p>
 <p><img alt="De confusion matrix" src="../imgs/confusion_matrix.png" /></p>
+<p>Maak eerst de methode <code>load_model()</code> af; deze methode moet het getrainde model laden dat je als laatste stap in de vorige opgave hebt opgeslagen.</p>
 <h3 id="opgave-1a-bepalen-van-de-confusion-matrix">Opgave 1a: bepalen van de confusion matrix<a class="headerlink" href="#opgave-1a-bepalen-van-de-confusion-matrix" title="Permanent link">&para;</a></h3>
-<p>Maak de methode <code>confMatrix()</code> af. Zoals je ziet krijgt deze methode twee parameters mee, namelijk de door het netwerk voorspelde waarden, en de daadwerkelijke waarden. Maak gebruik van de methode <a href="https://www.tensorflow.org/api_docs/python/tf/math/confusion_matrix"><code>confusion_matrix</code> in TensorFlow</a> om deze matrix te bepalen. Retourneer de matrix.</p>
+<p>Maak de methode <code>conf_matrix()</code> af. Zoals je ziet krijgt deze methode twee parameters mee, namelijk de door het netwerk voorspelde waarden, en de daadwerkelijke waarden. Maak gebruik van de methode <a href="https://www.tensorflow.org/api_docs/python/tf/math/confusion_matrix"><code>confusion_matrix</code> in TensorFlow</a> om deze matrix te bepalen. Retourneer de matrix.</p>
 <p>Als je hiermee klaar bent, wordt de methode door het script <code>exercise3.py</code> aangeroepen, met de voorspellingen van de <code>test_images</code> en actuele waarden van die test-data (<code>test_labels</code>). Het resultaat wordt vervolgens in een plot weergegeven; als het goed is, ziet het er ongeveer als volgt uit: </p>
 <p><img alt="Confusion matrix met waarden uit onze training" src="../imgs/conf_matrix2.png" /></p>
 <h3 id="opgave-1b-tp-tn-fp-fn">Opgave 1b: TP, TN, FP, FN<a class="headerlink" href="#opgave-1b-tp-tn-fp-fn" title="Permanent link">&para;</a></h3>
 <p>Om meer metrieken uit het getrainde model te halen, volstaat niet alleen het percentage van de samples dat correct is geclassificeerd; we moeten dan ook weten welk percentage terecht als <em>niet</em> van een bepaalde klasse is geclassificeerd, welke onterecht als <em>wel</em> van een bepaalde klasse, en welk percentage onterecht als <em>wel</em> van een bepaalde klasse: de zogenaamde <em>true positives</em>, <em>true negatives</em>, <em>false positives</em> en <em>false negatives</em> (zoals in het theoriecollege besproken is).</p>
-<p>De methode <code>confEls()</code> in <code>uitwerkingen.py</code> krijgt als parameter een numpy-array mee, die ook ten grondslag ligt aan de afbeelding hierboven. De <em>regels</em> van deze matrix corresponderen met de <em>werkelijke</em> waarde van het sample, de <em>kolommen</em> van deze matrix corresponderen met de <em>voorspelling</em> van het sample door het model. Hoewel er semantisch wel het één en ander op aan te merken is, definiëren we de hierboven beschreven metrieken als volgt:</p>
+<p>De methode <code>conf_els()</code> in <code>uitwerkingen.py</code> krijgt als parameter een numpy-array mee, die ook ten grondslag ligt aan de afbeelding hierboven. De <em>regels</em> van deze matrix corresponderen met de <em>werkelijke</em> waarde van het sample, de <em>kolommen</em> van deze matrix corresponderen met de <em>voorspelling</em> van het sample door het model. Hoewel er semantisch wel het één en ander op aan te merken is, definiëren we de hierboven beschreven metrieken als volgt:</p>
 <ul>
 <li>
 <p><span class="arithmatex">\(tp_{i} = c_{ii}\)</span></p>
@@ -1228,9 +1230,9 @@
 </li>
 </ul>
 <p>Hierbij is <span class="arithmatex">\(i\)</span> de categorie in kwestie (dus in dit specifieke geval loopt die van 1 - 10). </p>
-<p>Implementeer de methode <code>confEls()</code>, en retourneer een lijst met deze vier metrieken voor elk label – bestudeer het reeds gegeven deel van de implementatie om een beeld te krijgen van de exacte vorm van de return-waarde.</p>
+<p>Implementeer de methode <code>conf_els()</code>, en retourneer een lijst met deze vier metrieken voor elk label – bestudeer het reeds gegeven deel van de implementatie om een beeld te krijgen van de exacte vorm van de return-waarde.</p>
 <h2 id="opgave-1c-precision-en-recall">Opgave 1c: precision en recall<a class="headerlink" href="#opgave-1c-precision-en-recall" title="Permanent link">&para;</a></h2>
-<p>Implementeer nu de methode <code>confData()</code>, waarin je de data die je in de vorige opgave hebt gemaakt omzet in de onderstaande metrieken: </p>
+<p>Implementeer nu de methode <code>conf_data()</code>, waarin je de data die je in de vorige opgave hebt gemaakt omzet in de onderstaande metrieken: </p>
 <ul>
 <li>
 <p><span class="arithmatex">\(sensitivity (TPR) = \frac{tp}{tp + fn}\)</span></p>

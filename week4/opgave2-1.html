@@ -794,7 +794,7 @@
         
   
   <span class="md-ellipsis">
-    Deel 3 - opgaveset 1
+    Deel 2 - opgaveset 3
   </span>
   
 
@@ -1190,9 +1190,9 @@
 <p>We gaan deze week aan de slag met binaire classificatie: behoort een element wel (1) of niet (0) tot een verzameling? We werken met de standaard Iris-dataset van sklearn. We gaan proberen te voorspellen of bloemen wel of niet van de ondersoort Iris Virginica zijn. Hiervoor gebruiken we logistische regressie, de bijbehorende kostenfunctie en de stapsgewijze aanpassing daarvan middels <em>gradient descent</em>.</p>
 <h2 id="stappenplan">Stappenplan<a class="headerlink" href="#stappenplan" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Download de dataset m.b.v. <code>load_iris()</code> uit <code>sklearn.datasets</code>.</li>
-<li>Vul je featurematrix X op basis van de <em>data</em>.</li>
-<li>De uitkomstvector y ga je vullen op basis van <em>target</em>. Standaard bevat deze array de waardes 0, 1 en 2 (resp. 'setosa', 'versicolor', 'virginica'). Maak deze binair door 0 en 1 allebei 0 te maken (niet-virginica) en van elke 2 een 1 te maken (wel-virginica). Denk erom dat y het juiste datatype en de juiste <em>shape</em> krijgt.</li>
+<li>Download de dataset met behulp van <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html"><code>load_iris()</code> uit <code>sklearn.datasets</code></a>.</li>
+<li>Vul je featurematrix <code>X</code> op basis van de <em>data</em>.</li>
+<li>De uitkomstvector <code>y</code> ga je vullen op basis van <em>target</em>. Standaard bevat deze array de waardes 0, 1 en 2 (resp. 'setosa', 'versicolor', 'virginica'). Maak deze binair door 0 en 1 allebei 0 te maken (niet-virginica) en van elke 2 een 1 te maken (wel-virginica). Denk erom dat y het juiste datatype en de juiste <em>shape</em> krijgt.</li>
 <li>Definieer een functie <code>sigmoid()</code> die de sigmoïde-functie implementeert.</li>
 <li>Initialiseer een vector theta met 1.0'en in de juiste shape.</li>
 <li>Nu kun je beginnen aan de loop waarin je in <strong>1500</strong> iteraties:<ul>

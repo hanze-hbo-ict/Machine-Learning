@@ -878,7 +878,7 @@
         
   
   <span class="md-ellipsis">
-    Deel 3 - opgaveset 1
+    Deel 2 - opgaveset 3
   </span>
   
 
@@ -1365,7 +1365,7 @@ Behalve deze X-matrix is er in de data ook een 5000&times;1 vector y gegeven, wa
 
 <p>De startcode voor deze opgave is <a href="../files/startcode_deel2-set2.zip">hier te downloaden</a>. Net als in de vorige set wordt deze opgave doorlopen door het script <code>exercise2.py</code>. Dit script importeert de functies uit <code>uitwerkingen.py</code> en runt die op volgorde. Het is de opgave om deze uitwerkingen af te maken. Bestudeer beide scripts om een idee te krijgen van de werking.</p>
 <h2 id="1-het-visualiseren-van-de-data">1. het visualiseren van de data<a class="headerlink" href="#1-het-visualiseren-van-de-data" title="Permanent link">&para;</a></h2>
-<p>Zoals altijd gaan we eerst de data visualiseren. In dit geval betekent dat een vector uit <span class="arithmatex">\(x\)</span> weer transformeren in een 20&times;20 <em>grayscale</em> plaatje. Maak hiervoor de functie <code>plotNumber()</code> af. Omdat je weet dat de vector <span class="arithmatex">\(x^{(i)}\)</span> het i-de plaatje uit de dataset representeert, kun je deze vector eenvoudig weer terug omzetten in een 20&times;20 matrix en die tekenen. Maak daarbij gebruik van de methode <code>numpy.reshape</code> en van <code>matplotlib.matshow</code>. Het script roept de methode <code>plotNumber</code> aan met een willekeurige vector uit de matrix X. Het toont het nummer op de console, en het cijfer dat het plaatje zou moeten voorstellen. Op die manier kun je eenvoudig checken of je uitwerking correct is.</p>
+<p>Zoals altijd gaan we eerst de data visualiseren. In dit geval betekent dat een vector uit <span class="arithmatex">\(x\)</span> weer transformeren in een 20&times;20 <em>grayscale</em> plaatje. Maak hiervoor de functie <code>plot_number()</code> af. Omdat je weet dat de vector <span class="arithmatex">\(x^{(i)}\)</span> het i-de plaatje uit de dataset representeert, kun je deze vector eenvoudig weer terug omzetten in een 20&times;20 matrix en die tekenen. Maak daarbij gebruik van de methode <code>numpy.reshape</code> en van <code>matplotlib.matshow</code>. Het script roept de methode <code>plot_number</code> aan met een willekeurige vector uit de matrix X. Het toont het nummer op de console, en het cijfer dat het plaatje zou moeten voorstellen. Op die manier kun je eenvoudig checken of je uitwerking correct is.</p>
 <p><img alt="Een willekeurig nummer" src="../imgs/number.png" /></p>
 <p>Als je deze opgave hebt afgerond, kun je het script aanroepen met <code>skip</code> als commandline parameter: het tekenen wordt dan overgeslagen.</p>
 <h2 id="2-het-neurale-netwerk-forward-propagation">2. het neurale netwerk - forward propagation<a class="headerlink" href="#2-het-neurale-netwerk-forward-propagation" title="Permanent link">&para;</a></h2>
@@ -1445,8 +1445,8 @@ g'(z) = \frac{d}{dz}g(z) = g(z)(1-g(z))
 <p>Nu het netwerk goed is geïmplementeerd, kunnen we het gaan trainen. Het idee van die training is dat de waarden in de matrices langzaamaan naar een optimale waarde convergeren, waarmee de voorspelling voor een bepaalde input correspondeert met een goede output (een goede classificatie).</p>
 <p>Om dit gedaan te krijgen, maken we gebruik van de methode <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html"><code>minimize</code> uit <code>scipy.optimize</code></a>. Deze methode heeft een aantal parameters, waarvan één het maximaal aantal iteraties is. De methode stopt wanneer het maximaal aantal iteraties is behaald, of het minimale waarde van de kosten heeft gevonden (wat maar het eerst optreedt). Initieel staat deze parameter op 30. Let op: het trainen van het netwerk kan even duren (je krijgt wel het iteratienummer te zien).</p></p>
 <p>Je hoeft voor deze opgave niets uit te programmeren. Bestudeer de werking van <code>minimize</code> en experimenteer met verschillende waarden voor de parameter <code>maxiter</code> om een goed beeld te krijgen van de werking van het geheel. Bekijk ook goed hoe de waarden van de matrices worden doorgegeven aan deze methode.</p>
-<p>Als het geheel is afgerond, worden de nieuwe kost en de nieuwe accuratesse van het netwerk getoond. Ook wordt er een plot gemaakt van de waarden van de matrix in de verborgen laag – zie de figuur hieronder. Met een beetje moeite en goede wil kun je  zien dat deze matix een gevoeligheid heeft ontwikkeld voor horizontale en verticale lijnen en voor ronde vormen in de input.</p>
-<p><img alt="De getrainde hidden layer" src="../imgs/hidden_layer.png" /></p>
+<p>Als het geheel is afgerond, worden de nieuwe kost en de nieuwe accuratesse van het netwerk getoond. Ook wordt er een plot gemaakt van de waarden van de matrix in de verborgen laag – zie de figuur hieronder. Met een beetje moeite en goede wil kun je  zien dat deze matix een gevoeligheid heeft ontwikkeld voor horizontale en verticale lijnen en voor ronde vormen in de input. </p>
+<p><img alt="Het trainen van de hidden layer" src="../imgs/hidden_layer.png" /></p>
 <p>Met de getrainde waarde van het netwerk kunnen we nu voorspellingen doen over het getal dat door een afbeelding wordt gerepresenteerd. Maar de accuratesse is niet de enige metriek die voor de bepaling van hoe goed een netwerk is van belang is. Hierover gaan we het volgende week hebben, wanneer we o.a. de <em>confusion matrix</em> bespreken.</p>
 
 

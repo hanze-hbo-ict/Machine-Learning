@@ -8,8 +8,7 @@
 
 ## College-sheets
 
-* [Hier](../files/7.hyperparam-tuning.pptx) vindt u de sheets van het zevende hoorcollege.
-
+* [Hier]() vindt u de sheets van het zevende hoorcollege.
 
 ## Lezen
 

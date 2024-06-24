@@ -40,3 +40,5 @@ Het model moet verder voorzien worden van een aantal parameters:
 Geef deze parameters respectievelijk de waarden `adam`, `sparse_categorical_crossentropy`, en `accuracy`. Bestudeer <a href="https://www.tensorflow.org/api_docs/python/tf/keras/Sequential#compile">de documentatie</a> voor nadere specificaties hiervan. Retourneer het model vanuit de methode `buildModel()`.
 
 Wanneer deze opgave is afgerond, kun je het script `exercise3.py` opnieuw runnen. Hier wordt nu de methode `fit` op het model aangeroepen om het te trainen. In de volgende opgaveset gaan we vervolgens in op het bepalen van de kwaliteit van het getrainde netwerk.
+
+NB: bewaar je model goed, want bij de volgende opgaveset gaan we er een evaluatie op uitvoeren!

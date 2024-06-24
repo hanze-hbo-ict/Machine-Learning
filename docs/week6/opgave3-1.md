@@ -1,6 +1,6 @@
 # Deel 3 - opgaveset 1
 
-In deze opgave gaan we op basis van de test-data bepalen hoe goed ons eerder getrainde netwerk is. Zoals bekend is de accuratesse op zich niet voldoende om de presentatie van een classifier te bepalen: wanneer je gewoon zou gokken heb je bij tien mogelijke categorieën al een score van tien procent, en als je zou gokken dat een sample iets *niet* is, is de accuratesse al negentig procent. Betere metrieken hiervoor worden gegeven door de *confusion matrix*, die tijdens de theorieles besproken is. 
+In deze opgave gaan we op basis van de test-data bepalen hoe goed [ons eerder getrainde netwerk](../week4/opgave2-3.md) is. Zoals bekend is de accuratesse op zich niet voldoende om de presentatie van een classifier te bepalen: wanneer je gewoon zou gokken heb je bij tien mogelijke categorieën al een score van tien procent, en als je zou gokken dat een sample iets *niet* is, is de accuratesse al negentig procent. Betere metrieken hiervoor worden gegeven door de *confusion matrix*, die tijdens de theorieles besproken is. 
 
 ![De confusion matrix](../imgs/confusion_matrix.png)
 

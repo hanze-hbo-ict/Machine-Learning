@@ -7,8 +7,8 @@
 
 # ROTE
 
-- [ ] Slides week 5: deel materiaal week 7 erbij in
-- [ ] Slides week 6: deel materiaal week 8 erbij in
+- [X] Slides week 5: deel materiaal week 7 erbij in
+- [X] Slides week 6: deel materiaal week 8 erbij in
 - [ ] Hoorcollege week 8: slides uitbreiden
 - [ ] Hoorcollege week 8: (Notebook met) voorbeelden uitbreiden
 - [ ] Links naar sheets aanpassen waar nodig en eventueel tijdelijk weghalen (pas na college tonen?)

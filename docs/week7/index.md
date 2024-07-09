@@ -1,4 +1,4 @@
-# Stof: 
+# Stof: Recurrent Neural Networks
 
 ## Onderwerpen
 
@@ -8,7 +8,7 @@
 
 ## College-sheets
 
-* [Hier]() vindt u de sheets van het zevende hoorcollege.
+Na afloop van het hoorcollege zullen hier links verschijnen naar de getoonde sheets en Notebooks.
 
 ## Lezen
 

@@ -9,8 +9,7 @@
 
 ## College-sheets
 
-* [Hier](../files/4.neurale-netwerken.pdf) vindt u de (geannoteerde) sheets van het vierde hoorcollege.
-* En [hier](https://github.com/hanze-hbo-ict/Machine-Learning/blob/master/Notebooks/Keras%20(live%20coding%20HC%204).ipynb) de notebook die in het college getoond is.
+Na afloop van het hoorcollege zullen hier links verschijnen naar de getoonde sheets en Notebooks.
 
 ## Lezen
 

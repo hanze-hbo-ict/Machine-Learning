@@ -17,10 +17,7 @@
 
 ## College-sheets
 
-* [Hier]() vindt u de (geannoteerde) sheets van het vijfde hoorcollege.
-* [Hier](https://github.com/hanze-hbo-ict/Machine-Learning/blob/master/Notebooks/Modelevaluatie%20live%20coding%20HC5.ipynb) vindt u de notebook over modelevaluatie die in het college getoond is.
-* [Hier](https://github.com/hanze-hbo-ict/Machine-Learning/blob/master/Notebooks/Hyperparam%20Tuning%20live%20coding%20HC7.ipynb) vindt u de notebook over Hyperparameter tuning die in het college getoond is.
-* [Hier](https://github.com/hanze-hbo-ict/Machine-Learning/blob/master/Notebooks/PCA%20live%20coding%20HC7.ipynb) vindt u de notebook over PCA die in het college getoond is.
+Na afloop van het hoorcollege zullen hier links verschijnen naar de getoonde sheets en Notebooks.
 
 ## Lezen
 

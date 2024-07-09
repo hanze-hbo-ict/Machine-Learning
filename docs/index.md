@@ -29,6 +29,19 @@ baba@aurelia ml % source bin/activate
 (ml) baba@aurelia ml % 
 ```
 
+## Globale planning
+
+| Weeknummer | Onderwerp | Inleveren |
+| ---------- | --------- | --------- |
+| 1	| Tools en technieken | |	 
+| 2	| Lineaire regressie | opgaven deel 1 |
+| 3	| Logistische regressie | |
+| 4	| Neurale netwerken | opgaven deel 2 |
+| 5	| Model-evaluatie, Hyperparameter tuning en Dimensionaliteitsreductie | |
+| 6	| Andere modellen en Ensemble learning | opgaven deel 3 |
+| 7	| Recurrent Neural Networks | |
+| 8	| Grote taalmodellen, afsluiting en evaluatie | opgaven deel 4 |
+
 ## Stof en opgaven per week
 
 ### Deel 1

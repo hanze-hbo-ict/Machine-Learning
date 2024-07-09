@@ -1,4 +1,4 @@
-# Stof: geavanceerde onderwerpen
+# Stof: Grote taalmodellen, afsluiting en evaluatie
 
 ## Onderwerpen
 

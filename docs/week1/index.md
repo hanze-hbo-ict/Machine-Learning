@@ -9,7 +9,8 @@
 
 ## College-sheets
 
-Na afloop van het hoorcollege zullen hier links verschijnen naar de getoonde sheets en Notebooks.
+* [Hier](../files/1.methoden-technieken.pptx) vindt u de presentatie die in de eerste helft van het college gebruikt is.
+* En [hier](../files/Titanic%20(live%20coding%20HC%20week%201).ipynb) de Notebook van de Titanic-exercitie.
 
 ## Lezen
 

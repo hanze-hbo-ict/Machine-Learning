@@ -79,6 +79,3 @@ extra_javascript:
 plugins:
 #  - with-pdf
   - search
-  - mknotebooks:
-      execute: false
-

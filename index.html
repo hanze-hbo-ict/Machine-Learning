@@ -1307,16 +1307,24 @@
 <p>Telkens tijdens het tweede practicum van elke tweede week worden afspraken gemaakt met individuele duo's om het werk tot dan toe te bespreken, vragen te beantwoorden en opmerkingen te plaatsen. Deze gesprekken zijn verplicht. Tijdens deze gesprekken wordt ook het begrip van de materie getoetst. </p>
 <p>Er zijn vier sets opgaven die uiteindelijk in de voorlaatste week van periode 4.1 moeten zijn afgerond (je bent dus vrij om één en ander te plannen, zo lang je maar aan deze eis voldoet). Eventueel reparatiewerk wordt tijdens de gesprekken besproken. Mocht dat niet voor de deadline zijn afgerond, dan is er een uitloopmogelijkheid in de laatste week van de periode; dat geldt dan wel als een herkansing: als je hiervan gebruik maakt, kun je voor dit onderdeel maximaal een 6 halen. Voor het overige zijn de cijfers ONV, 6, 8 of 10.</p>
 <h2 id="opstarten">Opstarten<a class="headerlink" href="#opstarten" title="Permanent link">&para;</a></h2>
-<p>De opgaven voor elke week gaan uit van een zipje met startcode. Het geheel gaat uit van een aantal dependencies. Deze dependencies hebben we voor het gemak in een <a href="files/requirements.txt"><code>requirements.txt</code></a> gezet. Je kunt het beste een virtuele omgeving aanmaken en hierin met pip in één keer alle dependencies installeren. Hier een voorbeeld voor MacOS:</p>
-<div class="highlight"><pre><span></span><code><span class="n">baba</span><span class="nd">@aurelia</span> <span class="o">~</span> <span class="o">%</span> <span class="n">virtualenv</span> <span class="n">ml</span>
-<span class="n">created</span> <span class="n">virtual</span> <span class="n">environment</span> <span class="n">CPython3</span><span class="mf">.8.7</span><span class="o">.</span><span class="n">final</span><span class="mf">.0</span><span class="o">-</span><span class="mi">64</span> <span class="ow">in</span> <span class="mi">820</span><span class="n">ms</span>
-<span class="n">baba</span><span class="nd">@aurelia</span> <span class="o">~</span> <span class="o">%</span> <span class="n">cd</span> <span class="n">ml</span> 
-<span class="n">baba</span><span class="nd">@aurelia</span> <span class="n">ml</span> <span class="o">%</span> <span class="n">cp</span> <span class="o">~/</span><span class="n">Downloads</span><span class="o">/</span><span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> <span class="o">.</span>
-<span class="n">baba</span><span class="nd">@aurelia</span> <span class="n">ml</span> <span class="o">%</span> <span class="n">source</span> <span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
-<span class="p">(</span><span class="n">ml</span><span class="p">)</span> <span class="n">baba</span><span class="nd">@aurelia</span> <span class="n">ml</span> <span class="o">%</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> 
-<span class="o">...</span>
-<span class="p">(</span><span class="n">ml</span><span class="p">)</span> <span class="n">baba</span><span class="nd">@aurelia</span> <span class="n">ml</span> <span class="o">%</span> 
+<p>De opgaven voor elke week gaan uit van een zipje met startcode. Het geheel gaat uit van een aantal dependencies. Deze dependencies hebben we voor het gemak in een <a download="requirements.txt" href="files/requirements.txt"><code>requirements.txt</code></a> gezet. Je kunt het beste een virtuele omgeving aanmaken en hierin met pip in één keer alle dependencies installeren. Hier een voorbeeld voor MacOS:</p>
+<div class="highlight"><pre><span></span><code>baba@aurelia ~ % python -m venv ml
+baba@aurelia ~ % cd ml 
+baba@aurelia ml % cp ~/Downloads/requirements.txt .
+baba@aurelia ml % source bin/activate
+(ml) baba@aurelia ml % python -m pip install -r requirements.txt 
+...
+(ml) baba@aurelia ml % 
 </code></pre></div>
+<p>en voor Windows (Terminal/PowerShell)
+<div class="highlight"><pre><span></span><code>PS C:\Users\ez&gt; python -m venv ml
+PS C:\Users\ez&gt; cd ml
+PS C:\Users\ez\ml&gt; cp ~/Downloads/requirements.txt .
+PS C:\Users\ez\ml&gt; Scripts/activate
+(ml) PS C:\Users\ez\ml&gt; python -m pip install -r requirements.txt
+...
+(ml) PS C:\Users\ez\ml&gt; 
+</code></pre></div></p>
 <h2 id="globale-planning">Globale planning<a class="headerlink" href="#globale-planning" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

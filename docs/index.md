@@ -18,7 +18,7 @@ Er zijn vier sets opgaven die uiteindelijk in de voorlaatste week van periode 4.
 
 De opgaven voor elke week gaan uit van een zipje met startcode. Het geheel gaat uit van een aantal dependencies. Deze dependencies hebben we voor het gemak in een [`requirements.txt`](files/requirements.txt) gezet. Je kunt het beste een virtuele omgeving aanmaken en hierin met pip in één keer alle dependencies installeren. Hier een voorbeeld voor MacOS:
 
-```console
+```
 baba@aurelia ~ % python -m venv ml
 baba@aurelia ~ % cd ml 
 baba@aurelia ml % cp ~/Downloads/requirements.txt .
@@ -29,7 +29,7 @@ baba@aurelia ml % source bin/activate
 ```
 
 en voor Windows (Terminal/PowerShell)
-```console
+```
 PS C:\Users\ez> python -m venv ml
 PS C:\Users\ez> cd ml
 PS C:\Users\ez\ml> cp ~/Downloads/requirements.txt .

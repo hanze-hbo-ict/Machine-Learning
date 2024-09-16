@@ -5,7 +5,7 @@ Deze set staat in het teken van [TensorFlow](https://www.tensorflow.org/) en [Ke
 
 In de eerste deelopgave gaan we werken met een standaard-dataset, die in TensorFlow is ingebakken, om een netwerk te trainen. De tweede deelopgave gaat op basis van dit netwerk een *confusion matrix* uitrekenen en tekenen.
 
-De startcode en andere bestanden die bij deze opgave horen kun je [hier downloaden](../files/startcode_deel2-set3.zip). Net als bij de vorige twee sets is er een bestand `exercise3.py`, dat het bestand `uitwerkingen.py` gebruikt. Het is de bedoeling dat je dit laatste bestand afmaakt.
+De startcode en andere bestanden die bij deze opgave horen kun je [hier downloaden](startcode_deel2-set3.zip). Net als bij de vorige twee sets is er een bestand `exercise3.py`, dat het bestand `uitwerkingen.py` gebruikt. Het is de bedoeling dat je dit laatste bestand afmaakt.
 
 ## Opgave: de fashion MNIST
 Eerder hebben we gewerkt met de MNIST-dataset, die handschriften van een paar duizend scholieren bevatte. Deze week gebruiken we een andere, vergelijkbare dataset, namelijk [de fashion-MNIST](https://github.com/zalandoresearch/fashion-mnist). Deze set bevat afbeeldingen van mode-items, zoals broeken, jurken en schoenen. De set bevat 60.000 trainingsplaatjes en 10.000 testplaatjes. Elk plaatje is een 28 &times; 28 grayscale plaatje.

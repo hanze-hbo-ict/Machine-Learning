@@ -3,7 +3,7 @@
 ## Inleiding
 In deze opgave werken we aan de lineaire regressie van data met één variabele. De data die we daarvoor gebruiken is de winst van een vervoerder gerelateerd aan de grootte van een stad waar die vervoerder werkzaam is. Je kunt je voorstellen dat het nuttig is om deze verhouding te weten, omdat je op basis hiervan geïnformeerd een besluit kunt nemen of je in een nieuwe stad (met een bepaalde grootte) een nieuw filiaal wilt openen.
 
-De startcode van deze opgave kun je [hier downloaden](../files/startcode_deel1-set2.zip). Het bestand `week1_data.pkl` bevat de data waar we mee gaan werken. Dit is een 97×2-numpy-vector: de eerste kolom bevat de grootte van de steden, de tweede kolom bevat de winst van de vervoerder.
+De startcode van deze opgave kun je [hier downloaden](startcode_deel1-set2.zip). Het bestand `week1_data.pkl` bevat de data waar we mee gaan werken. Dit is een 97×2-numpy-vector: de eerste kolom bevat de grootte van de steden, de tweede kolom bevat de winst van de vervoerder.
 
 Daarnaast vind je twee python-bestanden in de zip. Het bestand `exercise1.py` gebruikt de code in `uitwerkingen.py` om door de opgaven te lopen. Het is de bedoeling dat je het bestand `uitwerkingen.py` afmaakt. Bestudeer de code en het commentaar in beide bestanden om te zien hoe ze werken en wat de bedoeling ervan is.
 

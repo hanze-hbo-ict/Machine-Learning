@@ -1,4 +1,4 @@
 # Inleveren deel 1
 
-* Maak de [Notebook over Scikit Learn en de California Housing-dataset](https://github.com/hanze-hbo-ict/Machine-Learning/blob/master/docs/files/intro%20notebook%20en%20sklearn.ipynb)
-* Maak de [opgavenset over lineaire regressie](opgave1-2.md)
+* Maak de [Notebook over Scikit Learn en de California Housing-dataset](opgaven/opgave1-1.ipynb)
+* Maak de [opgavenset over lineaire regressie](opgaven/opgave1-2.md)

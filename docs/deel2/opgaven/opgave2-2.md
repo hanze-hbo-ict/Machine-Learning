@@ -12,7 +12,7 @@ $$
 <p>In deze matrix is $x^{(1)}$ de vector van het eerste plaatje, $x^{(2)}$ de vector van het tweede plaatje, enzovoort. 
 Behalve deze X-matrix is er in de data ook een 5000&times;1 vector y gegeven, waarin per plaatje is aangegeven welk cijfer dit representeert.</p>
 
-De startcode voor deze opgave is [hier te downloaden](../files/startcode_deel2-set2.zip). Net als in de vorige set wordt deze opgave doorlopen door het script `exercise2.py`. Dit script importeert de functies uit `uitwerkingen.py` en runt die op volgorde. Het is de opgave om deze uitwerkingen af te maken. Bestudeer beide scripts om een idee te krijgen van de werking.
+De startcode voor deze opgave is [hier te downloaden](startcode_deel2-set2.zip). Net als in de vorige set wordt deze opgave doorlopen door het script `exercise2.py`. Dit script importeert de functies uit `uitwerkingen.py` en runt die op volgorde. Het is de opgave om deze uitwerkingen af te maken. Bestudeer beide scripts om een idee te krijgen van de werking.
 
 ## 1. het visualiseren van de data
 

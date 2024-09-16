@@ -16,17 +16,27 @@ Er zijn vier sets opgaven die uiteindelijk in de voorlaatste week van periode 4.
 
 ## Opstarten
 
-De opgaven voor elke week gaan uit van een zipje met startcode. Het geheel gaat uit van een aantal dependencies. Deze dependencies hebben we voor het gemak in een [`requirements.txt`](files/requirements.txt) gezet. Je kunt het beste een virtuele omgeving aanmaken en hierin met pip in één keer alle dependencies installeren. Hier een voorbeeld voor MacOS:
+De opgaven voor elke week gaan uit van een zipje met startcode. Het geheel gaat uit van een aantal dependencies. Deze dependencies hebben we voor het gemak in een [`requirements.txt`](files/requirements.txt){: download="requirements.txt"} gezet. Je kunt het beste een virtuele omgeving aanmaken en hierin met pip in één keer alle dependencies installeren. Hier een voorbeeld voor MacOS:
 
-```python
-baba@aurelia ~ % virtualenv ml
-created virtual environment CPython3.8.7.final.0-64 in 820ms
+```
+baba@aurelia ~ % python -m venv ml
 baba@aurelia ~ % cd ml 
 baba@aurelia ml % cp ~/Downloads/requirements.txt .
 baba@aurelia ml % source bin/activate
 (ml) baba@aurelia ml % python -m pip install -r requirements.txt 
 ...
 (ml) baba@aurelia ml % 
+```
+
+en voor Windows (Terminal/PowerShell)
+```
+PS C:\Users\ez> python -m venv ml
+PS C:\Users\ez> cd ml
+PS C:\Users\ez\ml> cp ~/Downloads/requirements.txt .
+PS C:\Users\ez\ml> Scripts/activate
+(ml) PS C:\Users\ez\ml> python -m pip install -r requirements.txt
+...
+(ml) PS C:\Users\ez\ml> 
 ```
 
 ## Globale planning

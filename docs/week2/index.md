@@ -11,5 +11,5 @@ Na afloop van het hoorcollege zullen hier links verschijnen naar de getoonde she
 
 ## Lezen
 
-* [Reader](https://blackboard.hanze.nl/bbcswebdav/pid-6341209-dt-content-rid-108927618_2/xid-108927618_2): hoofdstuk 5 en 6
+* [Reader](../files/Reader%20Machine%20Learning%202.1%20CC%20BY-NC-SA%204.0.pdf): hoofdstuk 5 en 6
 * Géron: hoofdstuk 2 en 4 (t/m Gradient Descent) (optioneel)

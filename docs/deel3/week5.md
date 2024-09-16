@@ -1,4 +1,4 @@
-# Stof: Model-evaluatie, Hyperparameter tuning en Dimensionaliteitsreductie
+# Week 5: Model-evaluatie, Hyperparameter tuning en Dimensionaliteitsreductie
 
 ## Onderwerpen
 

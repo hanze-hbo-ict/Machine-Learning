@@ -1,4 +1,4 @@
-# Stof: Logistische regressie
+# Week 3: Logistische regressie
 
 ## Onderwerpen
 

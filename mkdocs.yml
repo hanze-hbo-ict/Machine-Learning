@@ -14,8 +14,30 @@ theme:
     logo: 'material/library'
   language: 'nl'
   include_sidebar: false
+  features:
+    - navigation.sections
+    - navigation.expand
 extra_css:
   - css/extra.css
+
+nav:
+  - index.md
+  - Deel 1:
+    - deel1/week1.md
+    - deel1/week2.md
+    - deel1/inleveren.md
+  - Deel 2:
+    - deel2/week3.md
+    - deel2/week4.md
+    - deel2/inleveren.md
+  - Deel 3:
+    - deel3/week5.md
+    - deel3/week6.md
+    - deel3/inleveren.md
+  - Deel 4:
+    - deel4/week7.md
+    - deel4/week8.md
+    - deel4/inleveren.md
 
 markdown_extensions:
   - pymdownx.arithmatex:

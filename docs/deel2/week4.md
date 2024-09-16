@@ -1,4 +1,4 @@
-# Stof: Neurale netwerken
+# Week 4: Neurale netwerken
 
 ## Onderwerpen
 

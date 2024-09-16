@@ -1,4 +1,4 @@
-# Stof: Andere modellen en Ensemble learning
+# Week 6: Andere modellen en Ensemble learning
 
 ## Onderwerpen
 

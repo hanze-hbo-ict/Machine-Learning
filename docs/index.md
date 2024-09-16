@@ -56,24 +56,24 @@ PS C:\Users\ez\ml> Scripts/activate
 
 ### Deel 1
 
-* [Week 1](week1/index.md)
-* [Week 2](week2/index.md)
-* [Inlevermoment](week2/inleveren.md)
+* [Week 1](deel1/week1.md)
+* [Week 2](deel1/week2.md)
+* [Inlevermoment](deel1/inleveren.md)
 
 ### Deel 2
 
-* [Week 3](week3/index.md)
-* [Week 4](week4/index.md)
-* [Inlevermoment](week4/inleveren.md)
+* [Week 3](deel2/week3.md)
+* [Week 4](deel2/week4.md)
+* [Inlevermoment](deel2/inleveren.md)
 
 ### Deel 3
 
-* [Week 5](week5/index.md)
-* [Week 6](week6/index.md)
-* [Inlevermoment](week6/inleveren.md)
+* [Week 5](deel3/week5.md)
+* [Week 6](deel3/week6.md)
+* [Inlevermoment](deel3/inleveren.md)
 
 ### Deel 4
 
-* [Week 7](week7/index.md)
-* [Week 8](week8/index.md)
-* [Inlevermoment](week8/inleveren.md)
+* [Week 7](deel4/week7.md)
+* [Week 8](deel4/week8.md)
+* [Inlevermoment](deel4/inleveren.md)

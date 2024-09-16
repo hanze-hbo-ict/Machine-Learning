@@ -1,4 +1,4 @@
-# Stof: Grote taalmodellen, afsluiting en evaluatie
+# Week 8: Grote taalmodellen, afsluiting en evaluatie
 
 ## Onderwerpen
 

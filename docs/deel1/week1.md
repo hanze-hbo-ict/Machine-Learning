@@ -1,4 +1,4 @@
-# Stof: Tools en technieken
+# Week 1: Tools en technieken
 
 ## Onderwerpen
 

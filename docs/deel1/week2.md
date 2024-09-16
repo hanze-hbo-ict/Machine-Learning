@@ -1,4 +1,4 @@
-# Stof: Lineaire regressie
+# Week 2: Lineaire regressie
 
 ## Onderwerpen
 

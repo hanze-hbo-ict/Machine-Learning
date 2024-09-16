@@ -4,7 +4,7 @@ In deze opgave gaan we op basis van de test-data bepalen hoe goed [ons eerder ge
 
 Zoals bekend is de accuratesse op zich niet voldoende om de presentatie van een classifier te bepalen: wanneer je gewoon zou gokken heb je bij tien mogelijke categorieën al een score van tien procent, en als je zou gokken dat een sample iets *niet* is, is de accuratesse al negentig procent. Betere metrieken hiervoor worden gegeven door de *confusion matrix*, die tijdens de theorieles besproken is. 
 
-![De confusion matrix](../imgs/confusion_matrix.png)
+![De confusion matrix](imgs/confusion_matrix.png)
 
 Maak eerst de methode `load_model()` af; deze methode moet het getrainde model laden dat je als laatste stap in de vorige opgave hebt opgeslagen.
 
@@ -14,7 +14,7 @@ Maak de methode `conf_matrix()` af. Zoals je ziet krijgt deze methode twee param
 
 Als je hiermee klaar bent, wordt de methode door het script `exercise3.py` aangeroepen, met de voorspellingen van de `test_images` en actuele waarden van die test-data (`test_labels`). Het resultaat wordt vervolgens in een plot weergegeven; als het goed is, ziet het er ongeveer als volgt uit: 
 
-![Confusion matrix met waarden uit onze training](../imgs/conf_matrix2.png)
+![Confusion matrix met waarden uit onze training](imgs/conf_matrix2.png)
 
 ### Opgave 1b: TP, TN, FP, FN
 Om meer metrieken uit het getrainde model te halen, volstaat niet alleen het percentage van de samples dat correct is geclassificeerd; we moeten dan ook weten welk percentage terecht als *niet* van een bepaalde klasse is geclassificeerd, welke onterecht als *wel* van een bepaalde klasse, en welk percentage onterecht als *wel* van een bepaalde klasse: de zogenaamde *true positives*, *true negatives*, *false positives* en *false negatives* (zoals in het theoriecollege besproken is).

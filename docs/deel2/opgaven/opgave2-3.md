@@ -15,7 +15,7 @@ Het bestand `exercise3.py` begint met het inladen van een aantal *dependencies* 
 ### Opgave 1a: het visualiseren en prepareren van de data
 Zoals altijd beginnen we met het visualiseren van de data. Maak de methode `plot_image()` in `uitwerkingen` af. Deze methode krijgt een array van 28 &times; 28 als parameter mee en maakt gebruik van `pyplotlib` om hier een plaatje van te tekenen; ook wordt het label dat met het plaatje correspondeert aan de methode meegegeven. Zorg ervoor dat dit label onderaan het plaatje komt te staan. Het script `exercise3.py` roept deze methode aan met een willekeurige sample uit de dataset, zodat je eenvoudig kunt controleren of het plaatje correspondeert met het label.
 
-![Plot van een plaatje om te checken wat het is](../imgs/imgplot.png)
+![Plot van een plaatje om te checken wat het is](imgs/imgplot.png)
 
 Net als de vorige weken kun je het tekenen van het plaatje vervolgens overslaan door de parameter `skip` aan het script mee te geven.
 

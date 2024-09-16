@@ -18,7 +18,7 @@ De startcode voor deze opgave is [hier te downloaden](startcode_deel2-set2.zip).
 
 Zoals altijd gaan we eerst de data visualiseren. In dit geval betekent dat een vector uit $x$ weer transformeren in een 20&times;20 *grayscale* plaatje. Maak hiervoor de functie `plot_number()` af. Omdat je weet dat de vector $x^{(i)}$ het i-de plaatje uit de dataset representeert, kun je deze vector eenvoudig weer terug omzetten in een 20&times;20 matrix en die tekenen. Maak daarbij gebruik van de methode `numpy.reshape` en van `matplotlib.matshow`. Het script roept de methode `plot_number` aan met een willekeurige vector uit de matrix X. Het toont het nummer op de console, en het cijfer dat het plaatje zou moeten voorstellen. Op die manier kun je eenvoudig checken of je uitwerking correct is.
 
-![Een willekeurig nummer](../imgs/number.png)
+![Een willekeurig nummer](imgs/number.png)
 
 Als je deze opgave hebt afgerond, kun je het script aanroepen met `skip` als commandline parameter: het tekenen wordt dan overgeslagen.
 
@@ -26,7 +26,7 @@ Als je deze opgave hebt afgerond, kun je het script aanroepen met `skip` als com
 
 Het neurale netwerk dat we voor deze opgave gaan uitprogrammeren bestaat uit drie lagen. De input van het netwerk zijn de 20&times;20 plaatjes van de handgeschreven cijfers, dus de input-laag bestaat uit 400 nodes. De middelste verborgen laag heeft 25 nodes en de output-laag heeft tien nodes – één voor elk cijfer van nul tot en met negen. Gegeven een bepaalde input moet één van de tien outputnodes de hoogste waarde hebben.
 
-![Het netwerk dat we gaan uitprogrammeren](../imgs/netwerk.png)
+![Het netwerk dat we gaan uitprogrammeren](imgs/netwerk.png)
 
 ### 2a: de sigmoid functie
 
@@ -150,7 +150,7 @@ Je hoeft voor deze opgave niets uit te programmeren. Bestudeer de werking van `m
 
 Als het geheel is afgerond, worden de nieuwe kost en de nieuwe accuratesse van het netwerk getoond. Ook wordt er een plot gemaakt van de waarden van de matrix in de verborgen laag – zie de figuur hieronder. Met een beetje moeite en goede wil kun je  zien dat deze matix een gevoeligheid heeft ontwikkeld voor horizontale en verticale lijnen en voor ronde vormen in de input. 
 
-![Het trainen van de hidden layer](../imgs/hidden_layer.png)
+![Het trainen van de hidden layer](imgs/hidden_layer.png)
 
 Met de getrainde waarde van het netwerk kunnen we nu voorspellingen doen over het getal dat door een afbeelding wordt gerepresenteerd. Maar de accuratesse is niet de enige metriek die voor de bepaling van hoe goed een netwerk is van belang is. Hierover gaan we het volgende week hebben, wanneer we o.a. de *confusion matrix* bespreken.
 

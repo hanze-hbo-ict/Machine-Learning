@@ -2,9 +2,8 @@
 
 ## Onderwerpen
 
-* Recurrent Neural Networks
-* Long/Short Term Memory (LSTM)
-* Gated Recurrent Unit (GRU)
+* (Large) Language Models
+* Word Embeddings
 
 ## College-sheets
 

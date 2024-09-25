@@ -2,8 +2,7 @@
 
 ## Onderwerpen
 
-* Large language models
-    * Transformers
+* Recurrent Neural Networks (LSTM, GRU)
 * Ruimte voor vragen over de eerdere stof en de laatste opdracht
 * Afsluiting en evaluatie van het vak
 

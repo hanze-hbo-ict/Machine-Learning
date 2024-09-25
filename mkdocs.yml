@@ -8,8 +8,20 @@ use_directory_urls: false
 theme:
   name: 'material'
   palette:
-    primary: 'blue grey'
-    accent: 'orange'
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)" 
+      scheme: slate
+      primary: indigo # same as above
+      accent: indigo  # same as above
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
   icon:
     logo: 'material/library'
   language: 'nl'

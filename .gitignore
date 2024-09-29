@@ -3,3 +3,4 @@ site/
 .DS_Store
 links
 *.swp
+**/__pycache__/

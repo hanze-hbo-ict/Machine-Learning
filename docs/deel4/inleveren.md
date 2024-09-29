@@ -1,4 +1,13 @@
 # Inleveren deel 4
 
-* zelf corpus zoeken (paar corpora suggereren) en daar generatief model op bouwen
-* zelf eenvoudig language model bouwen, testen en evalueren
+* Maak [de notebook over word-embeddings en PCA](opgaven/opgave4-1.ipynb). Hiervoor zijn de volgende bestanden van belang:
+    * [`utils.py`](opgaven/utils.py)
+    * [`capitals.txt`](opgaven/data/capitals.txt)
+    * [`word_embeddings_subset.p`](opgaven/data/word_embeddings_subset.p)
+    * [`vectors.png`](opgaven/imgs/vectors.jpeg)
+    * [`word_embf.png`](opgaven/imgs/word_embf.jpeg)
+
+* Maak [de notebook over n-grams](opgaven/opgave4-2.ipynb). Hiervoor zijn de volgende bestanden van belang:
+    * [`n_gram.png`](opgaven/imgs/n-gram.png)
+    * [`wiki.txt`](opgaven/data/wiki.txt)
+

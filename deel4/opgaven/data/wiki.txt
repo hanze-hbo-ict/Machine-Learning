@@ -1,0 +1,220 @@
+Kanker, in medisch Latijn: neoplasma malignum: 'kwaadaardig, nieuwgevormd weefsel', is een ziekte die zich als volgt uit:
+
+    er zijn cellen die zich onbeheerst vermenigvuldigen, en dit blijven doen;
+    de woekerende cellen breiden zich uit in omliggend weefsel en richten hier schade aan (invasieve groei of infiltratie);
+    de woekerende cellen verspreiden zich ook naar plaatsen elders in het lichaam, door metastasering of uitzaaiing: via de lymfevaten (lymfogene metastasering), via het bloed (hematogene metastasering) of in de verschillende lichaamsholten, bijvoorbeeld de buikholte.
+
+Nagenoeg alle medische specialismen houden zich bezig met de behandeling van kanker, maar met name medisch specialisten in de oncologie en de radiotherapie. In 2008 was kanker in Nederland voor het eerst de belangrijkste doodsoorzaak.
+Preparaat van adenocarcinoom
+Lezing door dr. Kishan Naipal (Erasmus MC) over kanker - Universiteit van Nederland
+Etymologie
+
+Het woord "kanker" is afgeleid van het klassiek Latijnse woord "cancer", met dezelfde betekenis, dat vanuit het Grieks werd vertaald door de Romeinse encyclopedieschrijver Celsus.[1]
+Betekenis
+
+Kanker is een aandoening die wordt gekenmerkt door de onbeheerste groei van nieuw, abnormaal weefsel of neoplasie, door een aanhoudende, ongecontroleerde celdeling. Gezonde cellen in het lichaam delen (prolifereren) enkel wanneer dat nodig is, zoals wanneer bepaalde organen aan vernieuwing of herstel toe zijn. Tijdens de celproliferatie krijgen de cellen een specifieke vorm en grootte, afhankelijk van hun functie: het proces van de celdifferentiatie. Deze deling en differentiatie staan onder invloed van extracellulaire, van buiten de cel afkomstige factoren als hormonen, chemische stoffen, virussen, en van inwendige, intracellulaire signalen. Beide soorten factoren bevorderen de aanmaak van specifieke eiwitten onder invloed van specifieke regel-genen binnen de cel, die een stimulerende of remmende invloed op de celdeling uitoefenen. Inwendige of intracellulaire signalen zijn het werk van cellulaire signaalstoffen, respectievelijk groeifactoren of groeiremmers.
+
+Wanneer één of meerdere cellen ontsnappen aan deze regulerende mechanismen, kan door ongecontroleerde celdeling of celwoekering een lokaal gezwel of tumor ontstaan. Er is dan sprake van de ontregeling van het complexe samenspel van groeibevorderende en groeiremmende factoren in het voordeel van de groeistimulatie. De delende cellen (nieuwgroei of neoplasie) hebben vaak hun normale vorm en functie verloren. Er is pas echt sprake van een kanker in het geval van kwaadaardige (of maligne) gezwellen. Deze zijn, in tegenstelling tot goedaardige (of benigne) gezwellen, in staat om het orgaan waarin ze zijn ontstaan te vernietigen, en niet enkel te beschadigen. Bovendien kunnen ze zich verspreiden: door een invasie van de omgeving kunnen ze uitgroeien tot in het omringende weefsel. Eventueel kunnen ze zich ook uitzaaien via de bloed- en lymfestroom en zo in andere organen terechtkomen.
+Epidemiologie (mate van vóórkomen)
+
+In Nederland werden in 2016 volgens de Nederlandse kankerregistratie ruim 108.400 gevallen van kanker vastgesteld. Er stierven in 2014 43.214 mensen aan kanker.
+
+In België kregen in 2013 65.487 mensen kanker,[2] 34.542 bij mannen (53%) en 30.945 bij vrouwen (47%). Het risico om te overlijden aan kanker daalt jaar na jaar, en mensen met kanker overleven ook langer.
+
+    Bij mannen komen met name de volgende typen kanker voor: prostaatkanker, longkanker en darmkanker.
+    Bij vrouwen komen het meest voor: borstkanker, darmkanker en longkanker.
+    Kankersoorten die bij kinderen en jongeren het meest frequent voorkomen zijn leukemie, lymfomen en hersentumoren.
+
+Andere soorten kanker zijn:
+
+    alvleesklierkanker
+    baarmoederhalskanker
+    blaaskanker
+    neuroblastoom
+    hersentumor
+    lymfomen
+    leukemie
+    botkanker
+    huidkanker
+    maagkanker
+    neus- en keelkanker
+    nefroblastoom
+    nierkanker
+    teelbalkanker
+    vulvakanker
+
+Pathogenese (oorzaken)
+Genmutaties door verschillende oorzaken
+
+Centraal in de pathogenese (het ontstaan) van kanker staan defecten in het DNA, door genmutaties. Genmutaties ontstaan door erfelijke aanleg, of door verwerving door milieu-invloeden.[3]
+Overgeërfde genmutaties
+
+Erfelijke mutaties. Er zijn mutaties bekend die overgeërfd kunnen worden en een sterk verhoogd risico geven op het ontstaan van kanker. In dit verband wordt wel gesproken van erfelijke kanker. Voorbeelden zijn het BRCA1-gen en het BRCA2-gen. Vrouwen met een dergelijke, overgeërfde mutatie hebben een sterk verhoogd risico op het krijgen van borstkanker of ovariumcarcinoom.
+Mutaties door omgevingsinvloeden (verwerving)
+
+Infecties. Verschillende biologische ziekteverwekkers worden in verband gebracht met het ontstaan van bepaalde typen kanker.[4] Enkele voorbeelden hiervan zijn:
+
+    humaan papillomavirus en het cervixcarcinoom en peniscarcinoom
+    schistosomiasis en het blaascarcinoom
+    Epstein-Barrvirus en het burkittlymfoom
+    de bacterie helicobacter pylori en maagkanker
+    het merkelcelpolyomavirus dat aangetoond werd in het merkelcelcarcinoom
+
+Roken, gebruik van alcohol en consumptie van rood vlees (maar ook bewerkt vlees) hebben een oorzakelijk verband met verschillende vormen van kanker. Ook met chemische bestrijdingsmiddelen[5] is er een verband.
+
+Fysische factoren. Ultraviolette en ioniserende straling kunnen mutaties, en dus kanker veroorzaken.
+
+Chemische stoffen. Van verschillende chemische stoffen is bekend dat ze kanker kunnen veroorzaken, de zogeheten carcinogenen. Voorbeelden van stoffen en het daaraan gekoppelde, verhoogde risico op een bepaalde vorm van kanker zijn:
+
+    asbest en het mesothelioom
+    benzopyreen in rook en het bronchuscarcinoom
+    aromatische aminen in verf en blaaskanker
+
+Van mutatie naar kanker
+
+Om daadwerkelijk kanker te krijgen moeten de mutaties optreden in genen die betrokken zijn bij het reguleren van de celdeling. De volgende genen zijn met name van belang:
+
+    proto-oncogenen;
+    tumorsuppressorgenen;
+    genen die de apoptose regelen;
+    genen die de DNA-repair regelen.
+
+Kanker treedt pas op wanneer in een aantal van de bovengenoemde genen mutaties zijn opgetreden. Verder is het zo dat met iedere mutatie de kans op nieuwe mutaties steeds verder toeneemt. Mutaties in proto-oncogenen en tumorsuppressorgenen maken het mogelijk dat cellen ongebreideld kunnen delen. Bij iedere deling is er altijd (ook bij gezonde cellen) een kans op mutaties. Dat mutaties in DNA-repairgenen de kans op nieuwe mutaties verhoogt, spreekt voor zich. Dankzij onderdrukking van de apoptose wordt de cel niet vernietigd.
+
+Bij de ontwikkeling van kanker blijft het echter niet bij mutaties in bovengenoemde genen. Naarmate het kankerproces voortschrijdt, zullen er ook mutaties optreden waardoor:
+
+    nieuwe bloedvaten aangelegd kunnen worden naar de tumor in ontwikkeling (angiogenese);
+    de ontaarde cellen het omliggende weefsel binnen kunnen dringen (invasie);
+    de ontaarde cellen zich los kunnen maken uit hun omgeving en kunnen terechtkomen in andere plaatsen in het lichaam waar ze verder uitgroeien tot een tumor (metastasering);
+    de ontaarde cellen 'onsterfelijk' worden; normaal gesproken kan een cel niet vaker dan ongeveer 60 maal delen (Hayflick-limiet), kankercellen kennen deze limiet niet.
+
+Indien de ontaarde cellen uiteindelijk voldoen aan de kenmerken van kanker (ongebreideld kunnen delen, infiltreren in de omgeving en kunnen metastaseren), is er sprake van kanker. Kankercellen zullen zich dan ook niet of nauwelijks nog met hun oorspronkelijke functie bezighouden, maar al hun energie aanwenden om te kunnen delen.
+
+Er zijn verschillende soorten mutaties mogelijk:
+
+    Allereerst is er de puntmutatie bij tumorsuppressorgenen. Bij amplificatie worden er één of meerdere kopieën van het gen genomen. Hierdoor ontstaat er een teveel aan groeibevorderende genen die het evenwicht met de tumorsuppressorgenen uit balans brengen.
+    Een andere mogelijkheid is die van de chromosoomtranslocatie. Bij deze reciproque of wederzijdse translocatie komt het proto-oncogen op een andere plaats of eventueel op een ander chromosoom te liggen. Hierdoor wordt het gen onttrokken aan de invloed van zijn normaal regulerende genen. Het gen kan bijvoorbeeld terechtkomen naast een gebied waar regulerende DNA-sequenties liggen, die zijn expressie juist sterk doen toenemen, zoals het geval is bij het burkittlymfoom en bij chronische myeloïde leukemie.
+    Door de samensmelting tussen verschillende genen kan er een nieuw fusiegen ontstaan, zoals het Philadelphiachromosoom, dat zich als actief en gevaarlijk oncogen gaat gedragen.
+
+Tumorsuppressorgenen
+
+Deze genen zorgen er gewoonlijk voor dat cellen niet ongebreideld door kunnen gaan met delen. Wanneer in tumorsuppressorgenen een mutatie optreedt kan de regulering op de deling van de cel verdwijnen. Zodoende kan de cel ongestoord verdergaan met delen. Naast mutaties kunnen tumorsuppressorgenen ook op andere manieren uitgeschakeld worden. Sommige genen kunnen ook uitgeschakeld worden door hyper-methylering van de promotor-regio van het gen.
+Proto-oncogenen
+
+Proto-oncogenen zijn gewoonlijk betrokken bij het stimuleren van normale celdelingen; het zijn groeibevorderende genen die zorgen voor de groei en deling van cellen. Wanneer nodig, kunnen ze organen of weefsel in omvang doen toenemen, door het stimuleren van de celdeling. Indien een mutatie optreedt in een proto-oncogen verwordt deze tot een oncogen. Een onco-gen zet de cel aan tot overmatige, of zelfs onbeperkte deling.
+Apoptose-genen
+
+Wanneer een cel niet meer op normale wijze functioneert, treedt er een 'zelfvernietigingsmechanisme' in werking waardoor de cel te gronde gaat. Bij kanker zijn de genen die daarvoor zorgen vaak uitgeschakeld.
+DNA-repairgenen
+
+Lichaamscellen hebben de beschikking over een DNA-herstelsysteem. Hiermee kunnen afwijkingen in het DNA hersteld worden. Wanneer er een mutatie optreedt in een DNA-herstelgen worden fouten in het DNA niet meer voldoende hersteld. Daardoor kunnen er steeds meer defecten ontstaan in het DNA.
+Chemische invloeden
+
+Sommige chemicaliën zouden betrokken zijn voor 80 – 90% van alle kankergevallen die bij mensen voorkomen. De chemicaliën werken dan mutageen wat wil zeggen dat ze nieuwe mutaties kunnen opwekken. Dat gebeurt in de chromosomen, genomen maar ook in de genen kunnen ze de mutatiefrequentie opdrijven. Let wel op dat niet alle mutaties kanker opwekken, factoren die met zekerheid kanker kunnen genereren noemen we carcinogenen. Alle carcinogeen is dus mutageen maar niet omgekeerd.
+
+De reden voor de grote betrokkenheid van chemicaliën is dat ze gemakkelijk een verbinding aangaan met DNA. Mutagene chemicaliën worden daarom ook wel elektrofiele stoffen genoemd. We maken een onderscheid tussen reeds actief mutagene stoffen en promutagenen of stoffen die pas mutageen worden onder invloed van bepaalde enzymen in het lichaam.
+
+Er zijn reeds een hele reeks carcinogenen opgespoord, onder andere verbrand en gefrituurd voedsel, bacteriën, schimmels en medicamenten hebben kankerverwekkende effecten. Dat laatste kunnen we verklaren doordat voornamelijk hormonen kankerstimulerend kunnen werken, bijvoorbeeld het deshormoon (di-ethylstilbestrol), een derivaat van oestrogeen, bleek vaginale kanker te doen ontstaan. Maar geslachtshormonen veroorzaken niet altijd zelf mutaties, ze gedragen zich vaak als kankerpromotoren en stimuleren bestaande kankercellen in hun ontwikkeling. Naast kankerpromotoren kent men ook co-mutagenen die wel op een rechtstreekse manier het mutageen bevordert. Alcohol is zo’n stof en kan onder invloed van bepaalde carcinogeen het ontstaan van leverkanker in de hand werken.
+Straling
+
+Ook fysische factoren zoals straling met een grote energie-inhoud kunnen kanker veroorzaken. Deze stralen met korte golflengte kennen we als ioniserende stralen, omdat ze de moleculen waarop ze vallen elektrisch kunnen laden. Dit heeft tot gevolg dat het DNA beschadigd kan raken en vervolgens ook mutaties voortbrengt. Voorbeelden van ioniserende stralen zijn X-stralen (röntgenfoto’s), gammastralen (atoombom) en kosmische stralen (heelal), deze kunnen zelfs in dieper gelegen weefsel mutaties op niveau van lichaamscellen (somamutatie) en erfelijke mutaties teweegbrengen. De straling kan ook rechtstreeks de kans op kanker doen toenemen doordat ze de proto-oncogenen in het lichaam activeert. Het effect van zo'n straling hangt niet alleen van de intensiteit maar ook van de opnamesnelheid af. Bij laag geconcentreerde en gedoseerde straling kan ons lichaam beschadigde cellen nog herstellen, pas bij intensieve blootstelling is er een sterk verhoogd risico op kanker.
+
+Ook zonlicht bevat straling, de uv-stralen zijn echter niet-ioniserend, maar kunnen toch lichaamsdelen beschadigen. Enerzijds door brandwonden te veroorzaken, maar ze kunnen ook de kans op huidkanker aanzienlijk vergroten.
+Andere mogelijkheden
+
+Maar het hoeven niet altijd genmutaties te zijn die verantwoordelijk zijn voor het ontstaan van kankers, ook uitwendige factoren zijn in staat de groeiregeling van cellen te beïnvloeden. Virussen zijn in staat om bij dieren en planten rechtstreeks of onrechtstreeks kanker te doen ontstaan. RNA-retrovirussen bevatten virale oncogenen die door reverse transcriptie worden omgezet in een DNA-kopie. De oncogenen in het virus waren ooit proto-oncogenen, gestolen uit het DNA van cellen die ze ooit besmet zouden hebben, en door de virale enhancers of kleine mutaties veel actiever zijn geworden en omgevormd tot oncogenen. Dit kan vervolgens in het DNA van de cel worden ingevoegd en kan zo bij planten rechtstreeks kanker teweegbrengen.
+
+Virussen kunnen ook onrechtstreeks kanker veroorzaken: het humaan T-cel lymfotroop virus 1 (HTLV1) veroorzaakt een vorm van leukemie maar bevat zelf geen oncogenen. Het oefent zijn groeibevorderende invloed uit via een gen dat andere genen die onder andere instaan voor de productie van groeifactoren gaat activeren. Het kan nog indirecter door bijvoorbeeld het in de war sturen van de productie van normale regulerende eiwitten. Dit bewijst dat een virus op zich vaak maar één schakel is in een reeks factoren.
+Pathologie
+
+Er zijn vijf soorten maligne tumoren:
+
+    carcinomen uit epitheel;
+    sarcomen uit steunweefsel;
+    maligne lymfomen uit lymfeweefsel;
+    blastomen uit cellen van zich ontwikkelend weefsel;
+    kiemceltumoren uit kiemcellen.
+
+Symptomen
+
+    Er ontstaan gezwellen (tumoren). Hoewel het woord 'tumor' voor patiënten vaak een angstige bijklank heeft betekent het niet meer of minder dan 'zwelling'. Een tumor kan zowel goed- als kwaadaardig zijn. Een goedaardige tumor wordt ook wel benigne genoemd, een kwaadaardige maligne. Bij kanker is er sprake van maligne tumoren.
+    Kankerweefsel geneest niet goed en gaat makkelijk bloeden. Bloedverlies, bijvoorbeeld bij ontlasting, urine, uit de tepel of bij hoesten, is een van de belangrijke vroege waarschuwingssymptomen.
+    De gezwellen drukken op andere structuren en belemmeren daarvan de werking. Bij de darm kan bijvoorbeeld passage van voedsel onmogelijk worden; vanuit - door zwellingen geblokkeerde - zenuwbanen in het ruggenmerg kunnen verlammingen ontstaan; in botten kunnen breuken optreden; bij zenuwen kan pijn ontstaan; bij hersentumoren ontstaan er ook andere neurologische problemen zoals epilepsie. Als het beenmerg - waar de bloedaanmaak plaatsvindt - door tumorweefsel wordt vervangen, ontstaan ernstige bloedarmoede en stollingsstoornissen.
+    Kanker veroorzaakt vaak verandering van de stofwisseling en regulatie daarvan (paraneoplastische syndromen), waaronder:
+        verhoogde hormoonproductie;
+        hersen-, zenuw- en/of spierafwijkingen;
+        bloed- en stollingsafwijkingen;
+        huidafwijkingen;
+        koorts (tumorkoorts);
+        cachexie (vermagering), anorexie (verminderde eetlust).
+
+Diagnostiek
+
+Binnen de oncologie spelen beeldvormende onderzoeken een prominente rol. Belangrijke beeldvormende onderzoeken zijn:
+
+    röntgenonderzoek
+    echografie;
+    CT-scan;
+    MRI-scan;
+    skeletscintigrafie (botscan);
+    PET-scan.
+
+Naast beeldvormend onderzoek zal er ook altijd pathologisch onderzoek nodig zijn. Hierbij kan gekeken worden naar de kankercellen zelf (cytologie) en naar het verband tussen de kankercellen en de omgeving waarin ze liggen (histologie). Dit materiaal kan worden verkregen middels puncties met een naald of via operatieve verwijdering. Vaak wordt operatief gekeken hoe ver het kankerproces is uitgebreid in het lichaam (lymfeklieren en metastasen op afstand).
+
+Uiteindelijk wordt op grond van de diagnostiek het te volgen behandelingstraject bepaald.
+Medische behandeling en onderzoek
+
+De behandeling van kanker kent twee mogelijke doelen:
+
+    curatie: genezing indien mogelijk
+    palliatieve zorg: het verzachten van de pijn en overige symptomen, als genezing niet meer mogelijk is
+
+Binnen de oncologie bestaan de volgende behandelingsopties:
+
+    chirurgie,
+    radiotherapie,
+    hyperthermie,
+    chemotherapie, met behulp van cytostatica.
+
+Afhankelijk van
+
+    de gevoeligheid van de tumorcellen voor het type behandeling,
+    en/of de mogelijkheid om het tumorweefsel in zijn geheel operatief te verwijderen,
+    en/of de aanwezigheid van metastasen (uitzaaiingen),
+
+wordt een combinatie van verschillende typen behandelingstechnieken gebruikt. De verschillende methoden kunnen voor zowel curatie als palliatie gebruikt worden. Als er nog geen metastasen zijn, is het chirurgisch verwijderen van de tumor soms curatief (leidt tot volledige genezing). Anderzijds kan bij te ver gevorderde kanker soms besloten worden tot palliatieve (verzachtende) chirurgie, bijvoorbeeld om de pijn van de opgegeven patiënt te verminderen.
+
+Er zijn daarnaast nieuwe therapieën ontwikkeld, zoals gentherapie en immunotherapie. Deze experimentele behandelingen zijn vaak onderdeel van wetenschappelijk, geneeskundig onderzoek. Immunotherapie is inmiddels ingeburgerd in de dagelijkse oncologische praktijk; het bekendste voorbeeld is de behandeling van borstkanker met trastuzumab (Herceptin).
+
+Voorbeelden van succesvolle, op eiwitten gebaseerde geneesmiddelen van het Amerikaanse bedrijf Genentech, zijn bevacizumab (Avastin) bij darmkanker, trastuzumab (Herceptin) bij borstkanker en rituximab (Mabthera) bij non-hodgkinlymfoom. Pfizer brengt het middel sunitinib (Sutent) bij nierkanker op de markt, en Bayer heeft sorafenib (Nexavar) bij nierkanker. Behalve het kankergezwel zelf, worden ook de symptomen van de ziekte, en de bijwerkingen van de behandelingen bestreden door:
+
+    pijnstillers, en medicamenten die het effect van de pijnstilling versterken;
+    medicamenten tegen misselijkheid, obstipatie en droge mond, vaak als remedie tegen bijwerkingen van opiaten als pijnstillers.
+
+Tumorcellen communiceren
+
+Recent is in de klinische pathologie ontdekt dat neoplasmata (gezwellen) met elkaar communiceren in een groot netwerk. Daarbij wisselen ze stoffen uit die nodig zijn om te overleven, waardoor ze de effecten van bestraling of chemotherapie kunnen vermijden. Netwerkcommunicatie speelt ook een belangrijke rol bij verdere uitzaaiingen. Tumorcellen zijn zelfs verbonden met gezonde zenuwcellen, en ontvangen van hen directe signalen – op deze manier kunnen de tumoren sneller groeien. De ontdekte mechanismen bieden benaderingen voor nieuwe therapieën om de groei van tumoren te stoppen en bestaande therapieën effectiever te maken. Zo wordt de verstoring en zelfs vernietiging van deze ontdekte tumorcelnetwerken een geheel nieuw therapeutisch principe (behandelmogelijkheid) in de oncologie. De eerste klinische onderzoeken van behandelmethoden zijn inmiddels ontwikkeld op basis van deze nieuwe inzichten.[6]
+Preventie van kanker
+
+Het risico op kanker kan belangrijk worden gereduceerd door een gezonde levensstijl. Niet roken, overgewicht vermijden, voldoende fruit en groente eten, en regelmatig bewegen zijn algemene aanbevelingen die niet alleen de kans op kanker, maar ook die op hart- en vaatziekten kunnen beperken. Dit betekent niet dat je geen kanker kan krijgen als je gezond leeft. Ook dan is het risico aanwezig door andere externe invloeden als luchtvervuiling en zonlicht. Genetische aanleg kan onafhankelijk van externe factoren tot kanker leiden.
+Preventie bij erfelijke kanker
+
+Bij de preventie van erfelijke vormen van kanker komt vaak veel om de hoek kijken. Wanneer er een bepaalde erfelijke vorm van kanker in een familie voorkomt, kan, als men daarom vraagt, worden overgegaan tot preventief genetisch onderzoek onder familieleden. In principe mag dit wettelijk niet voor de leeftijd van achttien jaar, uitgezonderd erfelijke kankervormen, waarbij op jonge leeftijd reeds veelvuldig onderzoek, en soms zelfs preventieve behandeling nodig is. Een voorbeeld hiervan is de MEN2-mutatie. Bij dragers van deze mutatie wordt soms al op vijfjarige leeftijd de schildklier preventief verwijderd om schildklierkanker te voorkomen.
+
+Bekend zijn de mutaties in het BRCA1-gen en het BRCA2-gen. Mutaties in deze genen geven vrouwen een verhoogd risico op het krijgen van borstkanker en ook eierstokkanker. Het BRCA2-gen kan ook bij mannen borstkanker veroorzaken. Vrouwen die draagster zijn van een van de gemuteerde genen kunnen besluiten preventief hun borsten te laten verwijderen. Hierbij zal een zeer zorgvuldige overweging gemaakt moeten worden door de vrouwen zelf.
+Preventie cervixkanker
+
+Infectie met het humaan papillomavirus kan aanleiding geven tot het ontstaan van een voorstadium van kanker van cervix of vulva, cervixcarcinoom en genitale wratten. Vaccinatie tegen het humaan papilloma-virus, voorkomt meer dan 50% van deze aandoeningen. Deze middelen zijn bekend onder de namen Gardasil en Cervarix.
+Onderzoekinstituten
+
+    European Organisation for Research and Treatment of Cancer (EORTC)
+    International Agency for research on Cancer (IARC)
+    National Cancer Institute (USA)
+    Nederlands Kanker Instituut (NKI)
+    Federation of European Cancer Societies (FECS)
+    Jules Bordet Instituut (België)
+    Organisation of European Cancer Institutes (OECI)[7]
+
+In de taal
+
+"Kanker" komt voor als scheldwoord, en wordt door sommigen als schokkender beschouwd dan schelden met godverdomme. 'Kankeren (op iets)' is negatieve kritiek geven. In de bouw worden termen als betonkanker en muurkanker gebruikt, voor respectievelijk betonrot en muurschimmel. 

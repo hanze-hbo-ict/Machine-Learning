@@ -3,7 +3,7 @@
 - [X] Opgave 2.3 en 3.1 + zip-bestand ontkamelen
 - [ ] Hoorcollege week 7: slides
 - [ ] Hoorcollege week 7: Notebook met voorbeelden
-- [ ] Opgavenset 4 (week 8)
+- [X] Opgavenset 4 (week 7 en 8)
 
 # ROTE
 

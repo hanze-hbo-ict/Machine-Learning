@@ -1,7 +1,7 @@
-mkdocs
-nbdime
-ipython
-mknotebooks
-mkdocs-material
-pymdown-extensions
-mkdocs-bootswatch
+jupyter
+scikit-learn
+tensorflow
+matplotlib
+scipy
+numpy
+pandas

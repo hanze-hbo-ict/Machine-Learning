@@ -9,7 +9,8 @@
 
 ## College-sheets
 
-Na afloop van het hoorcollege zullen hier links verschijnen naar de getoonde sheets en Notebooks.
+* [Hier](../lectures/wk4/ML_wk4_Neurale_netwerken.pptx) vindt u de presentatie over Neurale Netwerken en Backpropagation die in het college gebruikt is.
+* En [hier](../lectures/wk4/livecoding/Keras.ipynb) de Notebook met het voorbeeld van een Keras-netwerk en de evaluatie daarvan.
 
 ## Lezen
 

@@ -11,3 +11,4 @@
     * [`n_gram.png`](opgaven/imgs/n-gram.png)
     * [`wiki.txt`](opgaven/data/wiki.txt)
 
+* Maak de notebook over RNN's (**volgt nog**)

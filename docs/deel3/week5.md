@@ -2,6 +2,10 @@
 
 ## Onderwerpen
 
+* Complexiteit van modellen
+    * Polynomiale modellen
+    * De _bias-variance_ tradeoff
+    * Over- en underfitting
 * Model-evaluatie 
     * De _confusion matrix_
     * True/false positives en negatives
@@ -13,11 +17,15 @@
     * RandomizedSearchCV
     * Halving
 * Dimensionaliteitsreductie
+    * Projectie en Manifold Learning
     * PCA
 
 ## College-sheets
 
-Na afloop van het hoorcollege zullen hier links verschijnen naar de getoonde sheets en Notebooks.
+* [Hier](../lectures/wk5/ML_wk5_Modeleval_tuning-Dimred.pptx) vindt u de presentatie die in het college gebruikt is.
+* En [hier](../lectures/wk5/livecoding/Modelevaluatie.ipynb) de Notebook over modelevaluatie.
+* En [hier](../lectures/wk5/livecoding/Hyperparam_Tuning.ipynb) de Notebook over hyperparameter tuning.
+* En [hier](../lectures/wk5/livecoding/PCA.ipynb) de Notebook over Principal Components Analysis (PCA).
 
 ## Lezen
 

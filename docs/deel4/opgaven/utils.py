@@ -1,6 +1,13 @@
 import numpy as np
 
 
+
+def add_temperature(predictions, temperature):
+    predictions = np.log(predictions) / temperature
+    exp_preds = np.exp(predictions)
+    return exp_preds / np.sum(exp_preds)
+
+
 def get_vectors(embeddings, words):
     """
     Input:

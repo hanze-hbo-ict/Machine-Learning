@@ -11,4 +11,5 @@
     * [`n_gram.png`](opgaven/imgs/n-gram.png)
     * [`wiki.txt`](opgaven/data/wiki.txt)
 
-* Maak de notebook over RNN's (**volgt nog**)
+* Maak [de notebook over de Goldberg-Variationen](opgaven/opgave4-3.ipynb). Hiervoor is de volgende zip nodig:
+    * [`bwv988.zip`](opgaven/data/bwv988.zip)

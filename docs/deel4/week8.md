@@ -1,4 +1,4 @@
-# Week 8: Grote taalmodellen, afsluiting en evaluatie
+# Week 8: recurrente neurale netwerken
 
 ## Onderwerpen
 

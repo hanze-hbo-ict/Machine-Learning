@@ -1,4 +1,4 @@
-# Week 7: Recurrent Neural Networks
+# Week 7: Taalmodellen en word embeddings
 
 ## Onderwerpen
 

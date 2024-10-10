@@ -38,9 +38,9 @@ Implementeer de methode `conf_els()`, en retourneer een lijst met deze vier metr
 
 Implementeer nu de methode `conf_data()`, waarin je de data die je in de vorige opgave hebt gemaakt omzet in de onderstaande metrieken: 
 
-- $sensitivity (TPR) = \frac{tp}{tp + fn}$
-
 - $precision (PPV) = \frac{tp}{tp + fp}$
+
+- $recall (sensitivity, TPR) = \frac{tp}{tp + fn}$
 
 - $specificity (TNR) = \frac{tn}{tn + fp}$
 

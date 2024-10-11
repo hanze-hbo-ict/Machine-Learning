@@ -8,9 +8,8 @@
 
 ## College-sheets
 
-* [Hier]() vindt u de sheets van het achtste en laatste hoorcollege.
-* En [hier](https://keras.io/examples/nlp/question_answering/) vindt u de Notebook van Keras over _question answering_ met Keras en modellen van Hugging Face.
+Na afloop van het hoorcollege zullen hier links verschijnen naar de getoonde sheets en Notebooks.
 
 ## Lezen
 
-* Géron: hoofdstuk 16
+* Géron: hoofdstuk 15

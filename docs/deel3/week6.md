@@ -4,14 +4,14 @@
 
 * Supervised
     * Naive Bayes classifier
-    * Support Vector Machines (SVM's)
+    * Support Vector Classifiers (SVC's)
     * Beslisbomen (Decision trees)
 * Unsupervised
     * DBSCAN
     * k-means
 * Ensemble learning
     * Voting, bagging en pasting
-    * Random Forest
+    * Random forest
     * Boosting
     * Stacking
 

@@ -11,7 +11,7 @@
     * [`n_gram.png`](opgaven/imgs/n-gram.png)
     * [`wiki.txt`](opgaven/data/wiki.txt)
 
-* Maak [de notebook over de Goldberg-Variationen](opgaven/opgave4-3.ipynb). Hiervoor is de volgende zip nodig:
+* Maak [de notebook over de Goldberg-Variationen](opgaven/opgave4-3.ipynb). Hiervoor zijn de volgende zip en py-bestanden nodig:
     * [`bwv988.zip`](opgaven/data/bwv988.zip)
     * [`deprocess.py`](opgaven/deprocess.py)
     * [`csvtomidi.py`](opgaven/csvtomidi.py)

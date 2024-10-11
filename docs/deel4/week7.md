@@ -11,4 +11,4 @@ Na afloop van het hoorcollege zullen hier links verschijnen naar de getoonde she
 
 ## Lezen
 
-* Géron: hoofdstuk 15
+* Géron: hoofdstuk 16

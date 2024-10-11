@@ -13,3 +13,5 @@
 
 * Maak [de notebook over de Goldberg-Variationen](opgaven/opgave4-3.ipynb). Hiervoor is de volgende zip nodig:
     * [`bwv988.zip`](opgaven/data/bwv988.zip)
+    * [`deprocess.py`](opgaven/deprocess.py)
+    * [`csvtomidi.py`](opgaven/csvtomidi.py)

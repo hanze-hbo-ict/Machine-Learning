@@ -1,4 +1,4 @@
-# Week 8: recurrente neurale netwerken
+# Week 8: Recurrente neurale netwerken
 
 ## Onderwerpen
 

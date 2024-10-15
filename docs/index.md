@@ -49,8 +49,8 @@ PS C:\Users\ez\ml> Scripts/activate
 | 4	| Neurale netwerken | opgaven deel 2 |
 | 5	| Model-evaluatie, Hyperparameter tuning en Dimensionaliteitsreductie | |
 | 6	| Andere modellen en Ensemble learning | opgaven deel 3 |
-| 7	| Recurrent Neural Networks | |
-| 8	| Grote taalmodellen, afsluiting en evaluatie | opgaven deel 4 |
+| 7	| (Grote) taalmodellen | |
+| 8	| Recurrent Neural Networks, afsluiting en evaluatie | opgaven deel 4 |
 
 ## Stof en opgaven per week
 

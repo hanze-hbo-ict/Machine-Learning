@@ -15,3 +15,4 @@
     * [`bwv988.zip`](opgaven/data/bwv988.zip)
     * [`deprocess.py`](opgaven/deprocess.py)
     * [`csvtomidi.py`](opgaven/csvtomidi.py)
+    * [`encoding.json`](opgaven/encoding.json)

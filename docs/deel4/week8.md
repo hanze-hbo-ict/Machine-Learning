@@ -2,14 +2,4 @@
 
 ## Onderwerpen
 
-* Recurrent Neural Networks (LSTM, GRU)
-* Ruimte voor vragen over de eerdere stof en de laatste opdracht
-* Afsluiting en evaluatie van het vak
-
-## College-sheets
-
-Na afloop van het hoorcollege zullen hier links verschijnen naar de getoonde sheets en Notebooks.
-
-## Lezen
-
-* Géron: hoofdstuk 15
+_NB: omdat het hoorcollege van week 8 erg onhandig geroosterd is, komt dit te vervallen en wordt de stof van week 7 én 8 in het hoorcollege van week 7 behandeld._

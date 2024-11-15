@@ -1,16 +1,6 @@
-# BABA
-
-- [X] Opgave 2.3 en 3.1 + zip-bestand ontkamelen
-- [ ] Hoorcollege week 7: slides
-- [ ] Hoorcollege week 7: Notebook met voorbeelden
-- [X] Opgavenset 4 (week 7 en 8)
-
-# ROTE
-
-- [X] Slides week 5: deel materiaal week 7 erbij in
-- [X] Slides week 6: deel materiaal week 8 erbij in
-- [X] Slides 23 en 25 van week 2 overnemen in de PPTX
-- [X] Slides 16 t/m 19 van week 3 overnemen in de PPTX
-- [ ] Hoorcollege week 8: slides uitbreiden
-- [ ] Hoorcollege week 8: (Notebook met) voorbeelden uitbreiden
-- [X] Links naar sheets aanpassen waar nodig en eventueel tijdelijk weghalen (pas na college tonen)
+[ ] Alles omzetten naar notebooks (labs) in een container, zie repo van Michel: https://github.com/MichelGerding/ml-opgaven-dockerfile/tree/main (set 1 is al gedaan, nog wel checken)
+[ ] Curse of Dimensionality uit week 5/6 halen en ophangen aan Taalmodellen en PCA's 
+[ ] Nadenken over eis aan deelcijfers: alle voldoende? 
+[ ] Nauwkeurig door de oriëntatie van de (theta-)vectoren heen, met name week 3 
+[ ] Twee hoorcolleges in week 1 zodat we altijd voorlopen op de werkcolleges 
+[ ] Nauwkeurig door de nummering van de lagen en de theta's in de backpropagation-opgave heen 

@@ -31,6 +31,8 @@ theme:
     - navigation.expand
 extra_css:
   - css/extra.css
+exclude_docs: |
+  /blackboard.md
 
 nav:
   - index.md

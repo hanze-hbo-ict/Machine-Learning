@@ -8,11 +8,13 @@ Machine learning is het onderdeel van de informatica dat zich bezighoudt met het
 
 ## Opgaven
 
-Op deze pagina's zijn de weekopgaven van dit onderdeel te vinden. Deze opgaven worden gemaakt in duo's. Tijdens het eerste practicum wordt klassikaal een begin gemaakt met de opgaven: er wordt uitgelegd hoe te werken met numpy en hoe je lineaire algebra gebruikt in het domein van ML. Ook worden hier de weekopgaven verder toegelicht.
+Op deze pagina's zijn de weekopgaven van dit onderdeel te vinden (zie het menu links).
 
-Telkens tijdens het tweede practicum van elke tweede week worden afspraken gemaakt met individuele duo's om het werk tot dan toe te bespreken, vragen te beantwoorden en opmerkingen te plaatsen. Deze gesprekken zijn verplicht. Tijdens deze gesprekken wordt ook het begrip van de materie getoetst. 
+De practicumopdrachten worden bij voorkeur gemaakt in **duo's**. Tijdens het eerste practicum wordt klassikaal een begin gemaakt met de opgaven: er wordt uitgelegd hoe te werken met [NumPy](http://www.numpy.org/) en hoe je lineaire algebra gebruikt in het domein van ML. Ook worden hier de weekopgaven verder toegelicht.
 
-Er zijn vier sets opgaven die uiteindelijk in de voorlaatste week van periode 4.1 moeten zijn afgerond (je bent dus vrij om één en ander te plannen, zo lang je maar aan deze eis voldoet). Eventueel reparatiewerk wordt tijdens de gesprekken besproken. Mocht dat niet voor de deadline zijn afgerond, dan is er een uitloopmogelijkheid in de laatste week van de periode; dat geldt dan wel als een herkansing: als je hiervan gebruik maakt, kun je voor dit onderdeel maximaal een 6 halen. Voor het overige zijn de cijfers ONV, 6, 8 of 10.
+Tijdens het tweede, vierde, zesde en achtste practicum worden (tijdens de geroosterde oplevermomenten) afspraken gemaakt met de duo's om het werk tot dan toe te bespreken en te beoordelen.
+
+Er zijn vier sets weekopgaven die uiteindelijk allemaal in de voorlaatste week van het blok moeten zijn afgerond. Elke set moet met een **voldoende** cijfer beoordeeld zijn. Eventueel **reparatiewerk** wordt tijdens de oplevermomenten besproken. Mocht dat niet voor de deadline zijn afgerond, dan is er een uitloopmogelijkheid in de laatste week van het blok. Dat geldt dan wel als een herkansing. Een niet-ingeleverde opdracht krijgt het cijfer 1.
 
 ## Opstarten
 
@@ -47,9 +49,9 @@ PS C:\Users\ez\ml> Scripts/activate
 | 2	| Lineaire regressie | opgaven deel 1 |
 | 3	| Logistische regressie | |
 | 4	| Neurale netwerken | opgaven deel 2 |
-| 5	| Model-evaluatie, Hyperparameter tuning en Dimensionaliteitsreductie | |
+| 5	| Model-evaluatie en Hyperparameter tuning | |
 | 6	| Andere modellen en Ensemble learning | opgaven deel 3 |
-| 7	| (Grote) taalmodellen | |
+| 7	| Dimensionaliteitsreductie en (grote) taalmodellen | |
 | 8	| Recurrente neural netwerken | opgaven deel 4 |
 
 ## Stof en opgaven per week

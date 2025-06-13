@@ -7,8 +7,12 @@
 
 ## College-sheets
 
+Na afloop van het hoorcollege komen hier de gebruikte slides en notebooks beschikbaar.
+
+<!--
 * [Hier](../lectures/wk2/ML_wk2_Lineaire_regressie.pptx) vindt u de presentatie die in het college gebruikt is.
 * En [hier](../lectures/wk2/livecoding/NumPy.ipynb) een Notebook met Numpy-voorbeelden zoals we die bekeken hebben.
+-->
 
 ## Lezen
 

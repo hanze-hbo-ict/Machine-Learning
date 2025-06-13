@@ -959,7 +959,7 @@ g'(z) = \frac{d}{dz}g(z) = g(z)(1-g(z))
 <p><strong>Stap 4</strong></p>
 <p>Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices <span class="arithmatex">\(\Delta^{(1)}\)</span> en <span class="arithmatex">\(\Delta^{(2)}\)</span>, die dezelfde dimensionaliteit hebben als <span class="arithmatex">\(\Theta^{(1)}\)</span> en <span class="arithmatex">\(\Theta^{(2)}\)</span>. (De variable l staat voor het nummer van de laag en is in dit geval 1 of 2.)</p>
 <div class="arithmatex">\[
-\Delta^{(l)} := \Delta^{(l)} + \delta^{(l)}\cdot(a^{(l-1)})^T
+\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}\cdot(a^{(l)})^T
 \]</div>
 <p><strong>Stap 5</strong></p>
 <p>Als we deze stappen voor alle <span class="arithmatex">\(m\)</span> observaties hebben gedaan, delen we de beide delta-matrices door het aantal observaties (<em>element wise</em>) om de gemiddelde fout per node voor de huidige waarden van de beide theta-matrices te verkrijgen. Retourneer deze beide waarden uit de methode <code>nn_check_gradients</code>.</p>

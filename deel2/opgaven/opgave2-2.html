@@ -884,9 +884,8 @@
 <div class="arithmatex">\[
 X = \begin{bmatrix} &amp; — &amp; (x^{(1)})^T &amp; — &amp; \\ &amp; — &amp; (x^{(2)})^T &amp; — &amp; \\ &amp; &amp; \vdots &amp; &amp; \\ &amp; — &amp; (x^{(m)})^T &amp; — &amp; \\ \end{bmatrix}
 \]</div>
-<p>In deze matrix is $x^{(1)}$ de vector van het eerste plaatje, $x^{(2)}$ de vector van het tweede plaatje, enzovoort. 
+<p>In deze matrix is <span class="arithmatex">\(x^{(1)}\)</span> de vector van het eerste plaatje, <span class="arithmatex">\(x^{(2)}\)</span> de vector van het tweede plaatje, enzovoort. 
 Behalve deze X-matrix is er in de data ook een 5000&times;1 vector y gegeven, waarin per plaatje is aangegeven welk cijfer dit representeert.</p>
-
 <p>De startcode voor deze opgave is <a href="startcode_deel2-set2.zip">hier te downloaden</a>. Net als in de vorige set wordt deze opgave doorlopen door het script <code>exercise2.py</code>. Dit script importeert de functies uit <code>uitwerkingen.py</code> en runt die op volgorde. Het is de opgave om deze uitwerkingen af te maken. Bestudeer beide scripts om een idee te krijgen van de werking.</p>
 <h2 id="1-het-visualiseren-van-de-data">1. het visualiseren van de data<a class="headerlink" href="#1-het-visualiseren-van-de-data" title="Permanent link">&para;</a></h2>
 <p>Zoals altijd gaan we eerst de data visualiseren. In dit geval betekent dat een vector uit <span class="arithmatex">\(x\)</span> weer transformeren in een 20&times;20 <em>grayscale</em> plaatje. Maak hiervoor de functie <code>plot_number()</code> af. Omdat je weet dat de vector <span class="arithmatex">\(x^{(i)}\)</span> het i-de plaatje uit de dataset representeert, kun je deze vector eenvoudig weer terug omzetten in een 20&times;20 matrix en die tekenen. Maak daarbij gebruik van de methode <code>numpy.reshape</code> en van <code>matplotlib.matshow</code>. Het script roept de methode <code>plot_number</code> aan met een willekeurige vector uit de matrix X. Het toont het nummer op de console, en het cijfer dat het plaatje zou moeten voorstellen. Op die manier kun je eenvoudig checken of je uitwerking correct is.</p>
@@ -958,7 +957,7 @@ g'(z) = \frac{d}{dz}g(z) = g(z)(1-g(z))
 \delta^{(2)} = (\Theta^{(2)})^T\cdot\delta^{(3)} \times g'(z^{(2)})
 \]</div>
 <p><strong>Stap 4</strong></p>
-<p>Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices <span class="arithmatex">\(\Delta^{(2)}\)</span> en <span class="arithmatex">\(\Delta^{(3)}\)</span>, die dezelfde dimensionaliteit hebben als <span class="arithmatex">\(\Theta^{(2)}\)</span> en <span class="arithmatex">\(\Theta^{(3)}\)</span>. (De variable l staat voor het nummer van de laag en is in dit geval 2 of 3.)</p>
+<p>Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices <span class="arithmatex">\(\Delta^{(1)}\)</span> en <span class="arithmatex">\(\Delta^{(2)}\)</span>, die dezelfde dimensionaliteit hebben als <span class="arithmatex">\(\Theta^{(1)}\)</span> en <span class="arithmatex">\(\Theta^{(2)}\)</span>. (De variable l staat voor het nummer van de laag en is in dit geval 1 of 2.)</p>
 <div class="arithmatex">\[
 \Delta^{(l)} := \Delta^{(l)} + \delta^{(l)}\cdot(a^{(l-1)})^T
 \]</div>

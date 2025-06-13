@@ -9,8 +9,8 @@ $$
 X = \begin{bmatrix} & — & (x^{(1)})^T & — & \\ & — & (x^{(2)})^T & — & \\ & & \vdots & & \\ & — & (x^{(m)})^T & — & \\ \end{bmatrix}
 $$
 
-<p>In deze matrix is $x^{(1)}$ de vector van het eerste plaatje, $x^{(2)}$ de vector van het tweede plaatje, enzovoort. 
-Behalve deze X-matrix is er in de data ook een 5000&times;1 vector y gegeven, waarin per plaatje is aangegeven welk cijfer dit representeert.</p>
+In deze matrix is $x^{(1)}$ de vector van het eerste plaatje, $x^{(2)}$ de vector van het tweede plaatje, enzovoort. 
+Behalve deze X-matrix is er in de data ook een 5000&times;1 vector y gegeven, waarin per plaatje is aangegeven welk cijfer dit representeert.
 
 De startcode voor deze opgave is [hier te downloaden](startcode_deel2-set2.zip). Net als in de vorige set wordt deze opgave doorlopen door het script `exercise2.py`. Dit script importeert de functies uit `uitwerkingen.py` en runt die op volgorde. Het is de opgave om deze uitwerkingen af te maken. Bestudeer beide scripts om een idee te krijgen van de werking.
 
@@ -128,7 +128,7 @@ $$
 
 **Stap 4**
 
-Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices $\Delta^{(2)}$ en $\Delta^{(3)}$, die dezelfde dimensionaliteit hebben als $\Theta^{(2)}$ en $\Theta^{(3)}$. (De variable l staat voor het nummer van de laag en is in dit geval 2 of 3.)
+Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices $\Delta^{(1)}$ en $\Delta^{(2)}$, die dezelfde dimensionaliteit hebben als $\Theta^{(1)}$ en $\Theta^{(2)}$. (De variable l staat voor het nummer van de laag en is in dit geval 1 of 2.)
 
 $$
 \Delta^{(l)} := \Delta^{(l)} + \delta^{(l)}\cdot(a^{(l-1)})^T

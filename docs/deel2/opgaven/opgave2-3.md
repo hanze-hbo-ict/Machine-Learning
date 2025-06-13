@@ -27,7 +27,7 @@ Als je deze methode hebt geïmplementeerd, roept het script `exercise3.py` hem a
 ### Opgave 1c: Het maken van het model
 Nu we de data hebben voorbereid, is het tijd om het model te maken. Tijdens de theorieles is ingegaan op de manier waarop je met Keras moet werken: dat moet je bij deze opgave toepassen. Maak in de methode `build_model` een netwerk met drie lagen: een input-laag die de plaatjes van 28&times;28 omzet in 784 input-nodes; een tweede laag van 128 nodes die volledig verbonden is met de input-laag; en een derde laag met tien output-nodes. Geef aan de verborgen middelste laag een <a href="https://www.tensorflow.org/api_docs/python/tf/nn/relu">tf.nn.relu</a>-activatie mee, en in de output-laag een <a href="https://www.tensorflow.org/api_docs/python/tf/nn/softmax">tf.nn.softmax</a>. 
 
-Het kan zijn dat je wat `deprecation-warnings` krijgt bij het aanmaken van dit model (afhankelijk van de versie van TensorFlow die je gebruikt). Die kun je gevoegelijk negeren.
+Het kan zijn dat je wat `deprecation-warnings` krijgt bij het aanmaken van dit model (afhankelijk van de versie van TensorFlow die je gebruikt). Die kun je negeren.
 
 Het model moet verder voorzien worden van een aantal parameters:
 

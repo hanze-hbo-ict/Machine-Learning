@@ -131,7 +131,7 @@ $$
 Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices $\Delta^{(1)}$ en $\Delta^{(2)}$, die dezelfde dimensionaliteit hebben als $\Theta^{(1)}$ en $\Theta^{(2)}$. (De variable l staat voor het nummer van de laag en is in dit geval 1 of 2.)
 
 $$
-\Delta^{(l)} := \Delta^{(l)} + \delta^{(l)}\cdot(a^{(l-1)})^T
+\Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}\cdot(a^{(l)})^T
 $$
 
 **Stap 5**

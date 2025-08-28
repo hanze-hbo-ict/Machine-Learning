@@ -1,5 +1,13 @@
-# Week 8: Recurrente neurale netwerken
+# Week 8: Taalmodellen
 
 ## Onderwerpen
 
-_NB: omdat het hoorcollege van week 8 erg onhandig geroosterd is, komt dit te vervallen en wordt de stof van week 7 én 8 in het hoorcollege van week 7 behandeld._
+* Word Embeddings
+* Transformers
+* (Large) Language Models
+* Ruimte voor vragen over de eerdere stof en de laatste opdracht
+* Afsluiting en evaluatie van het vak
+
+## College-sheets
+
+* [Hier](../lectures/wk7/7_8.taalmodellen.pptx) vindt u de presentatie die in het college gebruikt is.

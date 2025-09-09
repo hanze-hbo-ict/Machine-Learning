@@ -9,11 +9,8 @@
 
 ## College-sheets
 
-Na afloop van het hoorcollege komen hier de gebruikte slides en notebooks beschikbaar.
-<!--
 * [Hier](../lectures/wk1/ML_wk1_Methoden-Technieken.pptx) vindt u de presentatie die in de eerste helft van het college gebruikt is.
 * En [hier](../lectures/wk1/livecoding/Titanic.ipynb) de Notebook van de Titanic-exercitie met de [Titanic training dataset](../lectures/wk1/livecoding/titanic-train.csv).
--->
 
 ## Lezen
 

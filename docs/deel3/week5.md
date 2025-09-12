@@ -22,10 +22,13 @@
 
 ## College-sheets
 
+Na afloop van het hoorcollege komen hier de gebruikte slides en notebooks beschikbaar.
+<!--
 * [Hier](../lectures/wk5/ML_wk5_Modeleval_tuning.pptx) vindt u de presentatie die in het college gebruikt is.
 * En [hier](../lectures/wk5/livecoding/Modelevaluatie.ipynb) de Notebook over modelevaluatie.
 * En [hier](../lectures/wk5/livecoding/Hyperparam_Tuning.ipynb) de Notebook over hyperparameter tuning.
 * En [hier](../lectures/wk5/livecoding/PCA.ipynb) de Notebook over Principal Components Analysis (PCA).
+-->
 
 ## Lezen
 

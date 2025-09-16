@@ -7,13 +7,9 @@
 
 ## College-sheets
 
-Na afloop van het hoorcollege komen hier de gebruikte slides en notebooks beschikbaar.
-
-<!--
 * [Hier](../lectures/wk2/ML_wk2_Lineaire_regressie.pptx) vindt u de presentatie die in het college gebruikt is.
 * En [hier](Gradient_Descent.ipynb) de Notebook over Numpy en Gradient Descent zoals we die bekeken hebben.
 * En [hier](../lectures/wk2/livecoding/NumPy.ipynb) nog een Notebook met Numpy- en Pandas-voorbeelden.
--->
 
 ## Lezen
 

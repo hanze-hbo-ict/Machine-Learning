@@ -8,7 +8,7 @@
 ## College-sheets
 
 * [Hier](../lectures/wk2/ML_wk2_Lineaire_regressie.pptx) vindt u de presentatie die in het college gebruikt is.
-* En [hier](../lectures/wk2/livecoding/Gradient_Descent.ipynb) de Notebook over Numpy en Gradient Descent zoals we die bekeken hebben.
+* En [hier](../lectures/wk2/livecoding/Gradient_Descent.ipynb) de Notebook over Numpy en Gradient Descent zoals we die bekeken hebben. <!--NB: deze kan beter naar week 3-->
 * En [hier](../lectures/wk2/livecoding/NumPy.ipynb) nog een Notebook met Numpy- en Pandas-voorbeelden.
 
 ## Lezen

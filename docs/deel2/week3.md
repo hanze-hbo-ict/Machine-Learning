@@ -9,11 +9,9 @@
 
 ## College-sheets
 
-Na afloop van het hoorcollege komen hier de gebruikte slides en notebooks beschikbaar.
-<!--
+
 * [Hier](../lectures/wk3/ML_wk3_Logistische_regressie.pptx) vindt u de presentatie die in het college gebruikt is.
-* En [hier](../lectures/wk3/livecoding/LinReg.ipynb) de Notebook met de beide manieren om een lineair-regressieprobleem op te lossen.
--->
+* En [hier](../lectures/wk3/livecoding/LinReg.ipynb) nog een Notebook met beide manieren om een lineair-regressieprobleem op te lossen.
 
 ## Lezen
 

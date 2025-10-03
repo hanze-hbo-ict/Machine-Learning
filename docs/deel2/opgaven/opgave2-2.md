@@ -128,7 +128,7 @@ $$
 
 **Stap 4**
 
-Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices $\Delta^{(1)}$ en $\Delta^{(2)}$, die dezelfde dimensionaliteit hebben als $\Theta^{(1)}$ en $\Theta^{(2)}$. (De variable l staat voor het nummer van de laag en is in dit geval 1 of 2.)
+Deze bijdragen vermenigvuldigen we met de activaties van de bijbehorende nodes en tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices $\Delta^{(1)}$ en $\Delta^{(2)}$, die dezelfde dimensionaliteit hebben als $\Theta^{(1)}$ en $\Theta^{(2)}$. (De variable l staat voor het nummer van de laag en is in dit geval 1 of 2.)
 
 $$
 \Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}\cdot(a^{(l)})^T
@@ -136,9 +136,9 @@ $$
 
 **Stap 5**
 
-Als we deze stappen voor alle $m$ observaties hebben gedaan, delen we de beide delta-matrices door het aantal observaties (*element wise*) om de gemiddelde fout per node voor de huidige waarden van de beide theta-matrices te verkrijgen. Retourneer deze beide waarden uit de methode `nn_check_gradients`.
+Als we deze stappen voor alle $m$ observaties hebben gedaan, delen we de beide delta-matrices door het aantal observaties (*element wise*) om de gemiddelde correctie per node voor de huidige waarden van de beide theta-matrices te verkrijgen. Retourneer deze beide waarden uit de methode `nn_check_gradients`.
 
-Wanneer je dit hebt gedaan, kun je het script verder laten runnen. Nu wordt van beide matrices de totale som afgedruk; die is nog behoorlijk hoog en het is de bedoeling dat we deze som, en de totale kosten, naar beneden brengen. Daar gaat de laatste opgave over.
+Wanneer je dit hebt gedaan, kun je het script verder laten runnen. Nu wordt van beide matrices de totale som afgedrukt; die is nog behoorlijk hoog en het is de bedoeling dat we deze som, en de totale kosten, naar beneden brengen. Daar gaat de laatste opgave over.
 
 ## 4. trainen van het neurale netwerk
 
@@ -148,7 +148,7 @@ Om dit gedaan te krijgen, maken we gebruik van de methode [`minimize` uit `scipy
 
 Je hoeft voor deze opgave niets uit te programmeren. Bestudeer de werking van `minimize` en experimenteer met verschillende waarden voor de parameter `maxiter` om een goed beeld te krijgen van de werking van het geheel. Bekijk ook goed hoe de waarden van de matrices worden doorgegeven aan deze methode.
 
-Als het geheel is afgerond, worden de nieuwe kost en de nieuwe accuratesse van het netwerk getoond. Ook wordt er een plot gemaakt van de waarden van de matrix in de verborgen laag – zie de figuur hieronder. Met een beetje moeite en goede wil kun je  zien dat deze matix een gevoeligheid heeft ontwikkeld voor horizontale en verticale lijnen en voor ronde vormen in de input. 
+Als het geheel is afgerond, worden de nieuwe kost en de nieuwe accuratesse van het netwerk getoond. Ook wordt er een plot gemaakt van de waarden van de matrix in de verborgen laag – zie de figuur hieronder. Met een beetje moeite en goede wil kun je zien dat deze matix een gevoeligheid heeft ontwikkeld voor horizontale en verticale lijnen en voor ronde vormen in de input. 
 
 ![Het trainen van de hidden layer](imgs/hidden_layer.png)
 

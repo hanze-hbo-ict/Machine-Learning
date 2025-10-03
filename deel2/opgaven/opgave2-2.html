@@ -18,7 +18,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
     
     
       
@@ -26,7 +26,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2a3383ac.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
@@ -957,18 +957,18 @@ g'(z) = \frac{d}{dz}g(z) = g(z)(1-g(z))
 \delta^{(2)} = (\Theta^{(2)})^T\cdot\delta^{(3)} \times g'(z^{(2)})
 \]</div>
 <p><strong>Stap 4</strong></p>
-<p>Deze bijdrage tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices <span class="arithmatex">\(\Delta^{(1)}\)</span> en <span class="arithmatex">\(\Delta^{(2)}\)</span>, die dezelfde dimensionaliteit hebben als <span class="arithmatex">\(\Theta^{(1)}\)</span> en <span class="arithmatex">\(\Theta^{(2)}\)</span>. (De variable l staat voor het nummer van de laag en is in dit geval 1 of 2.)</p>
+<p>Deze bijdragen vermenigvuldigen we met de activaties van de bijbehorende nodes en tellen we op bij de andere bijdragen; op deze manier creëren we twee nieuwe matrices <span class="arithmatex">\(\Delta^{(1)}\)</span> en <span class="arithmatex">\(\Delta^{(2)}\)</span>, die dezelfde dimensionaliteit hebben als <span class="arithmatex">\(\Theta^{(1)}\)</span> en <span class="arithmatex">\(\Theta^{(2)}\)</span>. (De variable l staat voor het nummer van de laag en is in dit geval 1 of 2.)</p>
 <div class="arithmatex">\[
 \Delta^{(l)} := \Delta^{(l)} + \delta^{(l+1)}\cdot(a^{(l)})^T
 \]</div>
 <p><strong>Stap 5</strong></p>
-<p>Als we deze stappen voor alle <span class="arithmatex">\(m\)</span> observaties hebben gedaan, delen we de beide delta-matrices door het aantal observaties (<em>element wise</em>) om de gemiddelde fout per node voor de huidige waarden van de beide theta-matrices te verkrijgen. Retourneer deze beide waarden uit de methode <code>nn_check_gradients</code>.</p>
-<p>Wanneer je dit hebt gedaan, kun je het script verder laten runnen. Nu wordt van beide matrices de totale som afgedruk; die is nog behoorlijk hoog en het is de bedoeling dat we deze som, en de totale kosten, naar beneden brengen. Daar gaat de laatste opgave over.</p>
+<p>Als we deze stappen voor alle <span class="arithmatex">\(m\)</span> observaties hebben gedaan, delen we de beide delta-matrices door het aantal observaties (<em>element wise</em>) om de gemiddelde correctie per node voor de huidige waarden van de beide theta-matrices te verkrijgen. Retourneer deze beide waarden uit de methode <code>nn_check_gradients</code>.</p>
+<p>Wanneer je dit hebt gedaan, kun je het script verder laten runnen. Nu wordt van beide matrices de totale som afgedrukt; die is nog behoorlijk hoog en het is de bedoeling dat we deze som, en de totale kosten, naar beneden brengen. Daar gaat de laatste opgave over.</p>
 <h2 id="4-trainen-van-het-neurale-netwerk">4. trainen van het neurale netwerk<a class="headerlink" href="#4-trainen-van-het-neurale-netwerk" title="Permanent link">&para;</a></h2>
 <p>Nu het netwerk goed is geïmplementeerd, kunnen we het gaan trainen. Het idee van die training is dat de waarden in de matrices langzaamaan naar een optimale waarde convergeren, waarmee de voorspelling voor een bepaalde input correspondeert met een goede output (een goede classificatie).</p>
 <p>Om dit gedaan te krijgen, maken we gebruik van de methode <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html"><code>minimize</code> uit <code>scipy.optimize</code></a>. Deze methode heeft een aantal parameters, waarvan één het maximaal aantal iteraties is. De methode stopt wanneer het maximaal aantal iteraties is behaald, of het minimale waarde van de kosten heeft gevonden (wat maar het eerst optreedt). Initieel staat deze parameter op 30. Let op: het trainen van het netwerk kan even duren (je krijgt wel het iteratienummer te zien).</p></p>
 <p>Je hoeft voor deze opgave niets uit te programmeren. Bestudeer de werking van <code>minimize</code> en experimenteer met verschillende waarden voor de parameter <code>maxiter</code> om een goed beeld te krijgen van de werking van het geheel. Bekijk ook goed hoe de waarden van de matrices worden doorgegeven aan deze methode.</p>
-<p>Als het geheel is afgerond, worden de nieuwe kost en de nieuwe accuratesse van het netwerk getoond. Ook wordt er een plot gemaakt van de waarden van de matrix in de verborgen laag – zie de figuur hieronder. Met een beetje moeite en goede wil kun je  zien dat deze matix een gevoeligheid heeft ontwikkeld voor horizontale en verticale lijnen en voor ronde vormen in de input. </p>
+<p>Als het geheel is afgerond, worden de nieuwe kost en de nieuwe accuratesse van het netwerk getoond. Ook wordt er een plot gemaakt van de waarden van de matrix in de verborgen laag – zie de figuur hieronder. Met een beetje moeite en goede wil kun je zien dat deze matix een gevoeligheid heeft ontwikkeld voor horizontale en verticale lijnen en voor ronde vormen in de input. </p>
 <p><img alt="Het trainen van de hidden layer" src="imgs/hidden_layer.png" /></p>
 <p>Met de getrainde waarde van het netwerk kunnen we nu voorspellingen doen over het getal dat door een afbeelding wordt gerepresenteerd. Maar de accuratesse is niet de enige metriek die voor de bepaling van hoe goed een netwerk is van belang is. Hierover gaan we het volgende week hebben, wanneer we o.a. de <em>confusion matrix</em> bespreken.</p>
 

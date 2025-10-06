@@ -2,6 +2,9 @@
 
 ## Onderwerpen
 
+* Dimensionaliteitsreductie
+    * Projectie en Manifold Learning
+    * PCA
 * Recurrente neurale netwerken (RNN's)
 * RNN's met geheugen (LSTM, GRU)
 

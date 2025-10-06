@@ -1,4 +1,4 @@
-# Week 5: Model-evaluatie, Hyperparameter tuning en Dimensionaliteitsreductie
+# Week 5: Model-evaluatie en Hyperparameter tuning
 
 ## Onderwerpen
 
@@ -16,9 +16,6 @@
     * GridSearchCV
     * RandomizedSearchCV
     * Halving
-* Dimensionaliteitsreductie
-    * Projectie en Manifold Learning
-    * PCA
 
 ## College-sheets
 

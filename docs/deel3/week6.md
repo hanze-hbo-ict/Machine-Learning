@@ -18,6 +18,7 @@
 ## College-sheets
 
 Na afloop van het hoorcollege komen hier de gebruikte slides en notebooks beschikbaar.
+
 * [Hier](../lectures/wk6/ML_wk6_Andere_modellen-Ensemble_learning.pptx) vindt u de presentatie die in het college gebruikt is (pptx).
 * [Hier](../lectures/wk6/ML_wk6_Andere_modellen-Ensemble_learning.pdf) vindt u de presentatie die in het college gebruikt is (pdf).
 * En [hier](../lectures/wk6/livecoding/decision%20tree.ipynb) een Notebook over Decisions trees (niet getoond in HC).

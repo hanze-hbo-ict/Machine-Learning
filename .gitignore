@@ -4,3 +4,4 @@ site/
 links
 *.swp
 **/__pycache__/
+.mac-venv/

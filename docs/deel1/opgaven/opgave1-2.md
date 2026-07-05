@@ -9,9 +9,9 @@ Daarnaast vind je twee python-bestanden in de zip. Het bestand `exercise1.py` ge
 
 ## 1. het visualiseren van de data
 
-Een eerste stap in elk machine-learning project is een beeld creëren van de data. Het eenvoudigst om dit te doen is door gebruik te maken van de library [`matplotlib`](https://matplotlib.org/). Hierin vind je een API [`pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot) waarmee je vrij eenvoudig een scatterplot kunt maken.
+Een eerste stap in elk machine-learning project is een beeld creëren van de data. Het eenvoudigst om dit te doen is door gebruik te maken van de library [`matplotlib`](https://matplotlib.org/). Hierin vind je een API [`pyplot`](https://matplotlib.org/stable/api/pyplot_summary.html) waarmee je vrij eenvoudig een scatterplot kunt maken.
 
-Bestudeer [de documentatie van `pyplot`](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.html?highlight=pyplot#module-matplotlib.pyplot) en implementeer aan de hand hiervan de functie `draw_graph` in `uitwerkingen.py`, zodat je een afbeelding zoals de onderstaande krijgt. Hoewel de data niet echt normaal verdeeld is, is er wel een zekere verhouding waar te nemen tussen de grootte van de stad en de winst die de vervoerder maakt. In de rest van deze opgave gaan we deze verhouding bepalen.
+Bestudeer [de documentatie van `pyplot`](https://matplotlib.org/stable/api/pyplot_summary.html) en implementeer aan de hand hiervan de functie `draw_graph` in `uitwerkingen.py`, zodat je een afbeelding zoals de onderstaande krijgt. Hoewel de data niet echt normaal verdeeld is, is er wel een zekere verhouding waar te nemen tussen de grootte van de stad en de winst die de vervoerder maakt. In de rest van deze opgave gaan we deze verhouding bepalen.
 
 ![Scatterplot van de data](imgs/scatter.png)
 

@@ -5,3 +5,8 @@ matplotlib
 scipy
 numpy
 pandas
+seaborn
+pydot
+torch
+transformers
+datasets
